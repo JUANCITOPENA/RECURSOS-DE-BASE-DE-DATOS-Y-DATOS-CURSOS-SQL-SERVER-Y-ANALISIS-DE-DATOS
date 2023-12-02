@@ -1,36 +1,36 @@
 /*
-Propuesta de modelo de base de datos para un sistema de ventas de vehÌculos de la marca Toyota utilizando un modelo relacional en SQL Server:
+Propuesta de modelo de base de datos para un sistema de ventas de veh√≠culos de la marca Toyota utilizando un modelo relacional en SQL Server:
 
 Tablas:
 
-VehÌculos: almacena informaciÛn b·sica sobre los vehÌculos, como el modelo, aÒo, precio, etc.
-Clientes: almacena informaciÛn sobre los clientes, como nombre, direcciÛn, telÈfono, etc.
-Ventas: almacena informaciÛn sobre las ventas realizadas, como el cliente, el vehÌculo, la fecha de venta y el precio de venta.
-Empleados: almacena informaciÛn sobre los empleados de la empresa, como nombre, direcciÛn, telÈfono, etc.
-Asignaciones: almacena informaciÛn sobre la asignaciÛn de empleados a las ventas.
-Inventario: almacena informaciÛn sobre el inventario de vehÌculos disponibles en el lote.
+Veh√≠culos: almacena informaci√≥n b√°sica sobre los veh√≠culos, como el modelo, a√±o, precio, etc.
+Clientes: almacena informaci√≥n sobre los clientes, como nombre, direcci√≥n, tel√©fono, etc.
+Ventas: almacena informaci√≥n sobre las ventas realizadas, como el cliente, el veh√≠culo, la fecha de venta y el precio de venta.
+Empleados: almacena informaci√≥n sobre los empleados de la empresa, como nombre, direcci√≥n, tel√©fono, etc.
+Asignaciones: almacena informaci√≥n sobre la asignaci√≥n de empleados a las ventas.
+Inventario: almacena informaci√≥n sobre el inventario de veh√≠culos disponibles en el lote.
 
 Relaciones:
 
-Cada vehÌculo puede tener varias ventas.
-Cada venta est· asociada a un solo vehÌculo.
-Cada venta est· asociada a un solo cliente.
-Cada venta est· asociada a uno o varios empleados.
+Cada veh√≠culo puede tener varias ventas.
+Cada venta est√° asociada a un solo veh√≠culo.
+Cada venta est√° asociada a un solo cliente.
+Cada venta est√° asociada a uno o varios empleados.
 Cada empleado puede tener varias ventas asignadas.
-Cada vehÌculo est· asociado a un solo inventario.
+Cada veh√≠culo est√° asociado a un solo inventario.
 
 Indices:
 
-Se crear·n Ìndices en las columnas de las tablas para mejorar el rendimiento en las consultas.
-Nota: El modelo propuesto es un ejemplo b·sico y puede ser mejorado o modificado seg˙n las necesidades especÌficas del sistema.
+Se crear√°n √≠ndices en las columnas de las tablas para mejorar el rendimiento en las consultas.
+Nota: El modelo propuesto es un ejemplo b√°sico y puede ser mejorado o modificado seg√∫n las necesidades espec√≠ficas del sistema.
 
 */
 
 /*
-AquÌ te presento el cÛdigo SQL para crear las tablas y las relaciones en una 
+Aqu√≠ te presento el c√≥digo SQL para crear las tablas y las relaciones en una 
 base de datos de SQL Server, de acuerdo a la propuesta anterior y agregando 
-la nueva tabla "Modelos_URL" para almacenar las URLs de los modelos de vehÌculos
-seg˙n la marca:
+la nueva tabla "Modelos_URL" para almacenar las URLs de los modelos de veh√≠culos
+seg√∫n la marca:
 */
 
 --CREAR LA BASE DE DATOS VENTAS_VEHICULOS_TOYOTA
@@ -134,7 +134,7 @@ SELECT * FROM Modelos_URL
 
 /*
 Nota: en esta propuesta se asume que el campo Marca en la tabla vehiculos 
-se refiere a la marca del vehiculo, por lo tanto se establece una relaciÛn 
+se refiere a la marca del vehiculo, por lo tanto se establece una relaci√≥n 
 con la tabla modelos_url para poder tener acceso a la url de ese modelo 
 segun la marca.
 */
@@ -144,21 +144,21 @@ segun la marca.
 INSERT INTO PAIS (NOMBRE_PAIS) VALUES
 ('Republica Dominicana'),
 ('Estados Unidos'),
-('MÈxico'),
-('Canad·'),
+('M√©xico'),
+('Canad√°'),
 ('Argentina'),
 ('Brasil'),
-('EspaÒa'),
+('Espa√±a'),
 ('Francia'),
 ('Italia'),
 ('China'),
-('JapÛn')
+('Jap√≥n')
 
 --SELECCIONAMOS LA TABLA:
 
 SELECT * FROM PAIS
 
---ejemplo de cÛmo insertar 18 registros en cada tabla:
+--ejemplo de c√≥mo insertar 18 registros en cada tabla:
 
 INSERT INTO Vehiculos (Modelo, Anio, Precio_compra, Precio_ventas, Stock)
 VALUES
@@ -188,44 +188,44 @@ SELECT * FROM Vehiculos
 --INSERTAR 10 REGISTROS EN LA TABLA PAIS:
 
 INSERT INTO Clientes (Nombre, Direccion, Telefono, ID_pais) VALUES
-    ('MarÌa GarcÌa', 'Calle 2', '809-555-5556',1),
-    ('Pedro LÛpez', 'Calle 3', '809-555-5557',2),
-    ('Ana MartÌnez', 'Calle 4', '809-555-5558',3),
-    ('Luis Hern·ndez', 'Calle 5', '809-555-5559',4),
-    ('Marta GÛmez', 'Calle 6', '809-555-5560',5),
-    ('Jorge RamÌrez', 'Calle 7', '809-555-5561',6),
-    ('Carla RodrÌguez', 'Calle 8', '809-555-5562',7),
-    ('Alberto DÌaz', 'Calle 9', '849-555-5563',8),
-    ('LucÌa S·nchez', 'Calle 10', '829-555-5564',9),
+    ('Mar√≠a Garc√≠a', 'Calle 2', '809-555-5556',1),
+    ('Pedro L√≥pez', 'Calle 3', '809-555-5557',2),
+    ('Ana Mart√≠nez', 'Calle 4', '809-555-5558',3),
+    ('Luis Hern√°ndez', 'Calle 5', '809-555-5559',4),
+    ('Marta G√≥mez', 'Calle 6', '809-555-5560',5),
+    ('Jorge Ram√≠rez', 'Calle 7', '809-555-5561',6),
+    ('Carla Rodr√≠guez', 'Calle 8', '809-555-5562',7),
+    ('Alberto D√≠az', 'Calle 9', '849-555-5563',8),
+    ('Luc√≠a S√°nchez', 'Calle 10', '829-555-5564',9),
     ('David Flores', 'Calle 11', '809-555-5565',10),
-    ('SofÌa Torres', 'Calle 12', '809-555-5566',11),
-    ('HÈctor N˙Òez', 'Calle 13', '809-555-5567',1),
+    ('Sof√≠a Torres', 'Calle 12', '809-555-5566',11),
+    ('H√©ctor N√∫√±ez', 'Calle 13', '809-555-5567',1),
     ('Adriana Ortiz', 'Calle 14', '809-555-5568',1),
-    ('Ra˙l Vargas', 'Calle 15', '809-555-5569',1),
-    ('Julia Fern·ndez', 'Calle 16', '809-555-5570',5),
+    ('Ra√∫l Vargas', 'Calle 15', '809-555-5569',1),
+    ('Julia Fern√°ndez', 'Calle 16', '809-555-5570',5),
     ('Gustavo Medina', 'Calle 17', '809-555-5571', 6),
-    ('Silvia JimÈnez', 'Calle 18', '809-555-5572',1),
+    ('Silvia Jim√©nez', 'Calle 18', '809-555-5572',1),
     ('Mario Aguilar', 'Calle 19', '809-555-5573', 10),
     ('Natalia Ruiz', 'Calle 20', '809-555-5574', 11),
-    ('AndrÈs Castro', 'Calle 21', '809-555-5575', 5),
+    ('Andr√©s Castro', 'Calle 21', '809-555-5575', 5),
 	('Lidia Pineda', 'Calle 22', '809-555-5576', 1),
-    ('Carlos GutiÈrrez', 'Calle 23', '809-555-5577', 4),
+    ('Carlos Guti√©rrez', 'Calle 23', '809-555-5577', 4),
     ('Marcela Miranda', 'Calle 24', '809-555-5578', 7),
     ('Federico Mendoza', 'Calle 25', '809-555-5579', 8),
     ('Gabriela Torres', 'Calle 26', '809-555-5580', 7),
-    ('Diego S·nchez', 'Calle 27', '809-555-5581', 6),
-    ('Valeria GÛmez', 'Calle 28', '809-555-5582', 1),
+    ('Diego S√°nchez', 'Calle 27', '809-555-5581', 6),
+    ('Valeria G√≥mez', 'Calle 28', '809-555-5582', 1),
     ('Ricardo Salas', 'Calle 29', '809-555-5583', 2),
-    ('Isabel GarcÌa', 'Calle 30', '809-555-5584', 2),
-    ('Francisco MÈndez', 'Calle 31', '809-555-5585', 4),
+    ('Isabel Garc√≠a', 'Calle 30', '809-555-5584', 2),
+    ('Francisco M√©ndez', 'Calle 31', '809-555-5585', 4),
     ('Alejandra Vega', 'Calle 32', '809-555-5586', 2),
     ('Javier Ortega', 'Calle 33', '809-555-5587', 7),
-    ('Paulina RamÌrez', 'Calle 34', '809-555-5588', 1),
-    ('Mario Hern·ndez', 'Calle 35', '809-555-5589', 2),
+    ('Paulina Ram√≠rez', 'Calle 34', '809-555-5588', 1),
+    ('Mario Hern√°ndez', 'Calle 35', '809-555-5589', 2),
     ('Carolina Torres', 'Calle 36', '809-555-5590', 5),
     ('Andrea Reyes', 'Calle 37', '809-555-5591', 10),
-    ('Miguel JimÈnez', 'Calle 38', '809-555-5592', 8),
-    ('Sara Gonz·lez', 'Calle 39', '809-555-5593', 9),
+    ('Miguel Jim√©nez', 'Calle 38', '809-555-5592', 8),
+    ('Sara Gonz√°lez', 'Calle 39', '809-555-5593', 9),
     ('Eduardo Medina', 'Calle 40', '809-555-5594', 1),
     ('Renata Castellanos', 'Calle 41', '809-555-5595', 1);
 
@@ -695,7 +695,7 @@ INSERT INTO Modelos_URL (ID_Vehiculo, URL) VALUES
 
 /*
 
-Algunas consultas b·sicas para obtener todos los registros 
+Algunas consultas b√°sicas para obtener todos los registros 
 de cada tabla en el modelo de base de datos propuesto:
 */
 
@@ -716,18 +716,18 @@ SELECT * FROM vendedor;
 
 SELECT * FROM Modelos_URL;
 
---Algunas consultas utilizando funciones matem·ticas, lÛgicas y de fecha,
+--Algunas consultas utilizando funciones matem√°ticas, l√≥gicas y de fecha,
 --con conteo, promedio (AVG), entre otras:
 
---Conteo de vehÌculos vendidos por aÒo:
+--Conteo de veh√≠culos vendidos por a√±o:
 
-SELECT Anio, COUNT(Anio) as Numero_Ventas_x_AÒo
+SELECT Anio, COUNT(Anio) as Numero_Ventas_x_A√±o
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 GROUP BY Anio
 ORDER BY Anio;
 
---Promedio de precio de venta de vehÌculos por aÒo:
+--Promedio de precio de venta de veh√≠culos por a√±o:
 
 SELECT Anio, AVG(Precio_Venta) as Promedio_Precio
 FROM Vehiculos
@@ -736,7 +736,7 @@ GROUP BY Anio
 ORDER BY Anio;
 
 
---Conteo de ventas realizadas por cada modelo de vehÌculo:
+--Conteo de ventas realizadas por cada modelo de veh√≠culo:
 
 SELECT Modelo, COUNT(Ventas.ID_Vehiculo) as Numero_Ventas
 FROM Vehiculos
@@ -750,8 +750,8 @@ FROM Ventas
 GROUP BY MONTH(Fecha_Venta);
 
 /*
-La siguiente consulta te mostrar· el nombre del mes junto con 
-el n˙mero de ventas realizadas en ese mes:
+La siguiente consulta te mostrar√° el nombre del mes junto con 
+el n√∫mero de ventas realizadas en ese mes:
 */
 
 WITH months(month_number, month_name) AS (
@@ -780,8 +780,8 @@ ORDER BY MONTH(Fecha_Venta);
 Esta consulta utiliza una tabla temporal conocida como 
 "CTE (Common Table Expression)" que se utiliza para crear 
 una tabla temporal, con los nombres de los meses y sus respectivos 
-n˙meros, que luego se relaciona con la tabla "Ventas" para obtener
-el nombre del mes correspondiente al n˙mero de mes en la fecha de venta.*/
+n√∫meros, que luego se relaciona con la tabla "Ventas" para obtener
+el nombre del mes correspondiente al n√∫mero de mes en la fecha de venta.*/
 
 select * from Vehiculos
 
@@ -825,7 +825,7 @@ GROUP BY Modelo;
 
 
 
- --HACER UNA CONSULTA QUE MUESTRE EL ID, MODELO, A—O, PRECIO DE COMPRA, CLIENTE, DIRECCION, TELEFONO, FECHA, PRECIO_VENTAS, VENDEDOR,IMAGEN URL:
+ --HACER UNA CONSULTA QUE MUESTRE EL ID, MODELO, A√ëO, PRECIO DE COMPRA, CLIENTE, DIRECCION, TELEFONO, FECHA, PRECIO_VENTAS, VENDEDOR,IMAGEN URL:
 
 SELECT Vehiculos.ID,Vehiculos.Modelo, Vehiculos.Anio as Fecha_Entrada_Almacen, Vehiculos.Precio_compra,
 Clientes.Nombre as Nombre_Cliente, Clientes.Direccion, Clientes.Telefono, 
@@ -842,16 +842,16 @@ INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
 
 Esta consulta utiliza JOIN para relacionar las tablas "Vehiculos",
 "Clientes", "Ventas", "Empleados" y "Modelos_URL" mediante las claves
-for·neas en cada tabla. La consulta devuelve todos los campos de cada
-tabla relacionada, incluyendo el modelo, el aÒo, el precio, la marca 
-del vehÌculo, el nombre del cliente, la direcciÛn, el telÈfono, la 
-fecha de venta, el precio de venta, el nombre del empleado, la direcciÛn,
-el telÈfono, y la URL del modelo de vehÌculo.
+for√°neas en cada tabla. La consulta devuelve todos los campos de cada
+tabla relacionada, incluyendo el modelo, el a√±o, el precio, la marca 
+del veh√≠culo, el nombre del cliente, la direcci√≥n, el tel√©fono, la 
+fecha de venta, el precio de venta, el nombre del empleado, la direcci√≥n,
+el tel√©fono, y la URL del modelo de veh√≠culo.
 
 */
 
 
-SELECT Vehiculos.ID, Vehiculos.Modelo, YEAR(Ventas.Fecha_Venta) as AÒo_Venta, Vehiculos.Precio_compra,
+SELECT Vehiculos.ID, Vehiculos.Modelo, YEAR(Ventas.Fecha_Venta) as A√±o_Venta, Vehiculos.Precio_compra,
 Clientes.Nombre as Nombre_Cliente, Clientes.Direccion, Clientes.Telefono, 
 Ventas.Fecha_Venta, Ventas.Precio_Venta,
 vendedor.Nombre as Nombre_Empleado,
@@ -897,7 +897,7 @@ INNER JOIN Vehiculos VE ON VE.ID = V.ID_Vehiculo;
  select * from vw_Ventas_Totales_v5
 
 
---Vista para ventas de vehÌculos Toyota por ID:
+--Vista para ventas de veh√≠culos Toyota por ID:
 
 CREATE VIEW ventas_por_id AS
 SELECT 
@@ -927,7 +927,7 @@ FROM
 SELECT * FROM ventas_por_id
 
 
---Vista para ventas de vehÌculos Toyota por modelo:
+--Vista para ventas de veh√≠culos Toyota por modelo:
 CREATE or alter VIEW ventas_por_modelo AS
 SELECT 
     Ventas.ID, 
@@ -959,7 +959,7 @@ FROM
 SELECT * FROM ventas_por_modelo
 
 
---Vista para ventas de vehÌculos Toyota por fecha de venta:
+--Vista para ventas de veh√≠culos Toyota por fecha de venta:
 
 CREATE OR ALTER VIEW ventas_por_fecha AS
 SELECT 
@@ -1111,7 +1111,7 @@ WHERE C.ID NOT IN (SELECT DISTINCT V.ID_Cliente FROM Ventas V);
 
 SELECT * FROM ClientesSinCompras
 
---VehÌculos que no se han vendido:
+--Veh√≠culos que no se han vendido:
 
 CREATE OR ALTER VIEW VehiculosSinVentas AS
 SELECT VH.ID, VH.Modelo, VH.Precio_compra, VH.Precio_ventas, VH.Stock, M.URL AS URL_Modelo
@@ -1122,7 +1122,7 @@ WHERE VH.ID NOT IN (SELECT DISTINCT ID_Vehiculo FROM Ventas);
 SELECT * FROM VehiculosSinVentas
 
 
---PaÌses sin ventas:
+--Pa√≠ses sin ventas:
 
 CREATE OR ALTER VIEW PaisesSinVentas AS
 SELECT P.ID_PAIS, P.NOMBRE_PAIS
@@ -1130,4 +1130,90 @@ FROM PAIS P
 WHERE P.ID_PAIS NOT IN (SELECT DISTINCT C.ID_pais FROM Clientes C INNER JOIN Ventas V ON C.ID = V.ID_Cliente);
 
 SELECT * FROM PaisesSinVentas
+
+
+--VAMOS A  CREAR UN PROCEDIMIENTO ALMACENADO CON DOS PARAMETROS (FECHA INICIAL Y FINAL)
+
+--El siguiente es un procedimiento almacenado que permitir√° hacer consultas en un reporte
+--con Cristal Report y C# usando Visual Studio 2019 y 2022. El procedimiento cuenta con dos
+--par√°metros, la fecha inicial y final, y realiza una selecci√≥n de informaci√≥n sobre ventas
+--de veh√≠culos. La informaci√≥n seleccionada incluye el ID de la venta, la fecha de la venta,
+--el pa√≠s, el cliente, la direcci√≥n y tel√©fono del cliente, el vendedor, la categor√≠a del
+--veh√≠culo, el modelo del veh√≠culo, el precio de compra y venta, el stock inicial y actual,
+--la cantidad vendida, el total de la venta, el margen bruto y el porcentaje de margen. Adem√°s,
+--tambi√©n incluye la URL del modelo y la foto del vendedor.
+
+--El c√≥digo del procedimiento almacenado es el siguiente:
+
+CREATE OR ALTER PROCEDURE SP_Ventas_PorFecha_v_2023_2
+@Fecha_Inicio datetime,
+@Fecha_Fin datetime
+AS
+SELECT V.ID AS ID_Venta, V.Fecha_Venta, p.NOMBRE_PAIS as Pais,
+C.Nombre AS Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente,
+E.Nombre AS Vendedor,
+CT.Nombre AS Categoria,
+VH.Modelo, VH.Precio_compra, VH.Precio_ventas,
+VH.Stock AS Stock_Inicial,
+V.Cantidad,
+(VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
+V.Total,
+(V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
+((V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) / (V.Cantidad * VH.Precio_ventas)) * 100 AS "%_Margen"
+FROM Ventas V
+INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
+INNER JOIN Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
+INNER JOIN categoria CT ON VH_Cat.ID_Categoria = CT.ID
+INNER JOIN Clientes C ON V.ID_Cliente = C.ID
+INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
+INNER JOIN PAIS P ON c.ID_pais=p.ID_PAIS
+INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
+INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
+WHERE V.Fecha_Venta BETWEEN @Fecha_Inicio AND @Fecha_Fin
+GROUP BY V.ID, V.Fecha_Venta, p.NOMBRE_PAIS,V.Cantidad, V.Precio_Venta, V.Total,
+C.Nombre, C.Direccion, C.Telefono,
+E.Nombre,
+VH.Modelo,VH.Precio_compra, VH.Precio_ventas,
+CT.Nombre,
+VH.Stock;
+
+
+
+EXEC SP_Ventas_PorFecha_v_2023_2 '2020-01-01', '2020-12-31';
+
+
+-- CREAMOS UNA VISTA CON EL REPORTE QUE NECESITAMOS:
+
+CREATE OR ALTER VIEW VW_Ventas_PorFecha_v_2023_2
+AS
+SELECT V.ID AS ID_Venta, V.Fecha_Venta, p.NOMBRE_PAIS as Pais,
+C.Nombre AS Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente,
+E.Nombre AS Vendedor, f.foto_Vendedor_url, 
+CT.Nombre AS Categoria,
+VH.Modelo, m.URL,vh.Precio_compra, VH.Precio_ventas,
+VH.Stock AS Stock_Inicial,
+V.Cantidad,
+(VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
+V.Total,
+(V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
+((V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) / (V.Cantidad * VH.Precio_ventas)) * 100 AS "%_Margen"
+FROM Ventas V
+INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
+INNER JOIN Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
+INNER JOIN categoria CT ON VH_Cat.ID_Categoria = CT.ID
+INNER JOIN Clientes C ON V.ID_Cliente = C.ID
+INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
+INNER JOIN PAIS P ON c.ID_pais=p.ID_PAIS
+INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
+INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
+GROUP BY V.ID, V.Fecha_Venta, p.NOMBRE_PAIS,V.Cantidad, V.Precio_Venta, V.Total,
+C.Nombre, C.Direccion, C.Telefono,
+E.Nombre,f.foto_Vendedor_url,
+VH.Modelo,m.URL,vh.Precio_compra, VH.Precio_ventas,
+CT.Nombre,
+VH.Stock;
+
+--HACEMOS UN SELECT A LA VISTA Y VEMOS TODOS LOS REGISTROS:
+
+SELECT * FROM VW_Ventas_PorFecha_v_2023_2
 
