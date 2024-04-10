@@ -38,7 +38,7 @@ CREATE DATABASE VENTAS_VEHICULOS_TOYOTA_2023_V4;
 GO
 
 --USAR LA BASE DE DATOS:
-USE VENTAS_VEHICULOS_TOYOTA_2023_V4;
+USE VENTAS_VEHICULOS_TOYOTA_2023_V4
 GO
 
  --CREAR TABLA Vehiculos
@@ -108,12 +108,6 @@ create table Fotos_vendedor (
 );
 go
 
---SELECCIONAR TABLA PARA VER ESTRUCTURA:
-
- SELECT * FROM Fotos_vendedor
-
--- CREAR LA TABLA MODELOS_URL QUE ALMACENA LA IMAGEN:
-
 CREATE TABLE Modelos_URL (
     ID INT PRIMARY KEY IDENTITY(1,1),
     ID_Vehiculo INT FOREIGN KEY REFERENCES Vehiculos(ID) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -121,6 +115,26 @@ CREATE TABLE Modelos_URL (
 );
 
 
+-- CREAR TABLA Asignaciones:
+
+CREATE TABLE Asignaciones (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    ID_Venta INT FOREIGN KEY REFERENCES Ventas(ID) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    ID_Vendedor INT FOREIGN KEY REFERENCES Vendedor(ID) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+
+SELECT * FROM Asignaciones
+
+--CREAR TABLA Inventario:
+
+CREATE TABLE Inventario (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    ID_Vehiculo INT FOREIGN KEY REFERENCES Vehiculos(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+    Cantidad INT NOT NULL
+);
+
+SELECT * FROM Inventario
 
 --Para crear la tabla categoría y relacionarla con la tabla Vehiculos, podemos utilizar el siguiente código:
 
@@ -150,18 +164,17 @@ categorías. La clave primaria se compone de los campos de clave foránea ID_Veh
 */
 
 
-
---SELECCIONAMOS TODAS LAS TABLAS PARA VER COMO HAN QUEDADO:
-
 SELECT * FROM PAIS
 SELECT * FROM Clientes
 SELECT * FROM Vehiculos
 SELECT * FROM Ventas
 SELECT * FROM vendedor
 SELECT * FROM Fotos_vendedor
+SELECT * FROM Asignaciones
+SELECT * FROM Inventario
 SELECT * FROM Modelos_URL
-
-
+SELECT * FROM Vehiculo_Categoria
+SELECT * FROM Categoria
 
 /*
 Nota: en esta propuesta se asume que el campo Marca en la tabla vehiculos 
@@ -185,32 +198,62 @@ INSERT INTO PAIS (NOMBRE_PAIS) VALUES
 ('China'),
 ('Japón')
 
---SELECCIONAMOS LA TABLA:
-
-SELECT * FROM PAIS
-
---ejemplo de cómo insertar 18 registros en cada tabla:
+-- PODEMOS HACER UN INSERT CON CANTIDAD O PONER CERO CANTIDAD COMO EN LO SIGUINETE:
 
 INSERT INTO Vehiculos (Modelo, Anio, Precio_compra, Precio_ventas, Stock)
 VALUES
-('Corolla', 2020, 20000.00, 28000.00,20),
-('Camry', 2020, 25000.00, 35000.00,20),
-('RAV4', 2020, 30000.00, 38000.00,20),
-('Highlander', 2020, 35000.00, 43000.00,20),
-('Tacoma', 2020, 27000.00, 33000.00,20),
-('Tundra', 2020, 35000.00, 39000.00,20),
-('Prius', 2020, 24000.00, 28000.00,20),
-('Yaris', 2020, 18000.00, 21000.00,20),
-('Sienna', 2020, 33000.00, 37000.00,20),
-('4Runner', 2020, 37000.00, 43000.00,20),
-('Supra', 2020, 51000.00, 66000.00,20),
-('Avalon', 2020, 38000.00, 45000.00,20),
-('C-HR', 2020, 22000.00, 28000.00,20),
-('Venza', 2020, 32000.00, 38000.00,20),
-('Mirai', 2020, 50000.00, 65000.00,20),
-('GR Supra', 2020, 55000.00, 65000.00,20),
-('GR 86', 2020, 28000.00, 34000.00,20),
-('Prius Prime', 2020, 28000.00, 35000.00,20)
+('Corolla', 2021, 20000.00, 28000.00, 0),
+('Camry', 2021, 25000.00, 35000.00, 0),
+('RAV4', 2021, 30000.00, 38000.00, 0),
+('Highlander', 2021, 35000.00, 43000.00, 0),
+('Tacoma', 2021, 27000.00, 33000.00, 0),
+('Tundra', 2021, 35000.00, 39000.00, 0),
+('Prius', 2021, 24000.00, 28000.00, 0),
+('Yaris', 2021, 18000.00, 21000.00, 0),
+('Sienna', 2021, 33000.00, 37000.00, 0),
+('4Runner', 2021, 37000.00, 43000.00, 0),
+('Supra', 2021, 51000.00, 66000.00, 0),
+('Avalon', 2021, 38000.00, 45000.00, 0),
+('C-HR', 2021, 22000.00, 28000.00, 0),
+('Venza', 2021, 32000.00, 38000.00, 0),
+('Mirai', 2021, 50000.00, 65000.00, 0),
+('GR Supra', 2021, 55000.00, 65000.00, 0),
+('GR 86', 2021, 28000.00, 34000.00, 0),
+('Prius Prime', 2021, 28000.00, 35000.00, 0);
+
+
+--Y LUEGO HACER UN UPDATE A TODOS CON :
+
+UPDATE Vehiculos
+SET Stock = 20;
+
+
+-- O PODEMOS HACER UN  HACER UN INSERT COMO ESTE 20 VEHICULOS PARA TODOS:
+
+-- Insertar datos en la nueva tabla Vehiculos con el ID ajustado
+INSERT INTO Vehiculos (Modelo, Anio, Precio_compra, Precio_ventas, Stock)
+SELECT Modelo, Anio, Precio_compra, Precio_ventas, Stock
+FROM (
+    VALUES
+    ('Corolla', 2021, 20000.00, 28000.00, 20),
+    ('Camry', 2021, 25000.00, 35000.00, 20),
+    ('RAV4', 2021, 30000.00, 38000.00, 20),
+    ('Highlander', 2021, 35000.00, 43000.00, 20),
+    ('Tacoma', 2021, 27000.00, 33000.00, 20),
+    ('Tundra', 2021, 35000.00, 39000.00, 20),
+    ('Prius', 2021, 24000.00, 28000.00, 20),
+    ('Yaris', 2021, 18000.00, 21000.00, 20),
+    ('Sienna', 2021, 33000.00, 37000.00, 20),
+    ('4Runner', 2021, 37000.00, 43000.00, 20),
+    ('Supra', 2021, 51000.00, 66000.00, 20),
+    ('Avalon', 2021, 38000.00, 45000.00, 20),
+    ('C-HR', 2021, 22000.00, 28000.00, 20),
+    ('Venza', 2021, 32000.00, 38000.00, 20),
+    ('Mirai', 2021, 50000.00, 65000.00, 20),
+    ('GR Supra', 2021, 55000.00, 65000.00, 20),
+    ('GR 86', 2021, 28000.00, 34000.00, 20),
+    ('Prius Prime', 2021, 28000.00, 35000.00, 20)
+) AS V (Modelo, Anio, Precio_compra, Precio_ventas, Stock);
 
 --seleccionamos para los registros:
 
@@ -229,42 +272,45 @@ INSERT INTO Clientes (Nombre, Direccion, Telefono, ID_pais) VALUES
     ('Alberto Díaz', 'Calle 9', '849-555-5563',8),
     ('Lucía Sánchez', 'Calle 10', '829-555-5564',9),
     ('David Flores', 'Calle 11', '809-555-5565',10),
-    ('Sofía Torres', 'Calle 12', '809-555-5566',11),
-    ('Héctor Núñez', 'Calle 13', '809-555-5567',1),
-    ('Adriana Ortiz', 'Calle 14', '809-555-5568',1),
-    ('Raúl Vargas', 'Calle 15', '809-555-5569',1),
-    ('Julia Fernández', 'Calle 16', '809-555-5570',5),
-    ('Gustavo Medina', 'Calle 17', '809-555-5571', 6),
-    ('Silvia Jiménez', 'Calle 18', '809-555-5572',1),
-    ('Mario Aguilar', 'Calle 19', '809-555-5573', 10),
-    ('Natalia Ruiz', 'Calle 20', '809-555-5574', 11),
-    ('Andrés Castro', 'Calle 21', '809-555-5575', 5),
-	('Lidia Pineda', 'Calle 22', '809-555-5576', 1),
-    ('Carlos Gutiérrez', 'Calle 23', '809-555-5577', 4),
-    ('Marcela Miranda', 'Calle 24', '809-555-5578', 7),
-    ('Federico Mendoza', 'Calle 25', '809-555-5579', 8),
-    ('Gabriela Torres', 'Calle 26', '809-555-5580', 7),
-    ('Diego Sánchez', 'Calle 27', '809-555-5581', 6),
-    ('Valeria Gómez', 'Calle 28', '809-555-5582', 1),
-    ('Ricardo Salas', 'Calle 29', '809-555-5583', 2),
-    ('Isabel García', 'Calle 30', '809-555-5584', 2),
-    ('Francisco Méndez', 'Calle 31', '809-555-5585', 4),
-    ('Alejandra Vega', 'Calle 32', '809-555-5586', 2),
-    ('Javier Ortega', 'Calle 33', '809-555-5587', 7),
-    ('Paulina Ramírez', 'Calle 34', '809-555-5588', 1),
-    ('Mario Hernández', 'Calle 35', '809-555-5589', 2),
-    ('Carolina Torres', 'Calle 36', '809-555-5590', 5),
-    ('Andrea Reyes', 'Calle 37', '809-555-5591', 10),
-    ('Miguel Jiménez', 'Calle 38', '809-555-5592', 8),
-    ('Sara González', 'Calle 39', '809-555-5593', 9),
-    ('Eduardo Medina', 'Calle 40', '809-555-5594', 1),
-    ('Renata Castellanos', 'Calle 41', '809-555-5595', 1);
+    ('Sofía Torres', 'Calle 12', '555-555-5566',11),
+    ('Héctor Núñez', 'Calle 13', '555-555-5567',1),
+    ('Adriana Ortiz', 'Calle 14', '555-555-5568',1),
+    ('Raúl Vargas', 'Calle 15', '555-555-5569',1),
+    ('Julia Fernández', 'Calle 16', '555-555-5570',5),
+    ('Gustavo Medina', 'Calle 17', '555-555-5571', 6),
+    ('Silvia Jiménez', 'Calle 18', '555-555-5572',1),
+    ('Mario Aguilar', 'Calle 19', '555-555-5573', 10),
+    ('Natalia Ruiz', 'Calle 20', '555-555-5574', 11),
+    ('Andrés Castro', 'Calle 21', '555-555-5575', 5),
+	('Lidia Pineda', 'Calle 22', '555-555-5576', 1),
+    ('Carlos Gutiérrez', 'Calle 23', '555-555-5577', 4),
+    ('Marcela Miranda', 'Calle 24', '555-555-5578', 7),
+    ('Federico Mendoza', 'Calle 25', '555-555-5579', 8),
+    ('Gabriela Torres', 'Calle 26', '555-555-5580', 7),
+    ('Diego Sánchez', 'Calle 27', '555-555-5581', 6),
+    ('Valeria Gómez', 'Calle 28', '555-555-5582', 1),
+    ('Ricardo Salas', 'Calle 29', '555-555-5583', 2),
+    ('Isabel García', 'Calle 30', '555-555-5584', 2),
+    ('Francisco Méndez', 'Calle 31', '555-555-5585', 4),
+    ('Alejandra Vega', 'Calle 32', '555-555-5586', 2),
+    ('Javier Ortega', 'Calle 33', '555-555-5587', 7),
+    ('Paulina Ramírez', 'Calle 34', '555-555-5588', 1),
+    ('Mario Hernández', 'Calle 35', '555-555-5589', 2),
+    ('Carolina Torres', 'Calle 36', '555-555-5590', 5),
+    ('Andrea Reyes', 'Calle 37', '555-555-5591', 10),
+    ('Miguel Jiménez', 'Calle 38', '555-555-5592', 8),
+    ('Sara González', 'Calle 39', '555-555-5593', 9),
+    ('Eduardo Medina', 'Calle 40', '555-555-5594', 1),
+    ('Renata Castellanos', 'Calle 41', '555-555-5595', 1);
 
---VAMOS HACER UNA CONSULTA PARA LOS REGISTROS:
+
+--seleccionamos para los registros:
 
 SELECT * FROM Clientes
 
+	
  --INSERTAMOS REGISTROS EN LA TABLA Empleados:
+
 
 INSERT INTO vendedor (Nombre, Direccion, Telefono) VALUES
     ('Juan Perez', 'Calle A', '809-555-5501'),
@@ -278,11 +324,23 @@ INSERT INTO vendedor (Nombre, Direccion, Telefono) VALUES
     ('Gabriela Mistral', 'Calle I', '809-555-5509'),
     ('Juan Gabrie;', 'Calle J', '809-555-5510');
 
-	--SELECCIONAMOS LA TABLA PARA LOS REGISTROS:
+--seleccionamos para los registros:
 
 SELECT * FROM vendedor
-SELECT * FROM Vehiculos
-SELECT * FROM Ventas
+
+
+--INSERTAMOS REGISTROS EN LA TABLA Fotos_vendedor:
+
+insert into Fotos_vendedor values ('1','https://dl.dropbox.com/s/4bz1xriny7ro04g/A40.png','1');
+insert into Fotos_vendedor values ('2','https://dl.dropbox.com/s/yxe96df3xrzoc4y/A44.png','2');
+insert into Fotos_vendedor values ('3','https://dl.dropbox.com/s/0jkab8w6ie0h91z/A42.png','3');
+insert into Fotos_vendedor values ('4','https://dl.dropboxusercontent.com/s/2lks10yyiurw2b0/A33.png','4');
+insert into Fotos_vendedor values ('5','https://dl.dropbox.com/s/zgx7g0h0mxubhao/A21.png','5');
+insert into Fotos_vendedor values ('6','https://dl.dropboxusercontent.com/s/id0gj57k6z3m73q/A34.png','6');
+insert into Fotos_vendedor values ('7','https://dl.dropbox.com/s/1f9hzgblcmuen4a/A10.png','7');
+insert into Fotos_vendedor values ('8','https://dl.dropbox.com/s/jveyj0btov87izo/A38.png','8');
+insert into Fotos_vendedor values ('9','https://dl.dropbox.com/s/27oq7ocj4q8a0z8/A46.png','9');
+insert into Fotos_vendedor values ('10','https://dl.dropbox.com/s/z4geyw1u2psmm47/A16.png','10');
 
 
 
@@ -315,6 +373,69 @@ INSERT INTO Vehiculo_Categoria (ID_Vehiculo, ID_Categoria) VALUES
 (16, 5), -- GR Supra -> Deportivo
 (17, 5), -- GR 86 -> Deportivo
 (18, 4); -- Prius Prime -> Híbrido
+
+--SELECCIONAMOS TODAS LAS TABLAS PARA VER COMO HAN QUEDADO:
+
+
+SELECT * FROM vendedor
+
+--INSERTAMOS REGISTROS EN LA TABLA Inventario:
+
+INSERT INTO Inventario (ID_Vehiculo, Cantidad) VALUES
+(1, 20),
+(2, 20),
+(3, 20),
+(4, 20),
+(5, 20),
+(6, 20),
+(7, 20),
+(8, 20),
+(9, 20),
+(10, 20),
+(11, 20),
+(12, 20),
+(13, 20),
+(14, 20),
+(15, 20),
+(16, 20),
+(17, 20),
+(18, 20);
+
+
+ --SELECIONAR LA TABLA DE VEHICULOS:
+
+SELECT * FROM Inventario
+
+
+
+SELECT * FROM Modelos_URL
+
+--INSERTAMOS REGISTROS EN LA TABLA Modelos_URL:
+
+INSERT INTO Modelos_URL (ID_Vehiculo, URL) VALUES
+(1, 'https://di-uploads-pod20.dealerinspire.com/rickhendricktoyotaofsandysprings/uploads/2020/03/mlp-img-top-2020-camry.png'),
+(2, 'https://deltacomercial.com.do/cdn/modelos/corolla/4b4118996e92823d7e2b472247359fa4.png'),
+(3, 'https://www.autolist.com/izmo-photos/2018/18toyota/18toyotarav4leod4ra/toyota_18rav4leod4ra_angularfront.png'),
+(4, 'https://platform.cstatic-images.com/xlarge/in/v2/stock_photos/4512b630-7c12-44da-b3c0-70c4950b3a00/dcfa07cf-533b-4f9f-88c8-020603c44d4d.png'),
+(5, 'https://www.cars.com/i/large/in/v2/stock_photos/eb246eb0-bb21-4a02-983d-e6021d78c036/40ec83c6-1524-430d-8734-b45b75bd7a4a.png'),
+(6, 'https://i0.wp.com/www.transportelatino.com/wp-content/uploads/2017/11/tundra9.jpg?resize=850%2C560&ssl=1'),
+(7, 'https://file.kelleybluebookimages.com/kbb/base/evox/CP/9104/2014-Toyota-Sienna-front_9104_032_1870x848_1D6_cropped.png'),
+(8, 'https://www.motortrend.com/uploads/sites/10/2015/11/2013-toyota-4runner-sr5-4x4-v6-suv-angular-front.png'),
+(9, 'https://platform.cstatic-images.com/xlarge/in/v2/stock_photos/4ecde73e-4769-4e58-9815-d616d321c06b/a5a5cec2-a151-4f4b-aa18-440216b767a7.png'),
+(10, 'https://www.motortrend.com/uploads/sites/10/2015/11/2011-toyota-land-cruiser-4wd-suv-angular-front.png?fit=around%7C875:492.1875'),
+(11, 'https://www.buyatoyota.com/assets/img/vehicle-info/Prius/2021/hero_image_prius.png'),
+(12, 'https://deltacomercial.com.do/cdn/modelos/yaris/yaris-gris-plata.png'),
+(13, 'https://www.buyatoyota.com/assets/img/vehicle-info/Supra/2021/supra-hero.png'),
+(14, 'https://www.buyatoyota.com/assets/img/vehicle-compare/compare-hero/2021/avalon_hybrid_compare_hero.png'),
+(15, 'https://file.kelleybluebookimages.com/kbb/base/evox/CP/14668/2021-Toyota-C-HR-front_14668_032_1831x844_2TA_cropped.png'),
+(16, 'https://file.kelleybluebookimages.com/kbb/base/evox/CP/14600/2021-Toyota-Venza-front_14600_032_1816x855_3T3_cropped.png'),
+(17, 'https://www.buyatoyota.com/assets/img/vehicle-info/Mirai/2021/hero_image_mirai%20.png'),
+(18, 'https://www.cars.com/i/large/in/v2/stock_photos/34b4bfca-ec5a-4bec-b375-1ff695280627/3230f18e-b0e8-4b19-a7d4-06d2f9b4acc6.png');
+
+/*
+--(19, 'https://www.toyota.astra.co.id/sites/default/files/2022-08/1%20crystal%20white%20pearl.png'),
+--(20, 'https://www.motortrend.com/uploads/sites/10/2020/12/2021-toyota-prius-xle-hybrid-5door-hatchback-angular-front.png');
+*/
 
 
 
@@ -384,6 +505,13 @@ BEGIN
     END
     WHERE EXISTS (SELECT * FROM inserted WHERE inserted.ID_Vehiculo = Vehiculos.ID);
 END
+
+
+--VAMOS HACER UNA CONSULTA PARA LOS REGISTROS:
+
+SELECT * FROM Clientes
+
+SELECT * FROM Ventas
 
 
 --INSERTAR REGISTROS EN LA TABLA DE VENTAS: 2020
@@ -570,7 +698,7 @@ SELECT * FROM Vehiculos
 
 UPDATE Vehiculos SET Stock = 50
 
-
+-------
 
 --INSERTAR REGISTROS EN LA TABLA DE VENTAS: 2022
 
@@ -705,59 +833,173 @@ VALUES
 (15, 37,5, '2023-04-15', 2, 65000.00),
 (16, 38,6, '2023-04-16', 1, 65000.00),
 (17, 39,7, '2023-04-17', 1, 34000.00),
-(18, 40,8, '2023-04-18', 1, 35000.00)
+(18, 40,8, '2023-04-18', 1, 35000.00),
+(1, 1, 1, '2023-05-01', 1, 28000.00),
+(2, 2, 2, '2023-05-02', 1, 35000.00),
+(3, 3, 3, '2023-05-03', 2, 38000.00),
+(4, 4, 4, '2023-05-04', 1, 43000.00),
+(5, 5, 5, '2023-06-05', 1, 33000.00),
+(6, 6, 6, '2023-06-06', 1, 39000.00),
+(7, 7, 7, '2023-06-07', 1, 28000.00),
+(8, 8, 8, '2023-06-08', 1, 21000.00),
+(9, 9, 9, '2023-07-09', 2, 37000.00),
+(10, 10, 10, '2023-07-10', 1, 43000.00),
+(11, 11, 1, '2023-07-11', 1, 66000.00),
+(12, 12, 2, '2023-07-12', 1, 45000.00),
+(13, 13, 3, '2023-07-13', 1, 28000.00),
+(14, 14, 4, '2023-08-14', 1, 38000.00),
+(15, 15, 5, '2023-08-15', 2, 65000.00),
+(16, 16, 6, '2023-08-16', 1, 65000.00),
+(17, 17, 7, '2023-08-17', 1, 34000.00),
+(18, 18, 8, '2023-08-18', 1, 35000.00),
+(1, 19, 1, '2023-09-01', 1, 28000.00),
+(2, 20, 2, '2023-09-02', 1, 35000.00),
+(3, 21, 3, '2023-09-03', 2, 38000.00),
+(4, 22, 4, '2023-09-04', 1, 43000.00),
+(5, 23, 5, '2023-10-05', 1, 33000.00),
+(6, 24, 6, '2023-10-06', 1, 39000.00),
+(7, 25, 7, '2023-10-07', 1, 28000.00),
+(8, 26, 8, '2023-10-08', 1, 21000.00),
+(9, 27, 9, '2023-11-09', 2, 37000.00),
+(10, 28, 10, '2023-11-10', 1, 43000.00),
+(11, 29, 1, '2023-11-11', 1, 66000.00),
+(12, 30, 2, '2023-11-12', 1, 45000.00),
+(13, 31, 3, '2023-11-13', 1, 28000.00),
+(14, 32, 4, '2023-12-14', 1, 38000.00),
+(15, 33, 5, '2023-12-15', 2, 65000.00),
+(16, 34, 6, '2023-12-16', 1, 65000.00),
+(17, 35, 7, '2023-12-17', 1, 34000.00),
+(18, 36, 8, '2023-12-18', 1, 35000.00),
+(15, 37, 5, '2023-12-25', 2, 65000.00),
+(16, 38, 6, '2023-12-27', 1, 65000.00),
+(17, 39, 7, '2023-12-28', 1, 34000.00),
+(18, 40, 8, '2023-12-31', 1, 35000.00);
 
+
+INSERT INTO Ventas (ID_Vehiculo, ID_Cliente, ID_Vendedor, Fecha_Venta, Cantidad, Precio_Venta)
+VALUES
+(5, 5, 5, '2024-01-05', 1, 33000.00),
+(6, 6, 6, '2024-01-06', 1, 39000.00),
+(7, 7, 7, '2024-01-07', 1, 28000.00),
+(8, 8, 8, '2024-01-08', 1, 21000.00),
+(9, 9, 9, '2024-01-09', 2, 37000.00),
+(10, 10, 10, '2024-01-10', 1, 43000.00),
+(11, 11, 1, '2024-01-11', 1, 66000.00),
+(12, 12, 2, '2024-01-12', 1, 45000.00),
+(13, 13, 3, '2024-01-13', 1, 28000.00),
+(14, 14, 4, '2024-01-14', 1, 38000.00),
+(15, 15, 5, '2024-01-15', 2, 65000.00),
+(16, 16, 6, '2024-01-16', 1, 65000.00),
+(17, 17, 7, '2024-01-17', 1, 34000.00),
+(18, 18, 8, '2024-01-18', 1, 35000.00),
+(1, 19, 1, '2024-01-19', 1, 28000.00),
+(2, 20, 2, '2024-01-20', 1, 35000.00),
+(3, 21, 3, '2024-01-21', 2, 38000.00),
+(4, 22, 4, '2024-01-22', 1, 43000.00),
+(5, 23, 5, '2024-01-23', 1, 33000.00),
+(6, 24, 6, '2024-01-24', 1, 39000.00),
+(7, 25, 7, '2024-01-25', 1, 28000.00),
+(8, 26, 8, '2024-01-26', 1, 21000.00),
+(9, 27, 9, '2024-01-27', 2, 37000.00),
+(10, 28, 10, '2024-01-28', 1, 43000.00),
+(11, 29, 1, '2024-01-29', 1, 66000.00),
+(12, 30, 2, '2024-01-30', 1, 45000.00),
+(13, 31, 3, '2024-01-31', 1, 28000.00),
+(14, 32, 4, '2024-02-01', 1, 38000.00),
+(15, 33, 5, '2024-02-02', 2, 65000.00),
+(16, 34, 6, '2024-02-03', 1, 65000.00),
+(17, 35, 7, '2024-02-04', 1, 34000.00),
+(18, 36, 8, '2024-02-05', 1, 35000.00),
+(15, 37, 5, '2024-02-06', 2, 65000.00),
+(16, 38, 6, '2024-02-07', 1, 65000.00),
+(17, 39, 7, '2024-02-08', 1, 34000.00),
+(18, 40, 8, '2024-02-09', 1, 35000.00);
+
+
+INSERT INTO Ventas (ID_Vehiculo, ID_Cliente, ID_Vendedor, Fecha_Venta, Cantidad, Precio_Venta)
+VALUES
+(1, 1, 1, '2024-02-10', 1, 28000.00),
+(2, 2, 2, '2024-02-11', 1, 35000.00),
+(3, 3, 3, '2024-02-12', 2, 38000.00),
+(4, 4, 4, '2024-02-13', 1, 43000.00),
+(5, 5, 5, '2024-02-14', 1, 33000.00),
+(6, 6, 6, '2024-02-15', 1, 39000.00),
+(7, 7, 7, '2024-02-16', 1, 28000.00),
+(8, 8, 8, '2024-02-17', 1, 21000.00),
+(9, 9, 9, '2024-02-18', 2, 37000.00),
+(10, 10, 10, '2024-02-19', 1, 43000.00),
+(11, 11, 1, '2024-02-20', 1, 66000.00),
+(12, 12, 2, '2024-02-21', 1, 45000.00),
+(13, 13, 3, '2024-02-22', 1, 28000.00),
+(14, 14, 4, '2024-02-23', 1, 38000.00),
+(15, 15, 5, '2024-02-24', 2, 65000.00),
+(16, 16, 6, '2024-02-25', 1, 65000.00),
+(17, 17, 7, '2024-02-26', 1, 34000.00),
+(18, 18, 8, '2024-02-27', 1, 35000.00),
+(1, 19, 1, '2024-02-28', 1, 28000.00),
+(2, 20, 2, '2024-02-29', 1, 35000.00);
+
+INSERT INTO Ventas (ID_Vehiculo, ID_Cliente, ID_Vendedor, Fecha_Venta, Cantidad, Precio_Venta)
+VALUES
+-- Continuando desde el 1 de marzo de 2024
+(3, 21, 3, '2024-03-01', 2, 38000.00),
+(4, 22, 4, '2024-03-02', 1, 43000.00),
+(5, 23, 5, '2024-03-03', 1, 33000.00),
+(6, 24, 6, '2024-03-04', 1, 39000.00),
+(7, 25, 7, '2024-03-05', 1, 28000.00),
+(8, 26, 8, '2024-03-06', 1, 21000.00),
+(9, 27, 9, '2024-03-07', 2, 37000.00),
+(10, 28, 10, '2024-03-08', 1, 43000.00),
+(11, 29, 1, '2024-03-09', 1, 66000.00),
+(12, 30, 2, '2024-03-10', 1, 45000.00),
+(13, 31, 3, '2024-03-11', 1, 28000.00),
+(14, 32, 4, '2024-03-12', 1, 38000.00),
+(15, 33, 5, '2024-03-13', 2, 65000.00),
+(16, 34, 6, '2024-03-14', 1, 65000.00),
+(17, 35, 7, '2024-03-15', 1, 34000.00),
+(18, 36, 8, '2024-03-16', 1, 35000.00),
+(1, 37, 1, '2024-03-17', 1, 28000.00),
+(2, 38, 2, '2024-03-18', 1, 35000.00),
+(3, 39, 3, '2024-03-19', 2, 38000.00),
+(4, 40, 4, '2024-03-20', 1, 43000.00),
+-- Continuar con las ventas para marzo y los meses siguientes...
+-- Hasta el 9 de abril de 2024
+(5, 1, 5, '2024-04-01', 1, 33000.00),
+(6, 2, 6, '2024-04-02', 1, 39000.00),
+(7, 3, 7, '2024-04-03', 1, 28000.00),
+(8, 4, 8, '2024-04-04', 1, 21000.00),
+(9, 5, 9, '2024-04-05', 2, 37000.00),
+(10, 6, 10, '2024-04-06', 1, 43000.00),
+(11, 7, 1, '2024-04-07', 1, 66000.00),
+(12, 8, 2, '2024-04-08', 1, 45000.00),
+(13, 9, 3, '2024-04-09', 1, 28000.00);
 
 
 --SELECCIONAR LA TABLA PARA VER LOS REGISTROS:
 
 SELECT * FROM Ventas
-
- SELECT * FROM Clientes
- SELECT * FROM Vehiculos
- SELECT * FROM Ventas
+SELECT * FROM Vehiculos
 
 
---INSERTAMOS REGISTROS EN LA TABLA Fotos_vendedor:
+--INSERTAMOS REGISTROS EN LA TABLA Asignaciones:
 
-insert into Fotos_vendedor values ('1','https://dl.dropbox.com/s/4bz1xriny7ro04g/A40.png','1');
-insert into Fotos_vendedor values ('2','https://dl.dropbox.com/s/yxe96df3xrzoc4y/A44.png','2');
-insert into Fotos_vendedor values ('3','https://dl.dropbox.com/s/0jkab8w6ie0h91z/A42.png','3');
-insert into Fotos_vendedor values ('4','https://dl.dropboxusercontent.com/s/2lks10yyiurw2b0/A33.png','4');
-insert into Fotos_vendedor values ('5','https://dl.dropbox.com/s/zgx7g0h0mxubhao/A21.png','5');
-insert into Fotos_vendedor values ('6','https://dl.dropboxusercontent.com/s/id0gj57k6z3m73q/A34.png','6');
-insert into Fotos_vendedor values ('7','https://dl.dropbox.com/s/1f9hzgblcmuen4a/A10.png','7');
-insert into Fotos_vendedor values ('8','https://dl.dropbox.com/s/jveyj0btov87izo/A38.png','8');
-insert into Fotos_vendedor values ('9','https://dl.dropbox.com/s/27oq7ocj4q8a0z8/A46.png','9');
-insert into Fotos_vendedor values ('10','https://dl.dropbox.com/s/z4geyw1u2psmm47/A16.png','10');
+-- Insertar asignaciones para cada vendedor con el ID de venta correspondiente
+
+INSERT INTO Asignaciones (ID_Venta, ID_Vendedor)
+SELECT ID AS ID_Venta, 
+    (ROW_NUMBER() OVER (ORDER BY ID) - 1) % 10 + 1 AS ID_Vendedor
+FROM Ventas;
 
 
---INSERTAMOS REGISTROS EN LA TABLA Modelos_URL:
+--SELECIONAR LA TABLA DE VEHICULOS:
 
-INSERT INTO Modelos_URL (ID_Vehiculo, URL) VALUES
-(1, 'https://di-uploads-pod20.dealerinspire.com/rickhendricktoyotaofsandysprings/uploads/2020/03/mlp-img-top-2020-camry.png'),
-(2, 'https://deltacomercial.com.do/cdn/modelos/corolla/4b4118996e92823d7e2b472247359fa4.png'),
-(3, 'https://www.autolist.com/izmo-photos/2018/18toyota/18toyotarav4leod4ra/toyota_18rav4leod4ra_angularfront.png'),
-(4, 'https://platform.cstatic-images.com/xlarge/in/v2/stock_photos/4512b630-7c12-44da-b3c0-70c4950b3a00/dcfa07cf-533b-4f9f-88c8-020603c44d4d.png'),
-(5, 'https://www.cars.com/i/large/in/v2/stock_photos/eb246eb0-bb21-4a02-983d-e6021d78c036/40ec83c6-1524-430d-8734-b45b75bd7a4a.png'),
-(6, 'https://i0.wp.com/www.transportelatino.com/wp-content/uploads/2017/11/tundra9.jpg?resize=850%2C560&ssl=1'),
-(7, 'https://file.kelleybluebookimages.com/kbb/base/evox/CP/9104/2014-Toyota-Sienna-front_9104_032_1870x848_1D6_cropped.png'),
-(8, 'https://www.motortrend.com/uploads/sites/10/2015/11/2013-toyota-4runner-sr5-4x4-v6-suv-angular-front.png'),
-(9, 'https://platform.cstatic-images.com/xlarge/in/v2/stock_photos/4ecde73e-4769-4e58-9815-d616d321c06b/a5a5cec2-a151-4f4b-aa18-440216b767a7.png'),
-(10, 'https://www.motortrend.com/uploads/sites/10/2015/11/2011-toyota-land-cruiser-4wd-suv-angular-front.png?fit=around%7C875:492.1875'),
-(11, 'https://www.buyatoyota.com/assets/img/vehicle-info/Prius/2021/hero_image_prius.png'),
-(12, 'https://deltacomercial.com.do/cdn/modelos/yaris/yaris-gris-plata.png'),
-(13, 'https://www.buyatoyota.com/assets/img/vehicle-info/Supra/2021/supra-hero.png'),
-(14, 'https://www.buyatoyota.com/assets/img/vehicle-compare/compare-hero/2021/avalon_hybrid_compare_hero.png'),
-(15, 'https://file.kelleybluebookimages.com/kbb/base/evox/CP/14668/2021-Toyota-C-HR-front_14668_032_1831x844_2TA_cropped.png'),
-(16, 'https://file.kelleybluebookimages.com/kbb/base/evox/CP/14600/2021-Toyota-Venza-front_14600_032_1816x855_3T3_cropped.png'),
-(17, 'https://www.buyatoyota.com/assets/img/vehicle-info/Mirai/2021/hero_image_mirai%20.png'),
-(18, 'https://www.cars.com/i/large/in/v2/stock_photos/34b4bfca-ec5a-4bec-b375-1ff695280627/3230f18e-b0e8-4b19-a7d4-06d2f9b4acc6.png');
-
-
- SELECT * FROM Clientes
- SELECT * FROM Vehiculos
- SELECT * FROM Ventas
+SELECT * FROM Asignaciones
+SELECT * FROM Clientes
+SELECT * FROM Vehiculos
+SELECT * FROM Ventas
+SELECT * FROM Clientes
+SELECT * FROM Vehiculos
+SELECT * FROM Ventas
 
 /*
 
@@ -780,6 +1022,12 @@ SELECT * FROM Ventas;
 SELECT * FROM vendedor;
 --Para obtener todos los registros de la tabla "Asignaciones":
 
+SELECT * FROM Asignaciones;
+--Para obtener todos los registros de la tabla "Inventario":
+
+SELECT * FROM Inventario;
+--Para obtener todos los registros de la tabla "Modelos_URL":
+
 SELECT * FROM Modelos_URL;
 
 --Algunas consultas utilizando funciones matemáticas, lógicas y de fecha,
@@ -801,6 +1049,17 @@ INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 GROUP BY Anio
 ORDER BY Anio;
 
+SELECT v.ID, v.Nombre AS Nombre_Vendedor, COUNT(ve.ID) AS Total_Ventas, SUM(ve.Cantidad) AS Total_Cantidad, SUM(ve.Precio_Venta) AS Total_Ventas_Monto
+FROM Vendedor v
+LEFT JOIN Ventas ve ON v.ID = ve.ID_Vendedor
+GROUP BY v.ID, v.Nombre;
+
+
+select * from vendedor
+
+
+SELECT COUNT(DISTINCT ID_Vendedor) AS Total_Vendedores
+FROM Ventas;
 
 --Conteo de ventas realizadas por cada modelo de vehículo:
 
@@ -808,6 +1067,94 @@ SELECT Modelo, COUNT(Ventas.ID_Vehiculo) as Numero_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 GROUP BY Modelo;
+
+
+SELECT vendedor.Nombre AS Nombre_Vendedor, Vehiculos.Modelo, COUNT(Ventas.ID_Vehiculo) as Numero_Ventas
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Asignaciones ON Ventas.ID = Asignaciones.ID_Venta
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+GROUP BY vendedor.Nombre, Vehiculos.Modelo;
+
+SELECT vendedor.Nombre AS Nombre_Vendedor, 
+       Vehiculos.Modelo, 
+       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Asignaciones ON Ventas.ID = Asignaciones.ID_Venta
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+GROUP BY vendedor.Nombre, Vehiculos.Modelo;
+
+SELECT cliente.Nombre AS Nombre_Cliente, 
+       Vehiculos.Modelo, 
+       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
+GROUP BY cliente.Nombre, Vehiculos.Modelo;
+
+
+SELECT cliente.Nombre AS Nombre_Cliente, 
+       Categoria.Nombre AS Categoria_Vehiculo,
+       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Vehiculo_Categoria ON Vehiculos.ID = Vehiculo_Categoria.ID_Vehiculo
+INNER JOIN Categoria ON Vehiculo_Categoria.ID_Categoria = Categoria.ID
+INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
+GROUP BY cliente.Nombre, Categoria.Nombre;
+
+
+SELECT cliente.Nombre AS Nombre_Cliente, 
+       pais.NOMBRE_PAIS AS Pais_Cliente,
+       Categoria.Nombre AS Categoria_Vehiculo,
+       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Vehiculo_Categoria ON Vehiculos.ID = Vehiculo_Categoria.ID_Vehiculo
+INNER JOIN Categoria ON Vehiculo_Categoria.ID_Categoria = Categoria.ID
+INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
+INNER JOIN Pais pais ON cliente.ID_pais = pais.ID_PAIS
+GROUP BY cliente.Nombre, pais.NOMBRE_PAIS, Categoria.Nombre;
+
+
+
+SELECT cliente.Nombre AS Nombre_Cliente, 
+       pais.NOMBRE_PAIS AS Pais_Cliente,
+       Categoria.Nombre AS Categoria_Vehiculo,
+       vendedor.Nombre AS Nombre_Vendedor,
+       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Vehiculo_Categoria ON Vehiculos.ID = Vehiculo_Categoria.ID_Vehiculo
+INNER JOIN Categoria ON Vehiculo_Categoria.ID_Categoria = Categoria.ID
+INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
+INNER JOIN Pais pais ON cliente.ID_pais = pais.ID_PAIS
+INNER JOIN Asignaciones ON Ventas.ID = Asignaciones.ID_Venta
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+GROUP BY cliente.Nombre, pais.NOMBRE_PAIS, Categoria.Nombre, vendedor.Nombre;
+
+SELECT COUNT(*) AS Total_Vendedores FROM vendedor;
+
+SELECT COUNT(DISTINCT ID_Vendedor) AS Vendedores_Con_Ventas FROM Asignaciones;
+
+SELECT DISTINCT vendedor.ID, vendedor.Nombre
+FROM vendedor
+LEFT JOIN Asignaciones ON vendedor.ID = Asignaciones.ID_Vendedor
+LEFT JOIN Ventas ON Asignaciones.ID_Venta = Ventas.ID
+WHERE Ventas.ID IS NULL;
+
+
+select * from PAIS
+select * from Clientes
+
+select * from Categoria
+select * from Vehiculo_Categoria
 
 --Conteo de ventas realizadas en cada mes:
 
@@ -841,7 +1188,6 @@ INNER JOIN months ON MONTH(Fecha_Venta) = months.month_number
 GROUP BY months.month_name, MONTH(Fecha_Venta)
 ORDER BY MONTH(Fecha_Venta);
 
-
 /*
 Esta consulta utiliza una tabla temporal conocida como 
 "CTE (Common Table Expression)" que se utiliza para crear 
@@ -851,30 +1197,6 @@ el nombre del mes correspondiente al número de mes en la fecha de venta.*/
 
 select * from Vehiculos
 
---EL MISMO EJEMPLO PERO AGREGANDO CANTIDAD Y MONTO:
-
-WITH months(month_number, month_name) AS (
-SELECT 1, 'Enero' UNION
-SELECT 2, 'Febrero' UNION
-SELECT 3, 'Marzo' UNION
-SELECT 4, 'Abril' UNION
-SELECT 5, 'Mayo' UNION
-SELECT 6, 'Junio' UNION
-SELECT 7, 'Julio' UNION
-SELECT 8, 'Agosto' UNION
-SELECT 9, 'Septiembre' UNION
-SELECT 10, 'Octubre' UNION
-SELECT 11, 'Noviembre' UNION
-SELECT 12, 'Diciembre'
-)
-
-SELECT months.month_name, COUNT(Ventas.ID) as Numero_Ventas, SUM(Ventas.Cantidad) as Cantidad_Vendida, SUM(Ventas.Total) as Monto_Vendido
-FROM Ventas
-INNER JOIN months ON MONTH(Fecha_Venta) = months.month_number
-GROUP BY months.month_name, MONTH(Fecha_Venta)
-ORDER BY MONTH(Fecha_Venta);
-
-
 --Conteo de ventas realizadas por cada marca:
 
 SELECT Modelo, COUNT(Ventas.ID_Vehiculo) as Numero_Ventas
@@ -882,29 +1204,37 @@ FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 GROUP BY Modelo;
 
+/*
+consulta que muestra todos los registros relacionados de las tablas
+"Vehiculos", "Clientes", "Ventas", "Empleados" y "Modelos_URL" utilizando JOIN:
+*/
 
-SELECT Modelo, COUNT(Ventas.ID_Vehiculo) as Numero_Ventas, SUM(Ventas.Cantidad) as Cantidad_Vendida, SUM(Ventas.Precio_Venta * Ventas.Cantidad) as Total_Vendido
-FROM Vehiculos
-INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
-GROUP BY Modelo;
-
-
-
-
- --HACER UNA CONSULTA QUE MUESTRE EL ID, MODELO, AÑO, PRECIO DE COMPRA, CLIENTE, DIRECCION, TELEFONO, FECHA, PRECIO_VENTAS, VENDEDOR,IMAGEN URL:
-
-SELECT Vehiculos.ID,Vehiculos.Modelo, Vehiculos.Anio as Fecha_Entrada_Almacen, Vehiculos.Precio_compra,
+SELECT Vehiculos.Modelo, Vehiculos.Anio, Vehiculos.Precio_ventas, Vehiculos.Modelo, 
 Clientes.Nombre as Nombre_Cliente, Clientes.Direccion, Clientes.Telefono, 
 Ventas.Fecha_Venta, Ventas.Precio_Venta,
-vendedor.Nombre as Nombre_Empleado,
-Modelos_URL.URL	 AS Image_Modelo
+vendedor.Nombre as Nombre_Empleado, vendedor.Direccion, vendedor.Telefono,
+Modelos_URL.URL
 FROM Vehiculos 
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
-INNER JOIN vendedor ON vendedor.ID= ventas.ID_Vendedor
+INNER JOIN vendedor ON Ventas.ID = vendedor.ID
 INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
 
- /*
+ --HACER UNA CONSULTA QUE MUESTRE EL ID, MODELO, AÑO, PRECIO DE COMPRA, CLIENTE, DIRECCION, TELEFONO, FECHA, PRECIO_VENTAS, VENDEDOR,IMAGEN URL:
+
+SELECT Vehiculos.ID,Vehiculos.Modelo, Vehiculos.Anio, Vehiculos.Precio_compra,
+Clientes.Nombre as Nombre_Cliente, Clientes.Direccion, Clientes.Telefono, 
+Ventas.Fecha_Venta, Ventas.Precio_Venta,
+vendedor.Nombre as Nombre_Empleado,
+Modelos_URL.URL
+FROM Vehiculos 
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+
+/*
 
 Esta consulta utiliza JOIN para relacionar las tablas "Vehiculos",
 "Clientes", "Ventas", "Empleados" y "Modelos_URL" mediante las claves
@@ -916,370 +1246,472 @@ el teléfono, y la URL del modelo de vehículo.
 
 */
 
+/*
 
-SELECT Vehiculos.ID, Vehiculos.Modelo, YEAR(Ventas.Fecha_Venta) as Año_Venta, Vehiculos.Precio_compra,
+Para crear una vista a partir de la consulta anterior, puedes
+utilizar el siguiente comando en SQL Server:
+*/
+
+CREATE or alter VIEW vw_Ventas_Vehiculos
+AS
+SELECT Vehiculos.ID,Vehiculos.Modelo, Vehiculos.Anio, Vehiculos.Precio_compra,
 Clientes.Nombre as Nombre_Cliente, Clientes.Direccion, Clientes.Telefono, 
 Ventas.Fecha_Venta, Ventas.Precio_Venta,
 vendedor.Nombre as Nombre_Empleado,
-Modelos_URL.URL AS Image_Modelo
+Modelos_URL.URL
 FROM Vehiculos 
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
-INNER JOIN vendedor ON vendedor.ID = ventas.ID_Vendedor
-INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo;
+INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+go
+
+select * from vw_Ventas_Vehiculos
+
+CREATE or alter VIEW vw_Ventas_Vehiculos2
+AS
+SELECT Vehiculos.Modelo, Vehiculos.Anio, 
+Clientes.Nombre as Nombre_Cliente, Clientes.Direccion as Direccion_Cliente, Clientes.Telefono,
+Ventas.Fecha_Venta, Vehiculos.Precio_compra, Ventas.Precio_Venta, Ventas.Cantidad, Ventas.Cantidad * Precio_Venta AS Total,
+vendedor.Nombre as Nombre_Empleado, vendedor.Direccion as Direccion_Empleado, vendedor.Telefono as Telefono_Empleado,
+Modelos_URL.URL,  fv.foto_Vendedor_url, 
+Inventario.Cantidad AS Existencia,
+SUM(Ventas.Cantidad) as Cantidad_Vendida,
+(Inventario.Cantidad - SUM(Ventas.Cantidad)) As Stock_Actual
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+INNER JOIN Inventario ON Inventario.ID_Vehiculo = Vehiculos.ID
+INNER JOIN Fotos_vendedor FV ON FV.ID_vendedor = vendedor.ID
+GROUP BY Vehiculos.Modelo, Vehiculos.Anio, Vehiculos.Precio_ventas, 
+Clientes.Nombre, Clientes.Direccion, Clientes.Telefono,
+Ventas.Fecha_Venta,Precio_compra, Ventas.Precio_Venta, Ventas.Cantidad,
+vendedor.Nombre, vendedor.Direccion, vendedor.Telefono,
+Modelos_URL.URL, fv.foto_Vendedor_url, Inventario.Cantidad
+go
+
+--VEMOS COMO QUEDA LA VISTA:
+
+SELECT * FROM vw_Ventas_Vehiculos2
+
+/*
+Con este comando se crea una vista llamada "vw_Ventas_Vehiculos"
+que tiene los mismos resultados que la consulta anterior. La ventaja 
+de usar una vista es que puedes acceder a los datos de la consulta 
+mediante un nombre simple, como si fuera una tabla, y puedes usarla
+en otras consultas
+*/
+
+CREATE OR ALTER VIEW vw_Ventas_Vehiculos5 AS
+SELECT Vehiculos.Modelo, Vehiculos.Anio,
+Clientes.Nombre AS Nombre_Cliente, Clientes.Direccion AS Direccion_Cliente, Clientes.Telefono,
+Ventas.Fecha_Venta, Ventas.Precio_Venta, Ventas.Cantidad, Ventas.Cantidad * Ventas.Precio_Venta AS Total,
+vendedor.Nombre AS Nombre_Empleado, vendedor.Direccion AS Direccion_Empleado, vendedor.Telefono AS Telefono_Empleado,
+Modelos_URL.URL, FV.foto_Vendedor_url,
+SUM(Ventas.Cantidad) AS Cantidad_Vendida,
+(Inventario.Cantidad - SUM(Ventas.Cantidad)) AS Stock_Actual
+FROM Vehiculos
+INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+INNER JOIN Inventario ON Inventario.ID_Vehiculo = Vehiculos.ID
+INNER JOIN Fotos_vendedor FV ON FV.ID_vendedor = vendedor.ID
+GROUP BY Vehiculos.Modelo, Vehiculos.Anio,
+Clientes.Nombre, Clientes.Direccion, Clientes.Telefono,
+Ventas.Fecha_Venta, Ventas.Precio_Venta, Ventas.Cantidad,
+vendedor.Nombre, vendedor.Direccion, vendedor.Telefono,
+Modelos_URL.URL, FV.foto_Vendedor_url, Inventario.Cantidad;
+
+SELECT * FROM vw_Ventas_Vehiculos5
+
+CREATE OR ALTER VIEW vw_Ventas_Vehiculos6
+AS
+SELECT 
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre AS Nombre_Cliente, 
+    Clientes.Direccion AS Direccion_Cliente, 
+    Clientes.Telefono, 
+    Ventas.Fecha_Venta, 
+    Vehiculos.Precio_compra, 
+    Ventas.Precio_Venta, 
+    Ventas.Cantidad, 
+    Ventas.Cantidad * Precio_Venta AS Total,
+    vendedor.Nombre AS Nombre_Empleado, 
+    vendedor.Direccion AS Direccion_Empleado, 
+    vendedor.Telefono AS Telefono_Empleado,
+    Modelos_URL.URL,  
+    fv.foto_Vendedor_url, 
+    Inventario.Cantidad AS Existencia,
+    SUM(Ventas.Cantidad) AS Cantidad_Vendida,
+    (Inventario.Cantidad - SUM(Ventas.Cantidad)) AS Stock_Actual
+FROM 
+    Vehiculos
+    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+    INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+    INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+    INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+    INNER JOIN Inventario ON Inventario.ID_Vehiculo = Vehiculos.ID
+    INNER JOIN Fotos_vendedor FV ON FV.ID_vendedor = vendedor.ID
+GROUP BY 
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Vehiculos.Precio_ventas, 
+    Clientes.Nombre, 
+    Clientes.Direccion, 
+    Clientes.Telefono,
+    Ventas.Fecha_Venta, 
+    Precio_compra, 
+    Ventas.Precio_Venta, 
+    Ventas.Cantidad,
+    vendedor.Nombre, 
+    vendedor.Direccion, 
+    vendedor.Telefono,
+    Modelos_URL.URL, 
+    fv.foto_Vendedor_url, 
+    Inventario.Cantidad
 
 
-CREATE or alter  VIEW vw_Ventas_Totales AS
+	select * from vw_Ventas_Vehiculos6
+
+
+CREATE OR ALTER VIEW vw_Ventas_Vehiculos6 AS
+SELECT 
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre AS Nombre_Cliente, 
+    Clientes.Direccion AS Direccion_Cliente, 
+    Clientes.Telefono, 
+    Ventas.Fecha_Venta, 
+    Vehiculos.Precio_compra, 
+    Ventas.Precio_Venta, 
+    Ventas.Cantidad, 
+    Ventas.Cantidad * Ventas.Precio_Venta AS Total,
+    vendedor.Nombre AS Nombre_Empleado, 
+    vendedor.Direccion AS Direccion_Empleado, 
+    vendedor.Telefono AS Telefono_Empleado,
+    Modelos_URL.URL,  
+    fv.foto_Vendedor_url, 
+    Inventario.Cantidad AS Existencia,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+    INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+    INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+    INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+    INNER JOIN Inventario ON Inventario.ID_Vehiculo = Vehiculos.ID
+    INNER JOIN Fotos_vendedor FV ON FV.ID_vendedor = vendedor.ID
+GROUP BY 
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre, 
+    Clientes.Direccion, 
+    Clientes.Telefono,
+    Ventas.Fecha_Venta, 
+    Vehiculos.Precio_compra, 
+    Ventas.Precio_Venta, 
+    Ventas.Cantidad,
+    vendedor.Nombre, 
+    vendedor.Direccion, 
+    vendedor.Telefono,
+    Modelos_URL.URL, 
+    fv.foto_Vendedor_url, 
+    Inventario.Cantidad;
+
+
+
+CREATE VIEW vw_Ventas_Totales AS
 SELECT ID, Fecha_Venta, Cantidad, Precio_Venta, Cantidad * Precio_Venta AS Total
 FROM Ventas;
 
 select * from vw_Ventas_Totales
 
-select * from Vehiculos
-select * from Ventas
-
-
-
-CREATE OR ALTER VIEW vw_Ventas_Totales_v4 AS
-SELECT V.ID, V.Fecha_Venta, V.Cantidad,
-V.Cantidad * VE.Precio_compra as Total_Precio_Compra,
-V.Cantidad * V.Precio_Venta AS Total_Precio_Ventas,
-(V.Cantidad * (V.Precio_Venta - VE.Precio_compra)) AS Margen_Bruto
-FROM Ventas V
-INNER JOIN Vehiculos VE ON VE.ID = V.ID_Vehiculo;
-
- select * from vw_Ventas_Totales_v4
-
-
- CREATE OR ALTER VIEW vw_Ventas_Totales_v5 AS
-SELECT V.ID, V.Fecha_Venta, V.Cantidad,
-V.Cantidad * VE.Precio_compra as Total_Precio_Compra,
-V.Cantidad * V.Precio_Venta AS Total_Precio_Ventas,
-(V.Cantidad * (V.Precio_Venta - VE.Precio_compra)) AS Margen_total,
-((V.Cantidad * (V.Precio_Venta - VE.Precio_compra)) / (V.Cantidad * V.Precio_Venta)) * 100 AS "%_Margen"
-FROM Ventas V
-INNER JOIN Vehiculos VE ON VE.ID = V.ID_Vehiculo;
-
- select * from vw_Ventas_Totales_v5
-
-
---Vista para ventas de vehículos Toyota por ID:
-
-CREATE VIEW ventas_por_id AS
-SELECT 
-    Ventas.ID, 
-    Vehiculos.Modelo, 
-    Ventas.Fecha_Venta,
-    Clientes.Nombre AS Nombre_Cliente, 
-    Clientes.Direccion, 
-    Clientes.Telefono, 
-    vendedor.Nombre AS Nombre_Empleado,
-    Vehiculos.Precio_compra,
-    Ventas.Precio_Venta,
-    Ventas.Cantidad,
-    Ventas.Total,
-    Modelos_URL.URL AS Modelo_URL,
-    Fotos_vendedor.foto_Vendedor_url
-FROM 
-    Ventas 
-    JOIN Vehiculos ON Ventas.ID_Vehiculo = Vehiculos.ID
-    JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
-    JOIN vendedor ON Ventas.ID_Vendedor = vendedor.ID
-    JOIN Modelos_URL ON Ventas.ID_Vehiculo = Modelos_URL.ID_Vehiculo
-    JOIN Fotos_vendedor ON Ventas.ID_Vendedor = Fotos_vendedor.ID_vendedor;
-
---SELECCIONAMOS LA VISTA ventas_por_id
-
-SELECT * FROM ventas_por_id
-
-
---Vista para ventas de vehículos Toyota por modelo:
-CREATE or alter VIEW ventas_por_modelo AS
-SELECT 
-    Ventas.ID, 
-	pais.NOMBRE_PAIS,
-    Vehiculos.Modelo, 
-    Ventas.Fecha_Venta,
-    Clientes.Nombre AS Nombre_Cliente, 
-    Clientes.Direccion, 
-    Clientes.Telefono, 
-    vendedor.Nombre AS Nombre_Empleado,
-    Vehiculos.Precio_compra,
-    Ventas.Precio_Venta,
-    Ventas.Cantidad,
-    Ventas.Total,
-    Modelos_URL.URL AS Modelo_URL,
-    Fotos_vendedor.foto_Vendedor_url
-FROM 
-    Ventas 
-    JOIN Vehiculos ON Ventas.ID_Vehiculo = Vehiculos.ID
-    JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
-    JOIN vendedor ON Ventas.ID_Vendedor = vendedor.ID
-    JOIN Modelos_URL ON Ventas.ID_Vehiculo = Modelos_URL.ID_Vehiculo
-    JOIN Fotos_vendedor ON Ventas.ID_Vendedor = Fotos_vendedor.ID_vendedor
-	JOIN PAIS ON PAIS.ID_PAIS= Clientes.ID_pais
-
-
---SELECCIONAMOS LA VISTA ventas_por_id
-
-SELECT * FROM ventas_por_modelo
-
-
---Vista para ventas de vehículos Toyota por fecha de venta:
-
-CREATE OR ALTER VIEW ventas_por_fecha AS
-SELECT 
-    Ventas.ID, 
-    Vehiculos.Modelo, 
-    Ventas.Fecha_Venta,
-    Clientes.Nombre AS Nombre_Cliente, 
-    Clientes.Direccion, 
-    Clientes.Telefono, 
-    vendedor.Nombre AS Nombre_Empleado,
-    Vehiculos.Precio_compra,
-    Ventas.Precio_Venta,
-    Ventas.Cantidad,
-    Ventas.Total,
-    Modelos_URL.URL AS Modelo_URL,
-    Fotos_vendedor.foto_Vendedor_url
-FROM 
-    Ventas 
-    JOIN Vehiculos ON Ventas.ID_Vehiculo = Vehiculos.ID
-    JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
-    JOIN vendedor ON Ventas.ID_Vendedor = vendedor.ID
-    JOIN Modelos_URL ON Ventas.ID_Vehiculo = Modelos_URL.ID_Vehiculo
-    JOIN Fotos_vendedor ON Ventas.ID_Vendedor = Fotos_vendedor.ID_vendedor
-
-
---SELECCIONAMOS LA VISTA:
-
-SELECT * FROM ventas_por_fecha
-
-
-
-
--- VAMOS A CREAR UN TRIGGER QUE ACTUALICE EL INVENTARIO SEGUN SE REALICEN VENTAS:
-
-CREATE TRIGGER tr_Ventas_ActualizaStock
+--Se puede crear un trigger para actualizar el inventario de vehículos cada vez que se realiza una venta o se anula una venta:
+CREATE TRIGGER tr_Ventas_Inventario
 ON Ventas
-AFTER INSERT, UPDATE, DELETE
+AFTER INSERT, DELETE, UPDATE
 AS
 BEGIN
-    -- Actualizar stock cuando se inserta o actualiza una venta
-    IF EXISTS (SELECT * FROM inserted)
+    IF EXISTS (SELECT * FROM DELETED)
     BEGIN
-        UPDATE Vehiculos
-        SET Stock = Stock - (SELECT Cantidad FROM inserted WHERE inserted.ID_Vehiculo = Vehiculos.ID)
-        WHERE EXISTS (SELECT * FROM inserted WHERE inserted.ID_Vehiculo = Vehiculos.ID);
+        IF EXISTS (SELECT * FROM INSERTED)
+        BEGIN
+            UPDATE Inventario SET Cantidad = Cantidad + (SELECT Cantidad FROM DELETED) - (SELECT Cantidad FROM INSERTED)
+            WHERE ID_Vehiculo = (SELECT ID_Vehiculo FROM DELETED);
+        END
+        ELSE
+        BEGIN
+            UPDATE Inventario SET Cantidad = Cantidad + (SELECT Cantidad FROM DELETED)
+            WHERE ID_Vehiculo = (SELECT ID_Vehiculo FROM DELETED);
+        END
     END
-    
-    -- Actualizar stock cuando se elimina una venta
-    IF EXISTS (SELECT * FROM deleted)
+    ELSE
     BEGIN
-        UPDATE Vehiculos
-        SET Stock = Stock + (SELECT Cantidad FROM deleted WHERE deleted.ID_Vehiculo = Vehiculos.ID)
-        WHERE EXISTS (SELECT * FROM deleted WHERE deleted.ID_Vehiculo = Vehiculos.ID);
+        UPDATE Inventario SET Cantidad = Cantidad - (SELECT Cantidad FROM INSERTED)
+        WHERE ID_Vehiculo = (SELECT ID_Vehiculo FROM INSERTED);
     END
 END
 
 
- DROP TRIGGER tr_Ventas_ActualizaStock
+CREATE OR ALTER VIEW vw_Ventas_Vehiculos6 AS
+SELECT 
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre AS Nombre_Cliente, 
+    Clientes.Direccion AS Direccion_Cliente, 
+    Clientes.Telefono, 
+    Ventas.Fecha_Venta, 
+    Vehiculos.Precio_compra, 
+    Ventas.Precio_Venta, 
+    Ventas.Cantidad, 
+    Ventas.Cantidad * Ventas.Precio_Venta AS Total,
+    vendedor.Nombre AS Nombre_Empleado, 
+    vendedor.Direccion AS Direccion_Empleado, 
+    vendedor.Telefono AS Telefono_Empleado,
+    Modelos_URL.URL,  
+    fv.foto_Vendedor_url, 
+    IV.Stock_Actual
+FROM 
+    Vehiculos
+    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+    INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
+    INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
+    INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+    INNER JOIN (SELECT 
+                    Vehiculos.ID,
+                    Modelo,
+                    Anio,
+                    Precio_ventas,
+                    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+                FROM 
+                    Vehiculos
+                    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+                    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+                GROUP BY 
+                    Vehiculos.ID,
+                    Modelo,
+                    Anio,
+                    Precio_ventas,
+                    Inventario.Cantidad) IV ON IV.ID = Vehiculos.ID
+    INNER JOIN Fotos_vendedor FV ON FV.ID_vendedor = vendedor.ID;
+
+	select * from vw_Ventas_Vehiculos6
+
+
+
+SELECT 
+    Modelo,
+    Anio,
+    Precio_ventas,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+GROUP BY 
+    Vehiculos.ID,
+    Modelo,
+    Anio,
+    Precio_ventas,
+    Inventario.Cantidad
+HAVING 
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) < 0;
+
+
+SELECT 
+    Modelo,
+    Anio,
+    Precio_ventas,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+GROUP BY 
+    Vehiculos.ID,
+    Modelo,
+    Anio,
+    Precio_ventas,
+    Inventario.Cantidad
+HAVING 
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) = 0;
+
+
+SELECT 
+    Vehiculos.ID AS ID_Vehiculo,
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre AS Nombre_Cliente, 
+    Ventas.Fecha_Venta, 
+    Ventas.Cantidad AS Cantidad_Solicitada,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+GROUP BY 
+    Vehiculos.ID,
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre,
+    Ventas.Fecha_Venta,
+    Inventario.Cantidad,
+    Ventas.Cantidad
+HAVING 
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) <= 0;
 
 
 
 
 
---VAMOS A PROBAR EL TRIGGER:
 
-INSERT INTO Ventas (ID_Vehiculo, ID_Cliente, ID_Vendedor, Fecha_Venta, Cantidad, Precio_Venta)
-VALUES
-(1, 1,1, '2023-04-28', 4, 28000.00);
-
-SELECT * FROM Vehiculos
-
-
---CREAR UNA VISTA CON EL STOCK:
-
-CREATE OR ALTER VIEW VentasToyotaPorFecha AS
-SELECT V.ID AS ID_Venta, V.Fecha_Venta, 
-    C.Nombre AS Nombre_Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente, 
-    E.Nombre AS Vendedor, 
-    VH.Modelo, VH.Precio_compra, VH.Precio_ventas, 
-	VH.Stock AS Stock_Inicial, 
-	V.Cantidad,
-    (VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
-	V.Total, 
-    M.URL AS URL_Modelo, 
-    F.foto_Vendedor_url AS Foto_Vendedor 
-FROM Ventas V
-INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
-INNER JOIN Clientes C ON V.ID_Cliente = C.ID
-INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
-INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
-INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
-GROUP BY V.ID, V.Fecha_Venta, V.Cantidad, V.Precio_Venta, V.Total, 
-    C.Nombre, C.Direccion, C.Telefono, 
-    E.Nombre, 
-    VH.Modelo,VH.Precio_compra, VH.Precio_ventas, 
-    M.URL, 
-    F.foto_Vendedor_url, 
-    VH.Stock;
-
-SELECT * FROM VentasToyotaPorFecha
+CREATE or alter VIEW V_Vehiculos_Inventario_Ventas AS
+SELECT 
+    Vehiculos.ID,
+    Modelo,
+    Anio,
+    Precio_ventas,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+GROUP BY 
+    Vehiculos.ID,
+    Modelo,
+    Anio,
+     Precio_ventas,
+    Inventario.Cantidad
 
 
+select * from V_Vehiculos_Inventario_Ventas
+
+
+CREATE OR ALTER VIEW V_Inventario_Ventas
+AS
+SELECT DISTINCT
+I.ID,
+I.ID_Vehiculo as Codigo,
+V.ID_Cliente,
+C.Nombre as Nombre_Cliente,
+V.Fecha_Venta,
+V.ID_Vehiculo,
+I.Cantidad AS Existencia,
+(I.Cantidad - SUM(V.Cantidad)) As Stock_Actual,
+v.Cantidad as Cantidad_Vendida
+FROM Inventario I
+LEFT JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
+LEFT JOIN Clientes C ON C.ID = V.ID_Cliente
+GROUP BY I.ID, I.ID_Vehiculo, I.Cantidad,v.Cantidad, V.ID_Cliente, C.Nombre, V.Fecha_Venta, V.ID_Vehiculo;
+
+select * from V_Inventario_Ventas
+
+
+
+SELECT 
+    Vehiculos.ID AS ID_Vehiculo,
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre AS Nombre_Cliente, 
+    Ventas.Fecha_Venta, 
+    Ventas.Cantidad AS Cantidad_Solicitada,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+GROUP BY 
+    Vehiculos.ID,
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre,
+    Ventas.Fecha_Venta,
+    Inventario.Cantidad,
+    Ventas.Cantidad
+HAVING 
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) <= 0;
+
+
+
+
+
+
+CREATE OR ALTER VIEW V_Inventario_Ventas_v2
+AS
+SELECT DISTINCT
+I.ID,
+I.ID_Vehiculo as Codigo,
+V.ID_Cliente,
+C.Nombre as Nombre_Cliente,
+V.Fecha_Venta,
+V.ID_Vehiculo,
+I.Cantidad AS Existencia,
+(I.Cantidad - SUM(V.Cantidad)) As Stock_Actual,
+v.Cantidad as Cantidad_Vendida
+FROM Inventario I
+LEFT JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
+LEFT JOIN Clientes C ON C.ID = V.ID_Cliente
+GROUP BY I.ID, I.ID_Vehiculo, I.Cantidad,v.Cantidad, V.ID_Cliente, C.Nombre, V.Fecha_Venta, V.ID_Vehiculo;
+
+select * from V_Inventario_Ventas_v2
+
+CREATE OR ALTER VIEW V_Inventario_Ventas_v3
+AS
+SELECT
+I.ID_Vehiculo as Codigo,
+V.ID_Cliente,
+C.Nombre as Nombre_Cliente,
+I.Cantidad AS Existencia,
+SUM(V.Cantidad) as Cantidad_Vendida,
+
+(I.Cantidad - SUM(V.Cantidad)) As Stock_Actual
+FROM Inventario I
+LEFT JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
+LEFT JOIN Clientes C ON C.ID = V.ID_Cliente
+GROUP BY I.ID_Vehiculo, I.Cantidad, V.ID_Cliente, C.Nombre;
+
+select * from V_Inventario_Ventas_v3
+
+
+CREATE OR ALTER VIEW V_Inventario_Ventas_v4
+AS
+SELECT
+I.ID_Vehiculo as Codigo,
+V.ID_Cliente,
+C.Nombre as Nombre_Cliente,
+Vehiculos.Modelo,
+I.Cantidad AS Existencia,
+SUM(V.Cantidad) as Cantidad_Vendida,
+(I.Cantidad - SUM(V.Cantidad)) As Stock_Actual
+FROM Inventario I
+JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
+JOIN Clientes C ON C.ID = V.ID_Cliente
+JOIN Vehiculos ON I.ID_Vehiculo = Vehiculos.ID
+INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
+INNER JOIN Inventario ON Inventario.ID_Vehiculo = Vehiculos.ID
+GROUP BY I.ID_Vehiculo, I.Cantidad, V.ID_Cliente, C.Nombre, Vehiculos.Modelo;
+
+
+select * from V_Inventario_Ventas_v4
+
+select * from Ventas
+select * from Clientes
+select * from Vehiculos
 select * from vendedor
 select * from Fotos_vendedor
 
-select * from Vehiculos
-					  
+SELECT * FROM Modelos_URL
 
-
-CREATE OR ALTER VIEW VentasToyotaPorFecha_v2 AS
-SELECT V.ID AS ID_Venta, V.Fecha_Venta, p.NOMBRE_PAIS as Pais,
-C.Nombre AS Nombre_Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente,
-E.Nombre AS Vendedor,
-VH.Modelo, VH.Precio_compra, VH.Precio_ventas,
-VH.Stock AS Stock_Inicial,
-V.Cantidad,
-(VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
-V.Total,
-(V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
-((V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) / (V.Cantidad * VH.Precio_ventas)) * 100 AS "%_Margen",
-M.URL AS URL_Modelo,
-F.foto_Vendedor_url AS Foto_Vendedor
-FROM Ventas V
-INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
-INNER JOIN Clientes C ON V.ID_Cliente = C.ID
-INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
-INNER JOIN PAIS P ON c.ID_pais=p.ID_PAIS
-INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
-INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
-GROUP BY V.ID, V.Fecha_Venta, p.NOMBRE_PAIS,V.Cantidad, V.Precio_Venta, V.Total,
-C.Nombre, C.Direccion, C.Telefono,
-E.Nombre,
-VH.Modelo,VH.Precio_compra, VH.Precio_ventas,
-M.URL,
-F.foto_Vendedor_url,
-VH.Stock;
-
-
-SELECT * FROM VentasToyotaPorFecha_v2
-
-
---Clientes que no han comprado:
-
-CREATE OR ALTER VIEW ClientesSinCompras AS
-SELECT C.ID, C.Nombre, C.Direccion, C.Telefono, P.NOMBRE_PAIS as Pais
-FROM Clientes C
-INNER JOIN PAIS P ON C.ID_pais = P.ID_PAIS
-WHERE C.ID NOT IN (SELECT DISTINCT V.ID_Cliente FROM Ventas V);
-
-SELECT * FROM ClientesSinCompras
-
---Vehículos que no se han vendido:
-
-CREATE OR ALTER VIEW VehiculosSinVentas AS
-SELECT VH.ID, VH.Modelo, VH.Precio_compra, VH.Precio_ventas, VH.Stock, M.URL AS URL_Modelo
-FROM Vehiculos VH
-INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
-WHERE VH.ID NOT IN (SELECT DISTINCT ID_Vehiculo FROM Ventas);
-
-SELECT * FROM VehiculosSinVentas
-
-
---Países sin ventas:
-
-CREATE OR ALTER VIEW PaisesSinVentas AS
-SELECT P.ID_PAIS, P.NOMBRE_PAIS
-FROM PAIS P
-WHERE P.ID_PAIS NOT IN (SELECT DISTINCT C.ID_pais FROM Clientes C INNER JOIN Ventas V ON C.ID = V.ID_Cliente);
-
-SELECT * FROM PaisesSinVentas
-
-
---VAMOS A  CREAR UN PROCEDIMIENTO ALMACENADO CON DOS PARAMETROS (FECHA INICIAL Y FINAL)
-
---El siguiente es un procedimiento almacenado que permitirá hacer consultas en un reporte
---con Cristal Report y C# usando Visual Studio 2019 y 2022. El procedimiento cuenta con dos
---parámetros, la fecha inicial y final, y realiza una selección de información sobre ventas
---de vehículos. La información seleccionada incluye el ID de la venta, la fecha de la venta,
---el país, el cliente, la dirección y teléfono del cliente, el vendedor, la categoría del
---vehículo, el modelo del vehículo, el precio de compra y venta, el stock inicial y actual,
---la cantidad vendida, el total de la venta, el margen bruto y el porcentaje de margen. Además,
---también incluye la URL del modelo y la foto del vendedor.
-
---El código del procedimiento almacenado es el siguiente:
-
-CREATE OR ALTER PROCEDURE SP_Ventas_PorFecha_v_2023_2
-@Fecha_Inicio datetime,
-@Fecha_Fin datetime
-AS
-SELECT V.ID AS ID_Venta, V.Fecha_Venta, p.NOMBRE_PAIS as Pais,
-C.Nombre AS Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente,
-E.Nombre AS Vendedor,
-CT.Nombre AS Categoria,
-VH.Modelo, VH.Precio_compra, VH.Precio_ventas,
-VH.Stock AS Stock_Inicial,
-V.Cantidad,
-(VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
-V.Total,
-(V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
-((V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) / (V.Cantidad * VH.Precio_ventas)) * 100 AS "%_Margen"
-FROM Ventas V
-INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
-INNER JOIN Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
-INNER JOIN categoria CT ON VH_Cat.ID_Categoria = CT.ID
-INNER JOIN Clientes C ON V.ID_Cliente = C.ID
-INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
-INNER JOIN PAIS P ON c.ID_pais=p.ID_PAIS
-INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
-INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
-WHERE V.Fecha_Venta BETWEEN @Fecha_Inicio AND @Fecha_Fin
-GROUP BY V.ID, V.Fecha_Venta, p.NOMBRE_PAIS,V.Cantidad, V.Precio_Venta, V.Total,
-C.Nombre, C.Direccion, C.Telefono,
-E.Nombre,
-VH.Modelo,VH.Precio_compra, VH.Precio_ventas,
-CT.Nombre,
-VH.Stock;
-
-
-
-EXEC SP_Ventas_PorFecha_v_2023_2 '2020-01-01', '2020-12-31';
-
-
--- CREAMOS UNA VISTA CON EL REPORTE QUE NECESITAMOS:
-
-CREATE OR ALTER VIEW VW_Ventas_PorFecha_v_2023_2
-AS
-SELECT V.ID AS ID_Venta, V.Fecha_Venta, p.NOMBRE_PAIS as Pais,
-C.Nombre AS Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente,
-E.Nombre AS Vendedor, f.foto_Vendedor_url, 
-CT.Nombre AS Categoria,
-VH.Modelo, m.URL,vh.Precio_compra, VH.Precio_ventas,
-VH.Stock AS Stock_Inicial,
-V.Cantidad,
-(VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
-V.Total,
-(V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
-((V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) / (V.Cantidad * VH.Precio_ventas)) * 100 AS "%_Margen"
-FROM Ventas V
-INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
-INNER JOIN Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
-INNER JOIN categoria CT ON VH_Cat.ID_Categoria = CT.ID
-INNER JOIN Clientes C ON V.ID_Cliente = C.ID
-INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
-INNER JOIN PAIS P ON c.ID_pais=p.ID_PAIS
-INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
-INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
-GROUP BY V.ID, V.Fecha_Venta, p.NOMBRE_PAIS,V.Cantidad, V.Precio_Venta, V.Total,
-C.Nombre, C.Direccion, C.Telefono,
-E.Nombre,f.foto_Vendedor_url,
-VH.Modelo,m.URL,vh.Precio_compra, VH.Precio_ventas,
-CT.Nombre,
-VH.Stock;
-
---HACEMOS UN SELECT A LA VISTA Y VEMOS TODOS LOS REGISTROS:
-
-SELECT * FROM VW_Ventas_PorFecha_v_2023_2
 
