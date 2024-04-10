@@ -120,6 +120,37 @@ CREATE TABLE Modelos_URL (
     URL VARCHAR(255) NOT NULL
 );
 
+
+
+--Para crear la tabla categoría y relacionarla con la tabla Vehiculos, podemos utilizar el siguiente código:
+
+--CREAR TABLA Categoria
+
+CREATE TABLE Categoria (
+ID INT PRIMARY KEY IDENTITY(1,1),
+Nombre VARCHAR(255) NOT NULL
+);
+
+-- CREAR TABLA Vehiculo_Categoria
+
+CREATE TABLE Vehiculo_Categoria (
+ID_Vehiculo INT FOREIGN KEY REFERENCES Vehiculos(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+ID_Categoria INT FOREIGN KEY REFERENCES Categoria(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+PRIMARY KEY (ID_Vehiculo, ID_Categoria)
+);
+
+	
+/*
+La tabla Categoria tiene un campo de ID autoincrementable y un campo de Nombre para el nombre de
+la categoría. La tabla Vehiculo_Categoria tiene dos campos de clave foránea que se relacionan con 
+la tabla Vehiculos y la tabla Categoria, respectivamente. Esta tabla funciona como una tabla de 
+unión entre Vehiculos y Categoria, ya que permite relacionar varios vehículos con una o varias 
+categorías. La clave primaria se compone de los campos de clave foránea ID_Vehiculo y ID_Categoria.
+
+*/
+
+
+
 --SELECCIONAMOS TODAS LAS TABLAS PARA VER COMO HAN QUEDADO:
 
 SELECT * FROM PAIS
@@ -252,6 +283,41 @@ INSERT INTO vendedor (Nombre, Direccion, Telefono) VALUES
 SELECT * FROM vendedor
 SELECT * FROM Vehiculos
 SELECT * FROM Ventas
+
+
+
+-- Insertar las categorías correspondientes a cada modelo
+
+INSERT INTO Categoria (Nombre) VALUES
+('Sedán'),
+('SUV'),
+('Pickup'),
+('Híbrido'),
+('Deportivo');
+
+-- Asignar categorías a cada vehículo en la tabla Vehiculo_Categoria
+INSERT INTO Vehiculo_Categoria (ID_Vehiculo, ID_Categoria) VALUES
+(1, 1), -- Corolla -> Sedán
+(2, 1), -- Camry -> Sedán
+(3, 2), -- RAV4 -> SUV
+(4, 2), -- Highlander -> SUV
+(5, 3), -- Tacoma -> Pickup
+(6, 3), -- Tundra -> Pickup
+(7, 4), -- Prius -> Híbrido
+(8, 1), -- Yaris -> Sedán
+(9, 2), -- Sienna -> SUV
+(10, 2), -- 4Runner -> SUV
+(11, 5), -- Supra -> Deportivo
+(12, 1), -- Avalon -> Sedán
+(13, 2), -- C-HR -> SUV
+(14, 2), -- Venza -> SUV
+(15, 4), -- Mirai -> Híbrido
+(16, 5), -- GR Supra -> Deportivo
+(17, 5), -- GR 86 -> Deportivo
+(18, 4); -- Prius Prime -> Híbrido
+
+
+
 
 --TGrigger que rebaja automaticamente el Stock en la Tabla de Vehiculo cada vez que se realice una venta:
 
