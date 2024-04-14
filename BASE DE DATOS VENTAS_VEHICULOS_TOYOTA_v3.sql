@@ -34,11 +34,11 @@ según la marca:
 */
 
 --CREAR LA BASE DE DATOS VENTAS_VEHICULOS_TOYOTA
-CREATE DATABASE VENTAS_VEHICULOS_TOYOTA_2023_V4;
+CREATE DATABASE VENTAS_VEHICULOS_TOYOTA_2023_V5;
 GO
 
 --USAR LA BASE DE DATOS:
-USE VENTAS_VEHICULOS_TOYOTA_2023_V4
+USE VENTAS_VEHICULOS_TOYOTA_2023_V5
 GO
 
  --CREAR TABLA Vehiculos
@@ -225,7 +225,7 @@ VALUES
 --Y LUEGO HACER UN UPDATE A TODOS CON :
 
 UPDATE Vehiculos
-SET Stock = 20;
+SET Stock = 1000;
 
 
 -- O PODEMOS HACER UN  HACER UN INSERT COMO ESTE 20 VEHICULOS PARA TODOS:
@@ -937,11 +937,7 @@ VALUES
 (17, 17, 7, '2024-02-26', 1, 34000.00),
 (18, 18, 8, '2024-02-27', 1, 35000.00),
 (1, 19, 1, '2024-02-28', 1, 28000.00),
-(2, 20, 2, '2024-02-29', 1, 35000.00);
-
-INSERT INTO Ventas (ID_Vehiculo, ID_Cliente, ID_Vendedor, Fecha_Venta, Cantidad, Precio_Venta)
-VALUES
--- Continuando desde el 1 de marzo de 2024
+(2, 20, 2, '2024-02-29', 1, 35000.00),
 (3, 21, 3, '2024-03-01', 2, 38000.00),
 (4, 22, 4, '2024-03-02', 1, 43000.00),
 (5, 23, 5, '2024-03-03', 1, 33000.00),
@@ -962,8 +958,6 @@ VALUES
 (2, 38, 2, '2024-03-18', 1, 35000.00),
 (3, 39, 3, '2024-03-19', 2, 38000.00),
 (4, 40, 4, '2024-03-20', 1, 43000.00),
--- Continuar con las ventas para marzo y los meses siguientes...
--- Hasta el 9 de abril de 2024
 (5, 1, 5, '2024-04-01', 1, 33000.00),
 (6, 2, 6, '2024-04-02', 1, 39000.00),
 (7, 3, 7, '2024-04-03', 1, 28000.00),
@@ -1049,15 +1043,19 @@ INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 GROUP BY Anio
 ORDER BY Anio;
 
+
+-- Estadísticas de ventas por vendedor.
+
 SELECT v.ID, v.Nombre AS Nombre_Vendedor, COUNT(ve.ID) AS Total_Ventas, SUM(ve.Cantidad) AS Total_Cantidad, SUM(ve.Precio_Venta) AS Total_Ventas_Monto
 FROM Vendedor v
 LEFT JOIN Ventas ve ON v.ID = ve.ID_Vendedor
 GROUP BY v.ID, v.Nombre;
 
 
+--ver la tabla vendedor
 select * from vendedor
 
-
+--contar los vendedores
 SELECT COUNT(DISTINCT ID_Vendedor) AS Total_Vendedores
 FROM Ventas;
 
@@ -1069,16 +1067,20 @@ INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 GROUP BY Modelo;
 
 
-SELECT vendedor.Nombre AS Nombre_Vendedor, Vehiculos.Modelo, COUNT(Ventas.ID_Vehiculo) as Numero_Ventas
+-- Esta consulta cuenta el número de ventas por modelo de vehículo para cada vendedor.
+SELECT vendedor.Nombre AS Nombre_Vendedor, Vehiculos.Modelo, COUNT(Ventas.ID_Vehiculo) AS Numero_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
 INNER JOIN Asignaciones ON Ventas.ID = Asignaciones.ID_Venta
 INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
 GROUP BY vendedor.Nombre, Vehiculos.Modelo;
 
+
+
+-- Esta consulta cuenta el número de ventas y calcula el monto total de ventas por modelo de vehículo para cada vendedor.
 SELECT vendedor.Nombre AS Nombre_Vendedor, 
        Vehiculos.Modelo, 
-       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       COUNT(Ventas.ID_Vehiculo) AS Numero_Ventas,
        SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
@@ -1086,9 +1088,12 @@ INNER JOIN Asignaciones ON Ventas.ID = Asignaciones.ID_Venta
 INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
 GROUP BY vendedor.Nombre, Vehiculos.Modelo;
 
+
+
+-- Esta consulta cuenta el número de ventas y calcula el monto total de ventas por modelo de vehículo para cada cliente.
 SELECT cliente.Nombre AS Nombre_Cliente, 
        Vehiculos.Modelo, 
-       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       COUNT(Ventas.ID_Vehiculo) AS Numero_Ventas,
        SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
@@ -1096,9 +1101,10 @@ INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
 GROUP BY cliente.Nombre, Vehiculos.Modelo;
 
 
+-- Esta consulta cuenta el número de ventas y calcula el monto total de ventas por categoría de vehículo para cada cliente.
 SELECT cliente.Nombre AS Nombre_Cliente, 
        Categoria.Nombre AS Categoria_Vehiculo,
-       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       COUNT(Ventas.ID_Vehiculo) AS Numero_Ventas,
        SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
@@ -1108,10 +1114,11 @@ INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
 GROUP BY cliente.Nombre, Categoria.Nombre;
 
 
+-- Esta consulta cuenta el número de ventas y calcula el monto total de ventas por cliente, país del cliente y categoría de vehículo.
 SELECT cliente.Nombre AS Nombre_Cliente, 
        pais.NOMBRE_PAIS AS Pais_Cliente,
        Categoria.Nombre AS Categoria_Vehiculo,
-       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       COUNT(Ventas.ID_Vehiculo) AS Numero_Ventas,
        SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
@@ -1121,13 +1128,12 @@ INNER JOIN Clientes cliente ON Ventas.ID_Cliente = cliente.ID
 INNER JOIN Pais pais ON cliente.ID_pais = pais.ID_PAIS
 GROUP BY cliente.Nombre, pais.NOMBRE_PAIS, Categoria.Nombre;
 
-
-
+-- Esta consulta cuenta el número de ventas y calcula el monto total de ventas por cliente, país del cliente, categoría de vehículo y vendedor.
 SELECT cliente.Nombre AS Nombre_Cliente, 
        pais.NOMBRE_PAIS AS Pais_Cliente,
        Categoria.Nombre AS Categoria_Vehiculo,
        vendedor.Nombre AS Nombre_Vendedor,
-       COUNT(Ventas.ID_Vehiculo) as Numero_Ventas,
+       COUNT(Ventas.ID_Vehiculo) AS Numero_Ventas,
        SUM(Ventas.Precio_Venta) AS Monto_Total_Ventas
 FROM Vehiculos
 INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
@@ -1139,22 +1145,31 @@ INNER JOIN Asignaciones ON Ventas.ID = Asignaciones.ID_Venta
 INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
 GROUP BY cliente.Nombre, pais.NOMBRE_PAIS, Categoria.Nombre, vendedor.Nombre;
 
+-- Esta consulta cuenta el total de vendedores en la tabla "vendedor".
 SELECT COUNT(*) AS Total_Vendedores FROM vendedor;
 
+-- Esta consulta cuenta el número de vendedores que tienen al menos una asignación de ventas en la tabla "Asignaciones".
 SELECT COUNT(DISTINCT ID_Vendedor) AS Vendedores_Con_Ventas FROM Asignaciones;
 
+-- Esta consulta selecciona los vendedores que no tienen ventas asociadas en la tabla "Ventas".
 SELECT DISTINCT vendedor.ID, vendedor.Nombre
 FROM vendedor
 LEFT JOIN Asignaciones ON vendedor.ID = Asignaciones.ID_Vendedor
 LEFT JOIN Ventas ON Asignaciones.ID_Venta = Ventas.ID
 WHERE Ventas.ID IS NULL;
 
+-- Mostrar todos los registros de la tabla PAIS
+SELECT * FROM PAIS;
 
-select * from PAIS
-select * from Clientes
+-- Mostrar todos los registros de la tabla Clientes
+SELECT * FROM Clientes;
 
-select * from Categoria
-select * from Vehiculo_Categoria
+-- Mostrar todos los registros de la tabla Categoria
+SELECT * FROM Categoria;
+
+-- Mostrar todos los registros de la tabla Vehiculo_Categoria
+SELECT * FROM Vehiculo_Categoria;
+
 
 --Conteo de ventas realizadas en cada mes:
 
@@ -1267,7 +1282,14 @@ INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
 INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
 go
 
+--ver la vista:
 select * from vw_Ventas_Vehiculos
+
+/*
+Vista que muestra detalles de ventas de vehículos, incluyendo información sobre el modelo, año, cliente, 
+empleado/vendedor, inventario y modelos de URL. Calcula el total de ventas, la cantidad vendida y el stock
+actual por vehículo.
+*/
 
 CREATE or alter VIEW vw_Ventas_Vehiculos2
 AS
@@ -1330,6 +1352,15 @@ Modelos_URL.URL, FV.foto_Vendedor_url, Inventario.Cantidad;
 
 SELECT * FROM vw_Ventas_Vehiculos5
 
+
+/*
+crea o altera una vista llamada vw_Ventas_Vehiculos6 que proporciona detalles sobre las ventas
+de vehículos, incluyendo información sobre el modelo y año del vehículo, el cliente, el empleado/vendedor, 
+el inventario y los modelos de URL. La vista calcula el total de ventas y el stock actual de cada 
+vehículo en inventario.
+
+*/
+
 CREATE OR ALTER VIEW vw_Ventas_Vehiculos6
 AS
 SELECT 
@@ -1378,9 +1409,17 @@ GROUP BY
     fv.foto_Vendedor_url, 
     Inventario.Cantidad
 
+--Ver la Vista:
 
-	select * from vw_Ventas_Vehiculos6
+select * from vw_Ventas_Vehiculos6
+/*
 
+Este comando crea o altera una vista llamada vw_Ventas_Vehiculos6 que proporciona detalles sobre 
+las ventas de vehículos, incluyendo información sobre el modelo y año del vehículo, el cliente,
+el empleado/vendedor, el inventario y los modelos de URL. Además, calcula el total de ventas y el
+stock actual de cada vehículo en inventario.
+
+*/
 
 CREATE OR ALTER VIEW vw_Ventas_Vehiculos6 AS
 SELECT 
@@ -1427,11 +1466,16 @@ GROUP BY
     fv.foto_Vendedor_url, 
     Inventario.Cantidad;
 
+-- VER LA VISTA
+SELECT * FROM vw_Ventas_Vehiculos6
 
 
+-- Crea una vista llamada vw_Ventas_Totales que muestra el ID de la venta, la fecha de venta, la cantidad vendida, el precio de venta y el total de la venta para cada registro en la tabla "Ventas".
 CREATE VIEW vw_Ventas_Totales AS
 SELECT ID, Fecha_Venta, Cantidad, Precio_Venta, Cantidad * Precio_Venta AS Total
 FROM Ventas;
+
+--VER LA VISTA:
 
 select * from vw_Ventas_Totales
 
@@ -1461,7 +1505,7 @@ BEGIN
     END
 END
 
-
+-- Crea o altera una vista llamada vw_Ventas_Vehiculos6 que proporciona detalles sobre las ventas de vehículos, incluyendo información sobre el modelo y año del vehículo, el cliente, el empleado/vendedor, el inventario y los modelos de URL. Además, muestra el stock actual de cada vehículo en inventario.
 CREATE OR ALTER VIEW vw_Ventas_Vehiculos6 AS
 SELECT 
     Vehiculos.Modelo, 
@@ -1487,7 +1531,8 @@ FROM
     INNER JOIN Asignaciones ON Asignaciones.ID_Venta = Ventas.ID
     INNER JOIN vendedor ON Asignaciones.ID_Vendedor = vendedor.ID
     INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
-    INNER JOIN (SELECT 
+    INNER JOIN (
+                SELECT 
                     Vehiculos.ID,
                     Modelo,
                     Anio,
@@ -1502,120 +1547,33 @@ FROM
                     Modelo,
                     Anio,
                     Precio_ventas,
-                    Inventario.Cantidad) IV ON IV.ID = Vehiculos.ID
+                    Inventario.Cantidad
+                ) IV ON IV.ID = Vehiculos.ID
     INNER JOIN Fotos_vendedor FV ON FV.ID_vendedor = vendedor.ID;
 
-	select * from vw_Ventas_Vehiculos6
+-- Muestra los datos de la vista vw_Ventas_Vehiculos6
+SELECT * FROM vw_Ventas_Vehiculos6;
 
-
+-- Selecciona el modelo, año, precio de ventas y stock actual de los vehículos con stock negativo en el inventario.
 
 SELECT 
-    Modelo,
-    Anio,
-    Precio_ventas,
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+    Modelo, -- Selecciona el modelo del vehículo
+    Anio, -- Selecciona el año del vehículo
+    Precio_ventas, -- Selecciona el precio de ventas del vehículo
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual -- Calcula el stock actual restando la cantidad vendida de la cantidad en inventario, teniendo en cuenta los casos donde no hay ventas
 FROM 
-    Vehiculos
-    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
-    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    Vehiculos -- Tabla de vehículos
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo -- Une la tabla de vehículos con la tabla de inventario basado en el ID del vehículo
+    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo -- Une la tabla de vehículos con la tabla de ventas basado en el ID del vehículo
 GROUP BY 
-    Vehiculos.ID,
-    Modelo,
-    Anio,
-    Precio_ventas,
-    Inventario.Cantidad
+    Vehiculos.ID, -- Agrupa por el ID del vehículo
+    Modelo, -- Agrupa por el modelo del vehículo
+    Anio, -- Agrupa por el año del vehículo
+    Precio_ventas, -- Agrupa por el precio de ventas del vehículo
+    Inventario.Cantidad -- Agrupa por la cantidad en inventario
 HAVING 
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) < 0;
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) < 0; -- Filtra los registros donde el stock actual es menor que cero (es decir, hay más ventas que inventario disponible)
 
-
-SELECT 
-    Modelo,
-    Anio,
-    Precio_ventas,
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
-FROM 
-    Vehiculos
-    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
-    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
-GROUP BY 
-    Vehiculos.ID,
-    Modelo,
-    Anio,
-    Precio_ventas,
-    Inventario.Cantidad
-HAVING 
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) = 0;
-
-
-SELECT 
-    Vehiculos.ID AS ID_Vehiculo,
-    Vehiculos.Modelo, 
-    Vehiculos.Anio, 
-    Clientes.Nombre AS Nombre_Cliente, 
-    Ventas.Fecha_Venta, 
-    Ventas.Cantidad AS Cantidad_Solicitada,
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
-FROM 
-    Vehiculos
-    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
-    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
-    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
-GROUP BY 
-    Vehiculos.ID,
-    Vehiculos.Modelo, 
-    Vehiculos.Anio, 
-    Clientes.Nombre,
-    Ventas.Fecha_Venta,
-    Inventario.Cantidad,
-    Ventas.Cantidad
-HAVING 
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) <= 0;
-
-
-
-
-
-
-CREATE or alter VIEW V_Vehiculos_Inventario_Ventas AS
-SELECT 
-    Vehiculos.ID,
-    Modelo,
-    Anio,
-    Precio_ventas,
-    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
-FROM 
-    Vehiculos
-    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
-    LEFT JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
-GROUP BY 
-    Vehiculos.ID,
-    Modelo,
-    Anio,
-     Precio_ventas,
-    Inventario.Cantidad
-
-
-select * from V_Vehiculos_Inventario_Ventas
-
-
-CREATE OR ALTER VIEW V_Inventario_Ventas
-AS
-SELECT DISTINCT
-I.ID,
-I.ID_Vehiculo as Codigo,
-V.ID_Cliente,
-C.Nombre as Nombre_Cliente,
-V.Fecha_Venta,
-V.ID_Vehiculo,
-I.Cantidad AS Existencia,
-(I.Cantidad - SUM(V.Cantidad)) As Stock_Actual,
-v.Cantidad as Cantidad_Vendida
-FROM Inventario I
-LEFT JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
-LEFT JOIN Clientes C ON C.ID = V.ID_Cliente
-GROUP BY I.ID, I.ID_Vehiculo, I.Cantidad,v.Cantidad, V.ID_Cliente, C.Nombre, V.Fecha_Venta, V.ID_Vehiculo;
-
-select * from V_Inventario_Ventas
 
 
 
@@ -1644,28 +1602,33 @@ HAVING
     (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) <= 0;
 
 
+SELECT 
+    Vehiculos.ID AS ID_Vehiculo,
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre AS Nombre_Cliente, 
+    Ventas.Fecha_Venta, 
+    Ventas.Cantidad AS Cantidad_Solicitada,
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    INNER JOIN Ventas ON Vehiculos.ID = Ventas.ID_Vehiculo
+    INNER JOIN Clientes ON Ventas.ID_Cliente = Clientes.ID
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo
+GROUP BY 
+    Vehiculos.ID,
+    Vehiculos.Modelo, 
+    Vehiculos.Anio, 
+    Clientes.Nombre,
+    Ventas.Fecha_Venta,
+    Inventario.Cantidad,
+    Ventas.Cantidad
+HAVING 
+    (Inventario.Cantidad - ISNULL(SUM(Ventas.Cantidad), 0)) <= 0;
 
 
 
-
-CREATE OR ALTER VIEW V_Inventario_Ventas_v2
-AS
-SELECT DISTINCT
-I.ID,
-I.ID_Vehiculo as Codigo,
-V.ID_Cliente,
-C.Nombre as Nombre_Cliente,
-V.Fecha_Venta,
-V.ID_Vehiculo,
-I.Cantidad AS Existencia,
-(I.Cantidad - SUM(V.Cantidad)) As Stock_Actual,
-v.Cantidad as Cantidad_Vendida
-FROM Inventario I
-LEFT JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
-LEFT JOIN Clientes C ON C.ID = V.ID_Cliente
-GROUP BY I.ID, I.ID_Vehiculo, I.Cantidad,v.Cantidad, V.ID_Cliente, C.Nombre, V.Fecha_Venta, V.ID_Vehiculo;
-
-select * from V_Inventario_Ventas_v2
+-- Vista que muestra el inventario actual de vehículos junto con las ventas realizadas y calcula el stock actual por vehículo.
 
 CREATE OR ALTER VIEW V_Inventario_Ventas_v3
 AS
@@ -1682,8 +1645,12 @@ LEFT JOIN Ventas V ON V.ID_Vehiculo = I.ID_Vehiculo
 LEFT JOIN Clientes C ON C.ID = V.ID_Cliente
 GROUP BY I.ID_Vehiculo, I.Cantidad, V.ID_Cliente, C.Nombre;
 
+--VER LA VISTA:
+
 select * from V_Inventario_Ventas_v3
 
+
+-- Vista que muestra el inventario y ventas de vehículos, calculando el stock actual por vehículo, con el nombre del cliente y el modelo del vehículo.
 
 CREATE OR ALTER VIEW V_Inventario_Ventas_v4
 AS
@@ -1703,15 +1670,221 @@ INNER JOIN Modelos_URL ON Vehiculos.ID = Modelos_URL.ID_Vehiculo
 INNER JOIN Inventario ON Inventario.ID_Vehiculo = Vehiculos.ID
 GROUP BY I.ID_Vehiculo, I.Cantidad, V.ID_Cliente, C.Nombre, Vehiculos.Modelo;
 
+--ver vista:
 
 select * from V_Inventario_Ventas_v4
 
-select * from Ventas
-select * from Clientes
-select * from Vehiculos
-select * from vendedor
-select * from Fotos_vendedor
+/*
+Este procedimiento almacenado devuelve las ventas realizadas dentro de un rango de 
+fechas especificado, incluyendo detalles como el ID de venta, fecha de venta, país,
+cliente, vendedor, modelo del vehículo, cantidad vendida, precios y margen bruto.
 
-SELECT * FROM Modelos_URL
+*/
+
+CREATE OR ALTER PROCEDURE SP_Ventas_PorFecha_v_2023_2
+@Fecha_Inicio datetime,
+@Fecha_Fin datetime
+AS
+SELECT V.ID AS ID_Venta, V.Fecha_Venta, p.NOMBRE_PAIS as Pais,
+C.Nombre AS Cliente, C.Direccion AS Direccion_Cliente, C.Telefono AS Telefono_Cliente,
+E.Nombre AS Vendedor,
+CT.Nombre AS Categoria,
+VH.Modelo, VH.Precio_compra, VH.Precio_ventas,
+VH.Stock AS Stock_Inicial,
+V.Cantidad,
+(VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
+V.Total,
+(V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
+((V.Cantidad * (VH.Precio_ventas - VH.Precio_compra)) / (V.Cantidad * VH.Precio_ventas)) * 100 AS "%_Margen"
+FROM Ventas V
+INNER JOIN Vehiculos VH ON V.ID_Vehiculo = VH.ID
+INNER JOIN Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
+INNER JOIN categoria CT ON VH_Cat.ID_Categoria = CT.ID
+INNER JOIN Clientes C ON V.ID_Cliente = C.ID
+INNER JOIN vendedor E ON V.ID_Vendedor = E.ID
+INNER JOIN PAIS P ON c.ID_pais=p.ID_PAIS
+INNER JOIN Modelos_URL M ON VH.ID = M.ID_Vehiculo
+INNER JOIN Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
+WHERE V.Fecha_Venta BETWEEN @Fecha_Inicio AND @Fecha_Fin
+GROUP BY V.ID, V.Fecha_Venta, p.NOMBRE_PAIS,V.Cantidad, V.Precio_Venta, V.Total,
+C.Nombre, C.Direccion, C.Telefono,
+E.Nombre,
+VH.Modelo,VH.Precio_compra, VH.Precio_ventas,
+CT.Nombre,
+VH.Stock;
+
+
+--EJECUTAR EL PROCEDIMIENTO ALMACENADO CON UNA FCHA X:
+
+EXEC SP_Ventas_PorFecha_v_2023_2 '2020-01-01', '2020-12-31';
+
+/*
+-- Este procedimiento almacenado devuelve las ventas realizadas dentro de un rango de fechas especificado, 
+incluyendo detalles como el ID de venta, fecha de venta, país, cliente, vendedor, modelo del vehículo,
+cantidad vendida, precios y margen bruto.
+*/
+
+CREATE OR ALTER PROCEDURE SP_Ventas_PorFecha_v_2023_2_Inventarios
+    @Fecha_Inicio datetime,
+    @Fecha_Fin datetime
+AS
+BEGIN
+    SELECT 
+        V.ID AS ID_Venta, 
+        V.Fecha_Venta, 
+        P.NOMBRE_PAIS as Pais,
+        C.Nombre AS Cliente, 
+        C.Direccion AS Direccion_Cliente, 
+        C.Telefono AS Telefono_Cliente,
+        E.Nombre AS Vendedor,
+        CT.Nombre AS Categoria,
+        VH.Modelo, 
+        VH.Precio_compra, 
+        VH.Precio_ventas,
+        VH.Stock AS Stock_Inicial,
+        SUM(V.Cantidad) AS Cantidad,
+        (VH.Stock - SUM(V.Cantidad)) AS Stock_Actual,
+        SUM(V.Total) AS Total, -- Aplicamos SUM() a Ventas.Total para obtener el total acumulado de ventas
+        (SUM(V.Cantidad) * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
+        ((SUM(V.Cantidad) * (VH.Precio_ventas - VH.Precio_compra)) / (SUM(V.Total))) * 100 AS "%_Margen"
+    FROM 
+        Ventas V
+    INNER JOIN 
+        Vehiculos VH ON V.ID_Vehiculo = VH.ID
+    INNER JOIN 
+        Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
+    INNER JOIN 
+        Categoria CT ON VH_Cat.ID_Categoria = CT.ID
+    INNER JOIN 
+        Clientes C ON V.ID_Cliente = C.ID
+    INNER JOIN 
+        Vendedor E ON V.ID_Vendedor = E.ID
+    INNER JOIN 
+        Pais P ON C.ID_pais = P.ID_PAIS
+    INNER JOIN 
+        Modelos_URL M ON VH.ID = M.ID_Vehiculo
+    INNER JOIN 
+        Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
+    WHERE 
+        V.Fecha_Venta BETWEEN @Fecha_Inicio AND @Fecha_Fin
+    GROUP BY 
+        V.ID, 
+        V.Fecha_Venta, 
+        P.NOMBRE_PAIS,
+        C.Nombre, 
+        C.Direccion, 
+        C.Telefono,
+        E.Nombre,
+        VH.Modelo, 
+        VH.Precio_compra, 
+        VH.Precio_ventas,
+        CT.Nombre,
+        VH.Stock;
+END;
+
+--EJECUTAR EL PROCEDIMIENTO ALMACENADO:
+
+EXEC SP_Ventas_PorFecha_v_2023_2_Inventarios '2020-01-01', '2024-04-09';
+
+
+--VISTA NUEVA PARA INVENTARIO:
+
+CREATE OR ALTER VIEW V_Vehiculos_Inventario_Ventas AS
+SELECT 
+    Vehiculos.ID,
+    Vehiculos.Modelo,
+    Vehiculos.Anio,
+    Vehiculos.Precio_ventas,
+    (Inventario.Cantidad - ISNULL((SELECT SUM(Cantidad) FROM Ventas WHERE Ventas.ID_Vehiculo = Vehiculos.ID), 0)) AS Stock_Actual
+FROM 
+    Vehiculos
+    LEFT JOIN Inventario ON Vehiculos.ID = Inventario.ID_Vehiculo;
+
+
+/*
+Este procedimiento almacenado calcula y muestra las ventas realizadas dentro de un 
+rango de fechas especificado, junto con detalles como el ID de venta, fecha de venta, 
+país, cliente, vendedor, modelo del vehículo, cantidad vendida, precios y margen bruto.
+
+Además, calcula el stock actual restando la cantidad vendida del stock inicial y 
+proporciona el margen bruto como un porcentaje del total de ventas.
+
+*/
+
+
+CREATE OR ALTER PROCEDURE SP_Ventas_PorFecha_v_2023_2_Stok_Actual_0
+    @Fecha_Inicio datetime,
+    @Fecha_Fin datetime
+AS
+BEGIN
+    SELECT 
+        V.ID AS ID_Venta, 
+        V.Fecha_Venta, 
+        P.NOMBRE_PAIS as Pais,
+        C.Nombre AS Cliente, 
+        C.Direccion AS Direccion_Cliente, 
+        C.Telefono AS Telefono_Cliente,
+        E.Nombre AS Vendedor,
+        CT.Nombre AS Categoria,
+        VH.Modelo, 
+        VH.Precio_compra, 
+        VH.Precio_ventas,
+        VH.Stock AS Stock_Inicial,
+        ISNULL(SUM(V.Cantidad), 0) AS Cantidad_Vendida,
+        (VH.Stock - ISNULL(StockVenta.CantidadVendida, 0)) AS Stock_Actual,
+        SUM(V.Total) AS Total_Ventas,
+        (ISNULL(SUM(V.Cantidad), 0) * (VH.Precio_ventas - VH.Precio_compra)) AS Margen_bruto,
+        ((ISNULL(SUM(V.Cantidad), 0) * (VH.Precio_ventas - VH.Precio_compra)) / SUM(V.Total)) * 100 AS "%_Margen"
+    FROM 
+        Ventas V
+    RIGHT JOIN 
+        Vehiculos VH ON V.ID_Vehiculo = VH.ID
+    LEFT JOIN 
+        Vehiculo_Categoria VH_Cat ON VH.ID = VH_Cat.ID_Vehiculo
+    LEFT JOIN 
+        Categoria CT ON VH_Cat.ID_Categoria = CT.ID
+    LEFT JOIN 
+        Clientes C ON V.ID_Cliente = C.ID
+    LEFT JOIN 
+        Vendedor E ON V.ID_Vendedor = E.ID
+    LEFT JOIN 
+        Pais P ON C.ID_pais = P.ID_PAIS
+    LEFT JOIN 
+        Modelos_URL M ON VH.ID = M.ID_Vehiculo
+    LEFT JOIN 
+        Fotos_vendedor F ON V.ID_Vendedor = F.ID_vendedor
+    LEFT JOIN 
+        (SELECT ID_Vehiculo, SUM(Cantidad) AS CantidadVendida 
+         FROM Ventas 
+         WHERE Fecha_Venta BETWEEN @Fecha_Inicio AND @Fecha_Fin 
+         GROUP BY ID_Vehiculo) StockVenta ON VH.ID = StockVenta.ID_Vehiculo
+    WHERE V.Fecha_Venta BETWEEN @Fecha_Inicio AND @Fecha_Fin
+    GROUP BY 
+        V.ID, 
+        V.Fecha_Venta, 
+        P.NOMBRE_PAIS,
+        C.Nombre, 
+        C.Direccion, 
+        C.Telefono,
+        E.Nombre,
+        VH.Modelo, 
+        VH.Precio_compra, 
+        VH.Precio_ventas,
+        CT.Nombre,
+        VH.Stock,
+        StockVenta.CantidadVendida; -- Agregar StockVenta.CantidadVendida en la cláusula GROUP BY
+END;
+
+--EJECUTAR EL PROCEDIMIENTO:
+
+EXEC SP_Ventas_PorFecha_v_2023_2_Stok_Actual_0 '2020-01-01', '2024-04-09';
+
+
+--SELECCIONAR LA TABLA PARA VER LOS REGISTROS:
+
+SELECT * FROM Ventas;
+
+
+
 
 
