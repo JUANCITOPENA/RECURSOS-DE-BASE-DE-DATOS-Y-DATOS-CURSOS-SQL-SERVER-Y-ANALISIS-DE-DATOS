@@ -1,0 +1,188 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nombre": "Juan Pérez",
+      "telefono": "555-123-4567",
+      "email": "juan.perez@example.com"
+    },
+    {
+      "id": 2,
+      "nombre": "maria GARCIA",
+      "telefono": "555-987-6543",
+      "email": "maria.garcia@example.com"
+    },
+    {
+      "id": 3,
+      "nombre": "LUIS RODRIGUEZ",
+      "telefono": "555-321-7890",
+      "email": "luis.rodriguez@example.com"
+    },
+    {
+      "id": 4,
+      "nombre": "Ana MARTINEZ",
+      "telefono": "555-456-7890",
+      "email": "ana.martinez@example.com"
+    },
+    {
+      "id": 5,
+      "nombre": "Carlos LOPEZ",
+      "telefono": "555-654-3210",
+      "email": "carlos.lopez@example.com"
+    },
+    {
+      "id": 6,
+      "nombre": "ana GARCIA",
+      "telefono": "555-123-9876",
+      "email": "ana.garcia@example.com"
+    },
+    {
+      "id": 7,
+      "nombre": "Luis MARTINEZ",
+      "telefono": "555-567-8901",
+      "email": "luis.martinez@example.com"
+    },
+    {
+      "id": 8,
+      "nombre": "Sofía HERNANDEZ",
+      "telefono": "555-890-1234",
+      "email": "sofia.hernandez@example.com"
+    },
+    {
+      "id": 9,
+      "nombre": "David GARCIA",
+      "telefono": "555-234-5678",
+      "email": "david.garcia@example.com"
+    },
+    {
+      "id": 10,
+      "nombre": "CARLO GUMAN",
+      "telefono": "555-876-5432",
+      "email": "carlo.guman@example.com"
+    }
+  ],
+  "agentes": [
+    {
+      "codigo": "cg-1001",
+      "nombre": "Carlos Guman"
+    },
+    {
+      "codigo": "cg-1002",
+      "nombre": "PEDRO SANCHEZ"
+    },
+    {
+      "codigo": "cg-1003",
+      "nombre": "luis MARTINEZ"
+    },
+    {
+      "codigo": "cg-1004",
+      "nombre": "Sofía HERNANDEZ"
+    },
+    {
+      "codigo": "cg-1005",
+      "nombre": "David GARCIA"
+    },
+    {
+      "codigo": "cg-1006",
+      "nombre": "CARLO GUMAN"
+    },
+    {
+      "codigo": "cg-1007",
+      "nombre": "Ana GARCIA"
+    },
+    {
+      "codigo": "cg-1008",
+      "nombre": "Marta LOPEZ"
+    },
+    {
+      "codigo": "cg-1009",
+      "nombre": "Juan FERNANDEZ"
+    },
+    {
+      "codigo": "cg-1010",
+      "nombre": "Lorena PEREZ"
+    }
+  ],
+  "prestamos": [
+    {
+      "id": 1,
+      "cliente_id": 1,
+      "monto": 10000,
+      "fecha_emision": "2023-01-15",
+      "fecha_vencimiento": "2023-07-15",
+      "atraso": 0
+    },
+    {
+      "id": 2,
+      "cliente_id": 2,
+      "monto": 5000,
+      "fecha_emision": "2023-02-20",
+      "fecha_vencimiento": "2023-08-20",
+      "atraso": 5
+    },
+    {
+      "id": 3,
+      "cliente_id": 3,
+      "monto": 20000,
+      "fecha_emision": "2023-03-10",
+      "fecha_vencimiento": "2023-09-10",
+      "atraso": 10
+    },
+    {
+      "id": 4,
+      "cliente_id": 4,
+      "monto": 15000,
+      "fecha_emision": "2023-04-05",
+      "fecha_vencimiento": "2023-10-05",
+      "atraso": 0
+    },
+    {
+      "id": 5,
+      "cliente_id": 5,
+      "monto": 3000,
+      "fecha_emision": "2023-05-12",
+      "fecha_vencimiento": "2023-11-12",
+      "atraso": 15
+    },
+    {
+      "id": 6,
+      "cliente_id": 6,
+      "monto": 8000,
+      "fecha_emision": "2023-06-20",
+      "fecha_vencimiento": "2023-12-20",
+      "atraso": 20
+    },
+    {
+      "id": 7,
+      "cliente_id": 7,
+      "monto": 12000,
+      "fecha_emision": "2023-07-08",
+      "fecha_vencimiento": "2024-01-08",
+      "atraso": 5
+    },
+    {
+      "id": 8,
+      "cliente_id": 8,
+      "monto": 6000,
+      "fecha_emision": "2023-08-16",
+      "fecha_vencimiento": "2024-02-16",
+      "atraso": 0
+    },
+    {
+      "id": 9,
+      "cliente_id": 9,
+      "monto": 10000,
+      "fecha_emision": "2023-09-25",
+      "fecha_vencimiento": "2024-03-25",
+      "atraso": 10
+    },
+    {
+      "id": 10,
+      "cliente_id": 10,
+      "monto": 25000,
+      "fecha_emision": "2023-10-30",
+      "fecha_vencimiento": "2024-04-30",
+      "atraso": 0
+    }
+  ]
+}
