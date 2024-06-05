@@ -1,0 +1,26 @@
+ID_PEDIDO,CLIENTE,PRODUCTO,CANTIDAD,PRECIO,FECHA_HORA
+1,Juan Pérez,Consultoría SEO,10,500,2023-06-01 14:30:00
+2,maria GARCIA,Desarrollo Web,5,1500,2023-06-02 09:15:00
+3,LUIS RODRIGUEZ,Curso de Marketing Digital,7,300,2023-06-03 18:45:00
+4,Ana MARTINEZ,Análisis de Datos,3,800,2023-06-04 11:20:00
+5,Carlos LOPEZ,Redacción de Contenidos,12,250,2023-06-05 16:00:00
+6,Sofía HERNANDEZ,Gestión de Redes Sociales,6,700,2023-06-06 08:30:00
+7,David RAMIREZ,Optimización de Conversiones,8,900,2023-06-07 14:45:00
+8,Lorena MARTINEZ,Investigación de Mercado,4,1200,2023-06-08 10:10:00
+9,Pedro GOMEZ,Desarrollo de Aplicaciones Móviles,9,2000,2023-06-09 12:20:00
+10,Marta FERNANDEZ,Branding y Diseño Gráfico,5,400,2023-06-10 11:50:00
+11,Juan MARTINEZ,Estrategia de Contenidos,3,600,2023-06-11 13:35:00
+12,Ana LOPEZ,Consultoría de Negocios,7,1100,2023-06-12 09:25:00
+13,LUIS GARCIA,Capacitación en Ventas,10,950,2023-06-13 15:15:00
+14,María PEREZ,Asesoría Legal,2,1300,2023-06-14 16:40:00
+15,Carlos RODRIGUEZ,Consultoría Financiera,8,1750,2023-06-15 17:30:00
+16,Sara MARTINEZ,Desarrollo de E-commerce,6,1600,2023-06-16 14:50:00
+17,José FERNANDEZ,Planificación Estratégica,9,1400,2023-06-17 08:45:00
+18,Luisa GOMEZ,Análisis Competitivo,11,950,2023-06-18 10:30:00
+19,David HERNANDEZ,Entrenamiento en Liderazgo,4,1000,2023-06-19 12:25:00
+20,Lorena RAMIREZ,Consultoría de Recursos Humanos,3,1200,2023-06-20 09:50:00
+21,Pedro MARTINEZ,Desarrollo de Software,5,2200,2023-06-21 15:40:00
+22,Marta GARCIA,Servicio de Atención al Cliente,7,800,2023-06-22 13:55:00
+23,Juan LOPEZ,Asesoría de Inversiones,6,1350,2023-06-23 16:05:00
+24,Ana RODRIGUEZ,Gestión de Proyectos,9,1500,2023-06-24 11:45:00
+25,Carlos FERNANDEZ,Consultoría en Innovación,12,1800,2023-06-25 14:20:00
