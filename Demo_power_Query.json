@@ -367,8 +367,8 @@
         "PAIS": "RepúblicaDominicana",
         "PROVINCIA": "Monte Cristi",
         "REGION": "Cibao Noroeste",
-        "LONGITUD": "-71.645",
-        "LATITUD": "-19.8486",
+        "LONGITUD": "--71.65",
+        "LATITUD": "19.866667",
         "ESTATUS_PEDIDO": "Facturado",
         "TIPO_PAGO": "Efectivo",
         "TIPO_COMPRA": "Fisica"
