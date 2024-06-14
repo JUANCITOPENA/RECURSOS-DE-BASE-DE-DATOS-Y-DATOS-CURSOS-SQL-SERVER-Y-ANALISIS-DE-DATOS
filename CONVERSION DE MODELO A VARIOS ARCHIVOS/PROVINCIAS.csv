@@ -1,0 +1,16 @@
+id_provincia,nombreProvincia,id_region,latitud,longitud
+1,La Altagracia,1,18.6154,-68.7073
+2,El Seibo,1,18.7652,-69.0381
+3,Hato Mayor,1,18.7625,-69.2568
+4,La Romana,1,18.4339,-68.9666
+5,San Pedro de Macorís,1,18.4517,-69.2994
+6,Santiago,2,19.4517,-70.697
+7,Puerto Plata,2,19.7903,-70.6871
+8,Duarte,2,19.2957,-70.255
+9,Espaillat,2,19.3901,-70.5253
+10,La Vega,2,19.2225,-70.5297
+11,Azua,3,18.454,-70.729
+12,Barahona,3,18.2085,-71.1008
+13,San Juan,3,18.8059,-71.2299
+14,San Cristóbal,3,18.4154,-70.1119
+15,Peravia,3,18.2796,-70.3316

@@ -1,0 +1,16 @@
+ID_VENDEDOR,VENDEDOR,GENERO,SUCURSAL,PROVINCIA
+VD-10001,Juan Perez,Masculino,1,1
+VD-10002,Maria Vizcaino,Femenino,1,2
+VD-10003,Ana Santana,Masculino,1,3
+VD-10004,Luis Diaz,Femenino,1,4
+VD-10005,Sofia Bergara,Masculino,1,5
+VD-10006,Jorge Ramos,Femenino,2,6
+VD-10007,Juan Comila,Masculino,2,7
+VD-10008,Juan Gabrie;,Masculino,2,8
+VD-10009,Juan Perez,Femenino,2,9
+VD-10010,Juan Gabrie;,Masculino,2,10
+VD-10011,Juan Perez,Femenino,3,11
+VD-10012,Maria Vizcaino,Femenino,3,12
+VD-10013,Carlos Santos,Masculino,3,13
+VD-10014,Ana Santana,Femenino,3,14
+VD-10015,Sofia Bergara,Femenino,3,15
