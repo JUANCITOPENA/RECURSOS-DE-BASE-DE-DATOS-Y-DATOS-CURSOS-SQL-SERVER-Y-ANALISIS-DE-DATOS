@@ -1,0 +1,126 @@
+ID_PEDIDO,VENDEDOR,CLIENTE,PRODUCTO,CANTIDAD,PRECIO,FECHA_HORA
+1,JuLiO torReS,Juan Pérez,Bujías,10,10,6/1/23 2:30 PM
+2,RaQUel SalAzar,maria GARCIA,Pistones,5,80,6/2/23 9:15 AM
+3,SiMon BArreRa,LUIS RODRIGUEZ,Cilindros,7,150,6/3/23 6:45 PM
+4,MatEo diAz,Ana MARTINEZ,Filtros de Aceite,3,15,6/4/23 11:20 AM
+5,FaBiAn VasQuez,Carlos LOPEZ,Silenciadores,12,120,6/5/23 4:00 PM
+6,CrIstina ValEnCia,Sofía HERNANDEZ,Cadenas,6,50,6/6/23 8:30 AM
+7,AleXanDrO MoRa,David RAMIREZ,Pastillas de Freno,8,30,6/7/23 2:45 PM
+8,RoSa UrIbe,Lorena MARTINEZ,Amortiguadores,4,200,6/8/23 10:10 AM
+9,JaVIer ArAujo,Pedro GOMEZ,Baterías,9,100,6/9/23 12:20 PM
+10,PAtriciA mOreno,Marta FERNANDEZ,Neumáticos,5,120,6/10/23 11:50 AM
+11,AnDrEs MeNDoza,Juan MARTINEZ,Guardabarros,3,40,6/11/23 1:35 PM
+12,SoNia ToRReS,Ana LOPEZ,Asientos,7,80,6/12/23 9:25 AM
+13,HuGo SAndoval,LUIS GARCIA,Manillares,10,60,6/13/23 3:15 PM
+14,MoNiCA AlVarez,María PEREZ,Espejos Retrovisores,2,25,6/14/23 4:40 PM
+15,DAnieLa RaMiRez,Carlos RODRIGUEZ,Casco,8,150,6/15/23 5:30 PM
+16,HeCTOr MuñoZ,Sara MARTINEZ,Guantes,6,40,6/16/23 2:50 PM
+17,AnTonIo OlIvERa,José FERNANDEZ,Chaquetas de Protección,9,200,6/17/23 8:45 AM
+18,IsabeL OrTeGa,Luisa GOMEZ,Palancas de Freno,11,20,6/18/23 10:30 AM
+19,GaBRieL RiVas,David HERNANDEZ,Cables de Acelerador,4,15,6/19/23 12:25 PM
+20,FRanCisCO RoSaS,Lorena RAMIREZ,Controles de Puños Calefactables,3,100,6/20/23 9:50 AM
+21,maRIa BoNifAz,Pedro MARTINEZ,Tensores de Cadena,5,20,6/21/23 3:40 PM
+22,JeSus PAcheCO,Marta GARCIA,Protectores de Motor,7,50,6/22/23 1:55 PM
+23,viCTor SaNZ,Juan LOPEZ,Carburadores,6,200,6/23/23 4:05 PM
+24,LuiSa bEnITez,Ana RODRIGUEZ,Discos de Freno,9,80,6/24/23 11:45 AM
+25,SaNDRa EsPInoSa,Carlos FERNANDEZ,Horquillas,12,300,6/25/23 2:20 PM
+26,JuLiO torReS,JUAN Pérez,Bujías,10,10,1/1/24 2:30 PM
+27,RaQUel SalAzar,MARIA Garcia,Pistones,5,80,1/2/24 9:15 AM
+28,SiMon BArreRa,LUIS Rodriguez,Cilindros,7,150,1/3/24 6:45 PM
+29,MatEo diAz,ANA Martinez,Filtros de Aceite,3,15,1/4/24 11:20 AM
+30,FaBiAn VasQuez,CARLOS Lopez,Silenciadores,12,120,1/5/24 4:00 PM
+31,CrIstina ValEnCia,SOFIA Hernandez,Cadenas,6,50,1/6/24 8:30 AM
+32,AleXanDrO MoRa,DAVID Ramirez,Pastillas de Freno,8,30,1/7/24 2:45 PM
+33,RoSa UrIbe,LORENA Martinez,Amortiguadores,4,200,1/8/24 10:10 AM
+34,JaVIer ArAujo,PEDRO Gomez,Baterías,9,100,1/9/24 12:20 PM
+35,PAtriciA mOreno,MARTA Fernandez,Neumáticos,5,120,1/10/24 11:50 AM
+36,AnDrEs MeNDoza,JUAN Martinez,Guardabarros,3,40,1/11/24 1:35 PM
+37,SoNia ToRReS,ANA Lopez,Asientos,7,80,1/12/24 9:25 AM
+38,HuGo SAndoval,LUIS Garcia,Manillares,10,60,1/13/24 3:15 PM
+39,MoNiCA AlVarez,MARIA Perez,Espejos Retrovisores,2,25,1/14/24 4:40 PM
+40,DAnieLa RaMiRez,CARLOS Rodriguez,Casco,8,150,1/15/24 5:30 PM
+41,HeCTOr MuñoZ,SARA Martinez,Guantes,6,40,1/16/24 2:50 PM
+42,AnTonIo OlIvERa,JOSE Fernandez,Chaquetas de Protección,9,200,1/17/24 8:45 AM
+43,IsabeL OrTeGa,LUISA Gomez,Palancas de Freno,11,20,1/18/24 10:30 AM
+44,GaBRieL RiVas,DAVID Hernandez,Cables de Acelerador,4,15,1/19/24 12:25 PM
+45,FRanCisCO RoSaS,LORENA Ramirez,Controles de Puños Calefactables,3,100,1/20/24 9:50 AM
+46,maRIa BoNifAz,PEDRO Martinez,Tensores de Cadena,5,20,1/21/24 3:40 PM
+47,JeSus PAcheCO,MARTA Garcia,Protectores de Motor,7,50,1/22/24 1:55 PM
+48,viCTor SaNZ,JUAN Lopez,Carburadores,6,200,1/23/24 4:05 PM
+49,LuiSa bEnITez,ANA Rodriguez,Discos de Freno,9,80,1/24/24 11:45 AM
+50,SaNDRa EsPInoSa,CARLOS Fernandez,Horquillas,12,300,1/25/24 2:20 PM
+51,JuLiO torReS,SOFIA Perez,Bujías,10,10,1/26/24 10:15 AM
+52,RaQUel SalAzar,DAVID Garcia,Pistones,5,80,1/27/24 8:50 AM
+53,SiMon BArreRa,LORENA Rodriguez,Cilindros,7,150,1/28/24 1:30 PM
+54,MatEo diAz,PEDRO Hernandez,Filtros de Aceite,3,15,1/29/24 3:25 PM
+55,FaBiAn VasQuez,MARTA Ramirez,Silenciadores,12,120,1/30/24 4:35 PM
+56,CrIstina ValEnCia,JUAN Fernandez,Cadenas,6,50,1/31/24 9:45 AM
+57,AleXanDrO MoRa,MARIA Gomez,Pastillas de Freno,8,30,2/1/24 12:00 PM
+58,RoSa UrIbe,LUIS Hernandez,Amortiguadores,4,200,2/2/24 11:25 AM
+59,JaVIer ArAujo,ANA Ramirez,Baterías,9,100,2/3/24 5:10 PM
+60,PAtriciA mOreno,CARLOS Martinez,Neumáticos,5,120,2/4/24 2:55 PM
+61,AnDrEs MeNDoza,SARA Lopez,Guardabarros,3,40,2/5/24 1:05 PM
+62,SoNia ToRReS,JOSE Garcia,Asientos,7,80,2/6/24 8:20 AM
+63,HuGo SAndoval,LUISA Perez,Manillares,10,60,2/7/24 4:50 PM
+64,MoNiCA AlVarez,DAVID Fernandez,Espejos Retrovisores,2,25,2/8/24 10:45 AM
+65,DAnieLa RaMiRez,LORENA Gomez,Casco,8,150,2/9/24 3:35 PM
+66,HeCTOr MuñoZ,PEDRO Lopez,Guantes,6,40,2/10/24 11:30 AM
+67,AnTonIo OlIvERa,MARTA Rodriguez,Chaquetas de Protección,9,200,2/11/24 2:10 PM
+68,IsabeL OrTeGa,JUAN Ramirez,Palancas de Freno,11,20,2/12/24 9:35 AM
+69,GaBRieL RiVas,MARIA Martinez,Cables de Acelerador,4,15,2/13/24 12:40 PM
+70,FRanCisCO RoSaS,LUIS Fernandez,Controles de Puños Calefactables,3,100,2/14/24 8:50 AM
+71,maRIa BoNifAz,ANA Gomez,Tensores de Cadena,5,20,2/15/24 1:15 PM
+72,JeSus PAcheCO,CARLOS Hernandez,Protectores de Motor,7,50,2/16/24 5:50 PM
+73,viCTor SaNZ,SARA Ramirez,Carburadores,6,200,2/17/24 11:20 AM
+74,LuiSa bEnITez,JOSE Martinez,Discos de Freno,9,80,2/18/24 3:45 PM
+75,SaNDRa EsPInoSa,LUISA Lopez,Horquillas,12,300,2/19/24 12:55 PM
+76,JuLiO torReS,MigUeL bErNAL,Bujías,8,10,2/20/24 10:25 AM
+77,RaQUel SalAzar,RiCarDo FaRiNaS,Pistones,8,80,2/21/24 2:30 PM
+78,SiMon BArreRa,CaRolInA NaVArro,Cilindros,33,150,2/22/24 4:10 PM
+79,MatEo diAz,MAriO caRReRa,Filtros de Aceite,5,15,2/23/24 9:15 AM
+80,FaBiAn VasQuez,JuAN cAsTiLLo,Silenciadores,7,120,2/24/24 12:35 PM
+81,CrIstina ValEnCia,SaMUeL gOmez,Cadenas,17,50,2/25/24 3:55 PM
+82,AleXanDrO MoRa,JeNNy almeIDa,Pastillas de Freno,7,30,2/26/24 10:40 AM
+83,RoSa UrIbe,RoBerTo bERtuChI,Amortiguadores,11,200,2/27/24 2:25 PM
+84,JaVIer ArAujo,BeLen ValvERDe,Baterías,23,100,2/28/24 9:05 AM
+85,PAtriciA mOreno,PEpe ALonsO,Neumáticos,27,120,2/29/24 5:35 PM
+86,AnDrEs MeNDoza,PaBlo RoChA,Guardabarros,9,40,3/1/24 11:50 AM
+87,SoNia ToRReS,ArMaNDo SoSA,Asientos,26,80,3/2/24 1:10 PM
+88,HuGo SAndoval,FErnaNdo ViLa,Manillares,14,60,3/3/24 4:00 PM
+89,MoNiCA AlVarez,RAFAel CoRoNa,Espejos Retrovisores,5,25,3/4/24 2:15 PM
+90,DAnieLa RaMiRez,JuLiA SaLaS,Casco,8,150,3/5/24 10:30 AM
+91,HeCTOr MuñoZ,AMaNda VeLaSco,Guantes,5,40,3/6/24 12:50 PM
+92,AnTonIo OlIvERa,VicTOR CArRIllO,Chaquetas de Protección,17,200,3/7/24 8:25 AM
+93,IsabeL OrTeGa,ALBERTO VeGA,Palancas de Freno,16,20,3/8/24 3:20 PM
+94,GaBRieL RiVas,AnA BoRja,Cables de Acelerador,33,15,3/9/24 11:35 AM
+95,FRanCisCO RoSaS,roBerTa FeRnANdEZ,Controles de Puños Calefactables,5,100,3/10/24 2:40 PM
+96,maRIa BoNifAz,fElipE PaJArO,Tensores de Cadena,22,20,3/11/24 1:25 PM
+97,JeSus PAcheCO,Olga mONterO,Protectores de Motor,27,50,3/12/24 10:15 AM
+98,viCTor SaNZ,JorGe pINedA,Carburadores,8,200,3/13/24 4:50 PM
+99,LuiSa bEnITez,IsMaEl RoJaS,Discos de Freno,23,80,3/14/24 12:30 PM
+100,SaNDRa EsPInoSa,AdRIan QuIroZ,Horquillas,9,300,3/15/24 9:55 AM
+101,JuLiO torReS,ElVira ReYEs,Bujías,30,10,3/16/24 11:10 AM
+102,RaQUel SalAzar,mIgUel MeDIna,Pistones,27,80,3/17/24 2:05 PM
+103,SiMon BArreRa,niColaS SaNCHez,Cilindros,6,150,3/18/24 3:30 PM
+104,MatEo diAz,FranCisCO NuNEZ,Filtros de Aceite,32,15,3/19/24 10:20 AM
+105,FaBiAn VasQuez,soFiA ArAos,Silenciadores,24,120,3/20/24 1:50 PM
+106,CrIstina ValEnCia,juAnMa BorDA,Cadenas,16,50,3/21/24 9:45 AM
+107,AleXanDrO MoRa,edGAR ToLEdo,Pastillas de Freno,23,30,3/22/24 11:00 AM
+108,RoSa UrIbe,ceSAR TrujILLO,Amortiguadores,28,200,3/23/24 5:05 PM
+109,JaVIer ArAujo,lOREna bRITo,Baterías,34,100,3/24/24 2:30 PM
+110,PAtriciA mOreno,MaRtin EsTRada,Neumáticos,18,120,3/25/24 12:10 PM
+111,AnDrEs MeNDoza,andRES qUiRos,Guardabarros,25,40,3/26/24 10:35 AM
+112,SoNia ToRReS,SAntiAgO EsCObAr,Asientos,14,80,3/27/24 3:15 PM
+113,HuGo SAndoval,arIAdna CAsTRO,Manillares,29,60,3/28/24 8:45 AM
+114,MoNiCA AlVarez,MAxIMo NeGRo,Espejos Retrovisores,28,25,3/29/24 2:50 PM
+115,DAnieLa RaMiRez,yoLAnDA VeNtuRA,Casco,12,150,3/30/24 12:05 PM
+116,HeCTOr MuñoZ,hUGo aCEvedo,Guantes,23,40,3/31/24 11:25 AM
+117,AnTonIo OlIvERa,emILia maCias,Chaquetas de Protección,18,200,4/1/24 3:35 PM
+118,IsabeL OrTeGa,arManDo pALACIoS,Palancas de Freno,27,20,4/2/24 1:55 PM
+119,GaBRieL RiVas,MARta fERRer,Cables de Acelerador,31,15,4/3/24 9:25 AM
+120,FRanCisCO RoSaS,gABrIeLA cLaVeRO,Controles de Puños Calefactables,24,100,4/4/24 4:45 PM
+121,maRIa BoNifAz,aLEjAndRa ToRreS,Tensores de Cadena,26,20,4/5/24 10:50 AM
+122,JeSus PAcheCO,jORge HErNAndEZ,Protectores de Motor,11,50,4/6/24 12:40 PM
+123,viCTor SaNZ,ERnESto fRancO,Carburadores,11,200,4/7/24 2:25 PM
+124,LuiSa bEnITez,aNDrea eSPINoza,Discos de Freno,6,80,4/8/24 11:15 AM
+125,SaNDRa EsPInoSa,riCARDo SoTo,Horquillas,16,300,4/9/24 3:10 PM
