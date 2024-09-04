@@ -1,4 +1,4 @@
-# Repositorio de Bases de Datos y Recursos Técnicos
+# Repositorio de Bases de Datos y Recursos Técnicos - Recuerda darme las Gracias con una Estrella y Compatir con los demas:
 
 Este repositorio de GitHub contiene una variedad de archivos relacionados con bases de datos, documentos técnicos y recursos para el año 2023. Aquí encontrarás información útil para desarrolladores, analistas de datos y profesionales de tecnología. A continuación, se presenta una breve descripción de los archivos disponibles:
 
