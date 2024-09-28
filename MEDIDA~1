@@ -1,0 +1,124 @@
+-- Medidas para el análisis de ventas
+
+-- Total Ingresos
+-- Calcula el monto total generado por las ventas multiplicando el precio de venta por la cantidad
+Total Ingresos = 
+SUMX(
+    Ventas,
+    Ventas[MontoTotal]
+)
+
+-- Cantidad Total
+-- Suma todas las cantidades de productos vendidos en la tabla Ventas
+Cantidad Total = 
+SUM(Ventas[Cantidad])
+
+-- Costo Total
+-- Calcula el costo total de los productos vendidos multiplicando el precio de compra por la cantidad
+Costo Total = 
+SUMX(
+    Ventas,
+    RELATED(Productos[PrecioCompra]) * Ventas[Cantidad]
+)
+
+-- Margen Total
+-- Calcula el margen total de beneficio restando el precio de compra del precio de venta y multiplicando por la cantidad
+Margen Total = 
+SUMX(
+    Ventas,
+    (RELATED(Productos[PrecioVenta]) - RELATED(Productos[PrecioCompra])) * Ventas[Cantidad]
+)
+
+-- % Margen
+-- Calcula el porcentaje de margen de beneficio comparado con los ingresos totales
+% Margen = 
+DIVIDE(
+    [Margen Total],
+    [Total Ingresos],
+    0
+)
+
+-- Ranking_Ventas
+-- Asigna un rango a cada producto basado en los ingresos totales, ordenado de forma descendente
+Ranking_Ventas = 
+RANKX(
+    ALL(Ventas),
+    [Total Ingresos],
+    ,
+    DESC
+)
+
+-- Total Ing. Acum
+-- Calcula los ingresos totales acumulados hasta una posición en el ranking de ventas
+Total Ing. Acum = 
+CALCULATE(
+    [Total Ingresos],
+    TOPN(
+        [Ranking_Ventas],
+        ALL(Ventas[ProductoID]),
+        [Total Ingresos],
+        DESC
+    )
+)
+
+-- % del Total Acumulado
+-- Calcula el porcentaje que representa el total de ingresos acumulados sobre el total general de ingresos
+% del Total Acumulado = 
+DIVIDE(
+    [Total Ing. Acum],
+    CALCULATE(
+        [Total Ingresos],
+        ALL(Ventas[ProductoID])
+    ),
+    0
+)
+
+-- Ventas Año Actual
+-- Calcula los ingresos totales del año actual
+Ventas Año Actual = 
+CALCULATE(
+    [Total Ingresos],
+    YEAR('TablaCalendario'[Fecha]) = YEAR(TODAY())
+)
+
+-- Ventas Año Anterior
+-- Calcula los ingresos totales del mismo período en el año anterior
+Ventas Año Anterior = 
+CALCULATE(
+    [Total Ingresos],
+    SAMEPERIODLASTYEAR('TablaCalendario'[Fecha])
+)
+
+-- Dif. Ventas AA vs AA
+-- Calcula la diferencia entre ventas del año actual y ventas del año anterior
+Dif. Ventas AA vs AA = 
+[Ventas Año Actual] - [Ventas Año Anterior]
+
+-- Crecimiento Ventas %
+-- Calcula el porcentaje de crecimiento o decrecimiento de las ventas
+Crecimiento Ventas % = 
+DIVIDE(
+    [Dif. Ventas AA vs AA],
+    [Ventas Año Anterior],
+    0
+) * 100
+
+-- Expresión para crear la tabla de calendario
+
+TablaCalendario = 
+VAR MinDate = CALCULATE(MIN(Ventas[Fecha]))
+VAR MaxDate = CALCULATE(MAX(Ventas[Fecha]))
+RETURN
+ADDCOLUMNS(
+    CALENDAR(MinDate, MaxDate),
+    "Fecha", [Date],
+    "Año", YEAR([Date]),
+    "Mes Número", MONTH([Date]),
+    "Mes Nombre", FORMAT([Date], "MMMM"),
+    "Trimestre", "Q" & FORMAT([Date], "Q"),
+    "Semana del Año", WEEKNUM([Date], 2),
+    "Día de la Semana", WEEKDAY([Date], 2),
+    "Día Nombre", FORMAT([Date], "dddd"),
+    "Día del Mes", DAY([Date]),
+    "Año-Mes", FORMAT([Date], "yyyy-MM")
+)
