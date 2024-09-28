@@ -1,62 +1,241 @@
-# Repositorio de Bases de Datos y Recursos Técnicos - Recuerda darme las Gracias con una Estrella y Compatir con los demas:
+# 📊 DIPLOMADO DE POWER BI - CAES ACADEMY
 
-Este repositorio de GitHub contiene una variedad de archivos relacionados con bases de datos, documentos técnicos y recursos para el año 2023. Aquí encontrarás información útil para desarrolladores, analistas de datos y profesionales de tecnología. A continuación, se presenta una breve descripción de los archivos disponibles:
+¡Bienvenidos al repositorio oficial del **Diplomado de Power BI - CAES**! 🎉 
 
-## Archivos de Bases de Datos
+Este espacio ha sido diseñado para proporcionar todos los recursos necesarios que te ayudarán a dominar Power BI, desde los conceptos fundamentales hasta las técnicas más avanzadas. Ya sea que seas un principiante o un analista de datos experimentado, encontrarás valor en cada sección de este curso.
 
-1. [BASE DE DATOS AGENDA 2023.sql](BASE%20DE%20DATOS%20AGENDA%202023.sql)
-   - Archivo SQL que contiene una base de datos de agenda para el año 2023.
+## 📋 Tabla de Contenidos
 
-2. [BASE DE DATOS TIENDA ONLINE-ROPAS-EXPORTADA DE SQL SERVER.xlsx](BASE%20DE%20DATOS%20TIENDA%20ONLINE-ROPAS-EXPORTADA%20DE%20SQL%20SERVER.xlsx)
-   - Archivo de Excel que presenta una base de datos exportada desde SQL Server relacionada con una tienda en línea de ropa.
+- [Descripción del Diplomado](#-descripción-del-diplomado)
+- [Contenido del Repositorio](#-contenido-del-repositorio)
+- [Instrucciones de Uso](#-instrucciones-de-uso)
+- [Requisitos Previos](#️-requisitos-previos)
+- [Estructura del Curso](#-estructura-del-curso)
+- [Recursos Adicionales](#-recursos-adicionales)
+- [Cómo Contribuir](#-cómo-contribuir)
+- [Soporte y Contacto](#-soporte-y-contacto)
+- [Licencia](#-licencia)
 
-3. [BASE DE DATOS VENTAS DE SOFTWARE.sql](BASE%20DE%20DATOS%20VENTAS%20DE%20SOFTWARE.sql)
-   - Archivo SQL que contiene datos relacionados con ventas de software.
+## 🎓 Descripción del Diplomado
 
-4. [BASE DE DATOS VENTAS_VEHICULOS_TOYOTA_v3.sql](BASE%20DE%20DATOS%20VENTAS_VEHICULOS_TOYOTA_v3.sql)
-   - Archivo SQL que contiene datos de ventas de vehículos de la marca Toyota.
+El Diplomado de Power BI - CAES es un programa completo diseñado para capacitar a profesionales en el uso efectivo de Microsoft Power BI para el análisis de datos y la creación de informes interactivos. A lo largo del curso, los participantes adquirirán habilidades prácticas en:
 
-5. [EMPRESA_VIDEO_JUEGOS_2023.sql](EMPRESA_VIDEO_JUEGOS_2023.sql)
-   - Archivo SQL que presenta una base de datos relacionada con una empresa de videojuegos para el año 2023.
+- Importación y transformación de datos
+- Modelado de datos y relaciones
+- Creación de medidas y columnas calculadas con DAX
+- Diseño de visualizaciones impactantes
+- Publicación y compartición de informes
+- Implementación de buenas prácticas en BI
 
-6. [LOGIN SECCION_PDM_XAMARIN.sql](LOGIN%20SECCION_PDM_XAMARIN.sql)
-   - Archivo SQL relacionado con el proceso de inicio de sesión en una aplicación móvil desarrollada con Xamarin.
+## 📂 Contenido del Repositorio
 
-7. [MODELO FACTUTACION, DETALLE FACTURA Y RELACIONES-VENTASDM.sql](MODELO%20FACTUTACION,%20DETALLE%20FACTURA%20Y%20RELACIONES-VENTASDM.sql)
-   - Archivo SQL que describe un modelo de facturación y relaciones para el análisis de ventas.
+Este repositorio está organizado en las siguientes carpetas principales:
 
-8. [Modelo Base de Datos lTwitter_2023.sql](Modelo%20Base%20de%20Datos%20lTwitter_2023.sql)
-   - Archivo SQL que contiene un modelo de base de datos relacionado con Twitter para el año 2023.
+1. **📚 Manuales y Guías de Estudio**: 
+   - Documentos PDF con teoría y conceptos clave
+   - Presentaciones PowerPoint para cada módulo
+   - Glosario de términos de Power BI
 
-9. [PRIMER EJERCICIO DE BASE DE DATOS - COMPLETO PARA LA SEMANA QUE VIENE.sql](PRIMER%20EJERCICIO%20DE%20BASE%20DE%20DATOS%20-%20COMPLETO%20PARA%20LA%20SEMANA%20QUE%20VIENE.sql)
-   - Archivo SQL que forma parte de un ejercicio de base de datos completo.
+2. **📊 Archivos de Ejemplo**: 
+   - Conjuntos de datos en diversos formatos (.csv, .xlsx, .json)
+   - Proyectos de Power BI (.pbix) para demostraciones
+   - Bases de datos de muestra
 
-10. [SCRIPT BASE DE DATOS MODELO EMPRESA VENTAS EQUIPOS TECNOLOGICOS- PRUEBAS.sql](SCRIPT%20BASE%20DE%20DATOS%20MODELO%20EMPRESA%20VENTAS%20EQUIPOS%20TECNOLOGICOS-%20PRUEBAS.sql)
-    - Archivo SQL que contiene un script relacionado con ventas de equipos tecnológicos.
+3. **📝 Ejercicios y Tareas**: 
+   - Hojas de trabajo para práctica individual
+   - Proyectos guiados paso a paso
+   - Desafíos de análisis de datos
 
-11. [SCRIPT BASE DE DATOS PRUEBA TECNICA PARA TABLA EMPLEADOS.sql](SCRIPT%20BASE%20DE%20DATOS%20PRUEBA%20TECNICA%20PARA%20TABLA%20EMPLEADOS.sql)
-    - Archivo SQL que forma parte de una prueba técnica relacionada con la tabla de empleados.
+4. **🎥 Material Complementario**: 
+   - Enlaces a tutoriales en video
+   - Artículos y blogs recomendados
+   - Recursos de la comunidad Power BI
 
-12. [SCRIPT CONSULTAS AVANZADAS - USANDO SQL SERVER - DATOS DE ANALISIS - MODELO EMPRESA VENTAS EQUIPOS TECNOLOGICOS- PRUEBAS.sql](SCRIPT%20CONSULTAS%20AVANZADAS%20-%20USANDO%20SQL%20SERVER%20-%20DATOS%20DE%20ANALISIS%20-%20MODELO%20EMPRESA%20VENTAS%20EQUIPOS%20TECNOLOGICOS-%20PRUEBAS.sql)
-    - Archivo SQL que contiene consultas avanzadas para el análisis de datos relacionados con ventas de equipos tecnológicos.
+5. **📑 Evaluaciones**: 
+   - Cuestionarios de autoevaluación
+   - Rúbricas para proyectos finales
+   - Guías para presentaciones de casos de estudio
 
-13. [SSCTIPT BASE DE DATOS TIENDA EN LINEA SQL SERVER-2023.sql](SSCTIPT%20BASE%20DE%20DATOS%20TIENDA%20EN%20LINEA%20SQL%20SERVER-2023.sql)
-    - Archivo SQL relacionado con una base de datos de una tienda en línea desarrollada en SQL Server para el año 2023.
+## 📌 Instrucciones de Uso
 
-14. [USOS DE CTE- MODELO - BASE DE DATOS -CTE_DB_PRUEBAS_2023.sql](USOS%20DE%20CTE-%20MODELO%20-%20BASE%20DE%20DATOS%20-CTE_DB_PRUEBAS_2023.sql)
-    - Archivo SQL que demuestra el uso de Common Table Expressions (CTE) en un modelo de base de datos.
+1. **Clona el repositorio** en tu máquina local:
+   ```bash
+   git clone https://github.com/CAES-ORG/DIPLOMADO-DE-POWER-BI-CAES.git
+   ```
 
-## Documentos Técnicos
+2. **Navega por las carpetas** según el módulo o tema que estés estudiando.
 
-1. [CONOCER EL PORQUE DE LOS NIVELES TECNICOS EN LAS EMPRESAS NO IMPORTA LA TECNOLOGIA.pdf](CONOCER%20EL%20PORQUE%20DE%20LOS%20NIVELES%20TECNICOS%20EN%20LAS%20EMPRESAS%20NO%20IMPORTA%20LA%20TECNOLOGIA.pdf)
-   - Documento que explora la importancia de los niveles técnicos en las empresas, independientemente de la tecnología utilizada.
+3. **Descarga los archivos necesarios** para cada lección o ejercicio.
 
-2. [SQL COMANDOS DE AYUDA ADVISERTENOLOGY-2023.pdf](SQL%20COMANDOS%20DE%20AYUDA%20ADVISERTENOLOGY-2023.pdf)
-   - Documento PDF que proporciona comandos SQL de ayuda relacionados con AdviserTechnology para el año 2023.
+4. **Sigue las instrucciones detalladas** en los archivos README.md dentro de cada carpeta de módulo.
 
-## Otros Archivos
+5. **Completa los ejercicios y proyectos**, utilizando los recursos proporcionados.
 
-1. [LICENSE](LICENSE)
-   - Licencia del repositorio.
+6. **Participa en los foros de discusión** para aclarar dudas y compartir ideas con tus compañeros.
 
-Este repositorio es una fuente valiosa de recursos para aquellos que trabajan con bases de datos, SQL, tecnología y análisis de datos. Siéntete libre de explorar y utilizar estos archivos según tus necesidades. ¡Disfruta!
+## 🛠️ Requisitos Previos
+
+Para aprovechar al máximo este diplomado, asegúrate de contar con:
+
+- **Power BI Desktop** instalado en tu computadora. [Descárgalo aquí](https://powerbi.microsoft.com/desktop/)
+- Conocimientos básicos de Excel y manejo de datos
+- Familiaridad con conceptos de análisis de negocios
+- Una cuenta de Microsoft para acceder a Power BI Service
+- (Opcional) Visual Studio Code para edición de scripts avanzados
+
+## 📚 Estructura del Curso
+
+El diplomado está dividido en los siguientes módulos:
+
+1. **Introducción a Power BI y Fundamentos de Análisis de Datos**
+2. **Importación y Transformación de Datos con Power Query**
+3. **Modelado de Datos y Relaciones**
+4. **Fundamentos de DAX (Data Analysis Expressions)**
+5. **Creación de Visualizaciones Efectivas**
+6. **Diseño de Dashboards Interactivos**
+7. **Power BI Service y Colaboración**
+8. **Seguridad y Administración en Power BI**
+9. **Integración con Otras Herramientas de Microsoft**
+10. **Proyecto Final y Mejores Prácticas**
+
+Cada módulo incluye teoría, demostraciones, ejercicios prácticos y un mini-proyecto para reforzar el aprendizaje.
+
+# 📊 KPIs e Insights para Tabla Pedidos ETL 📈
+
+📉 Este documento proporciona una lista de KPIs (Indicadores Clave de Rendimiento), insights y métricas en DAX (Data Analysis Expressions) para evaluar el rendimiento de ventas, el comportamiento del cliente y otros aspectos importantes utilizando la tabla Pedidos ETL en Power BI. 📊
+
+## 🔑 KPIs 🔑
+
+1. **Total de Ventas**
+   ```
+   Total_Ventas = SUM('Pedidos ETL'[Monto])
+   ```
+
+2. **Número de Pedidos**
+   ```
+   Numero_Pedidos = COUNT('Pedidos ETL'[ID_PEDIDO])
+   ```
+
+3. **Venta Promedio por Pedido**
+   ```
+   Venta_Promedio_por_Pedido = DIVIDE([Total_Ventas], [Numero_Pedidos], 0)
+   ```
+
+4. **Ventas por Vendedor**
+   ```
+   Ventas_por_Vendedor = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[VENDEDOR]))
+   ```
+
+5. **Número de Clientes Únicos**
+   ```
+   Numero_Clientes_Uni = DISTINCTCOUNT('Pedidos ETL'[CLIENTE])
+   ```
+
+6. **Promedio de Venta por Cliente**
+   ```
+   Promedio_Venta_por_Cliente = DIVIDE([Total_Ventas], [Numero_Clientes_Uni], 0)
+   ```
+
+7. **Ventas por Ciudad**
+   ```
+   Ventas_por_Ciudad = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[CIUDAD]))
+   ```
+
+## 💡 Insights y Métricas 💡
+
+1. **Ventas Mensuales**
+   ```
+   Ventas_Mensuales = CALCULATE([Total_Ventas], MONTH('Pedidos ETL'[FECHA_HORA]) = MONTH(TODAY()))
+   ```
+
+2. **Ventas Anuales**
+   ```
+   Ventas_Anuales = CALCULATE([Total_Ventas], YEAR('Pedidos ETL'[FECHA_HORA]) = YEAR(TODAY()))
+   ```
+
+3. **Ventas por Tipo de Compra**
+   ```
+   Ventas_por_Tipo_Compra = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[TIPO_COMPRA]))
+   ```
+
+4. **Ventas por Condición de Pago**
+   ```
+   Ventas_por_Condicion_Pago = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[CONDICION PAGO]))
+   ```
+
+5. **Top Productos por Ventas**
+   ```
+   Top_Productos_Ventas = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[Producto]))
+   ```
+
+6. **Top Vendedores por Ventas**
+   ```
+   Top_Vendedores_Ventas = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[VENDEDOR]))
+   ```
+
+7. **Promedio de Precio por Producto**
+   ```
+   Promedio_Precio_por_Producto = AVERAGE('Pedidos ETL'[Precio])
+   ```
+
+8. **Total de Cantidad Vendida**
+   ```
+   Total_Cantidad_Vendida = SUM('Pedidos ETL'[Cantidad])
+   ```
+
+9. **Venta Total por Categoría**
+   ```
+   Venta_Total_por_Categoria = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[Categoría]))
+   ```
+
+10. **Ventas por Condición de Pago**
+    ```
+    Ventas_por_Condicion_Pago = CALCULATE([Total_Ventas], ALLEXCEPT('Pedidos ETL', 'Pedidos ETL'[CONDICION PAGO]))
+    ```
+
+## 📝 Notas Adicionales 📝
+
+- 🔍 **Filtrado y Segmentación**: Puedes aplicar filtros adicionales según el periodo de tiempo, ciudad, vendedor, etc., para obtener insights más específicos. 🔎
+
+- 📊 **Visualizaciones**: Utiliza gráficos de líneas para ventas mensuales, gráficos de barras para ventas por vendedor o ciudad, y tablas para mostrar productos o vendedores con mayor rendimiento. 📈
+
+🚀 Estos KPIs e insights te ayudarán a realizar un análisis detallado de tus datos de pedidos y a tomar decisiones informadas basadas en el rendimiento de ventas. 💼
+
+
+## 🌟 Recursos Adicionales
+- [Videos del Profesor de Power BI](https://www.youtube.com/watch?v=Xg7LF4TpY-c&feature=youtu.be)
+- [Documentación Oficial de Power BI](https://docs.microsoft.com/power-bi/)
+- [Foro de la Comunidad Power BI](https://community.powerbi.com/)
+- [Canal de YouTube de Guy in a Cube](https://www.youtube.com/channel/UCFp1vaKzpfvoGai0vE5VJ0w)
+- [Blog de SQLBI](https://www.sqlbi.com/articles/)
+- [Power BI Cheat Sheet](https://github.com/CAES-ORG/DIPLOMADO-DE-POWER-BI-CAES/blob/main/Recursos/PowerBI_CheatSheet.pdf)
+
+## 📝 Cómo Contribuir
+
+Valoramos y alentamos las contribuciones de nuestra comunidad de estudiantes y profesionales. Si deseas contribuir:
+
+1. Haz un Fork del repositorio
+2. Crea una nueva rama (`git checkout -b feature/AmazingFeature`)
+3. Realiza tus cambios y haz commit (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+También puedes contribuir reportando errores, sugiriendo mejoras o compartiendo tus propios proyectos y casos de estudio.
+
+## 📞 Soporte y Contacto
+
+Si tienes preguntas, sugerencias o necesitas ayuda:
+
+- Abre un Issue en este repositorio
+- Envía un correo a soporte@caes-powerbi.com
+- Únete a nuestro canal de Slack: [CAES Power BI Community](https://caes-powerbi.slack.com)
+
+Horario de atención: Lunes a Viernes, 9:00 AM - 6:00 PM (Hora Central)
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE.md](LICENSE.md) para más detalles.
+
+---
+
+¡Esperamos que disfrutes el Diplomado de Power BI - CAES y que este repositorio sea una valiosa herramienta en tu viaje de aprendizaje! 🚀📊
