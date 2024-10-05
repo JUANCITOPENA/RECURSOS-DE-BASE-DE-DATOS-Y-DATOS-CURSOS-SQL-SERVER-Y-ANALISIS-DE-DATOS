@@ -1,51 +1,70 @@
-📘 Un programador junior (o desarrollador junior) es un profesional de la informática que se encuentra en las primeras etapas de su carrera en desarrollo de software. En términos generales, un programador junior tiene menos experiencia en la industria, normalmente de 0 a 2 años, y está en proceso de desarrollar sus habilidades técnicas y su comprensión de las mejores prácticas en programación. 💻
-
-✨ Características de un Programador Junior:
-🔍 Experiencia Limitada: Tiene poca experiencia profesional, aunque puede haber realizado proyectos personales, trabajos académicos, o prácticas. 📈
-
-📚 Conocimiento Básico de Lenguajes de Programación: Tiene conocimientos básicos en uno o más lenguajes de programación (como Python, JavaScript, Java, C++, etc.) y herramientas relacionadas, pero aún está aprendiendo a aplicarlos eficazmente en un entorno de trabajo. 🖥️
-
-🚀 Aprendizaje y Crecimiento: Se encuentra en una fase de aprendizaje activo, adquiriendo habilidades nuevas y desarrollando un entendimiento más profundo de conceptos de programación, estructuras de datos, algoritmos, y patrones de diseño. 📈
-
-🤝 Asistencia y Colaboración: Trabaja bajo la supervisión de programadores más experimentados, como programadores de nivel intermedio o senior, y recibe orientación y apoyo en el desarrollo de proyectos. A menudo, los programadores junior asisten en tareas más sencillas o partes específicas de un proyecto más grande. 👥
-
-👥 Participación en Equipos de Trabajo: Forma parte de equipos de desarrollo de software, participando en reuniones, sesiones de revisión de código, y colaborando en la resolución de problemas. 🤝
-
-🛠️ Tareas Comunes: Las tareas típicas de un programador junior pueden incluir escribir y depurar código, pruebas de software, documentación de procesos, mantenimiento de código existente, y contribución a la implementación de nuevas funcionalidades bajo la dirección de un mentor o líder de equipo. 🖥️
-
-💻 Un programador junior puede tener experiencia limitada o incluso ninguna en áreas más especializadas del desarrollo de software, como bases de datos, frameworks y diseño. Al estar en las primeras etapas de su carrera, su conocimiento suele centrarse en los fundamentos de la programación, y su exposición a tecnologías específicas puede variar según su formación previa o los proyectos en los que haya trabajado. 🚀
-
-Detalles adicionales sobre la experiencia de un programador junior:
-📊 Bases de Datos: Un programador junior puede tener conocimientos básicos de bases de datos relacionales como SQL o MySQL, pero probablemente aún está aprendiendo a realizar tareas más avanzadas como la optimización de consultas, el diseño de esquemas de bases de datos, o el manejo de bases de datos no relacionales como MongoDB. 📊
-
-🔧 Frameworks: Su conocimiento de frameworks (como React, Angular, Django, Spring, etc.) puede ser limitado o superficial. Puede saber cómo utilizar un framework a nivel básico, pero aún está en proceso de aprender las mejores prácticas y cómo sacar el máximo provecho de estas herramientas en un contexto de desarrollo real. 🔧
-
-🧩 Diseño de Software: En cuanto al diseño de software, un programador junior puede estar familiarizado con conceptos básicos como arquitectura de software, patrones de diseño (como MVC o singleton), y principios SOLID, pero aún no tiene la experiencia suficiente para aplicar estos conceptos de manera efectiva en proyectos complejos. 🧩
-
-🔗 Enlaces a Redes Sociales, Contactos y Comunidades: Para fortalecer un portafolio y aumentar la visibilidad profesional, es importante incluir enlaces a redes sociales y comunidades profesionales donde se pueda interactuar con otros desarrolladores y empleadores. Un perfil de LinkedIn actualizado, donde se detallen las habilidades y experiencias del programador, es fundamental. Además, un enlace a GitHub o GitLab donde se alojen los códigos fuente de los proyectos permitirá a los empleadores revisar la calidad del código. 📂
-
-🤝 Participación en Comunidades: Participar activamente en comunidades como Stack Overflow, Reddit, y grupos de desarrolladores en Discord o Slack puede ser muy beneficioso. Estos espacios permiten compartir conocimientos, aprender de otros y mostrar una actitud proactiva en el aprendizaje y resolución de problemas. Esto también puede ser reflejado en el portafolio, indicando la participación activa en estas comunidades. 🛠️
 
 
-💼 Para encontrar trabajo como programador junior, ya sea que tenga experiencia previa o no, hay varios aspectos clave que pueden ayudar a mejorar sus oportunidades en el mercado laboral. Tener un buen portafolio, desarrollar habilidades relevantes y demostrar un compromiso con el aprendizaje continuo son fundamentales. 🖥️
+Ingresos Totales = SUMX(JOYERIA_JPV, JOYERIA_JPV[PRECIO_VENTAS] * JOYERIA_JPV[CANTIDAD])
 
-Requisitos para encontrar trabajo como programador junior:
-👨‍💻 Con experiencia previa: Si el programador junior ya tiene algo de experiencia, incluso si es mínima, puede centrarse en destacar sus logros y habilidades adquiridas en trabajos anteriores, prácticas profesionales o proyectos personales. Es crucial demostrar cómo estas experiencias han contribuido a su desarrollo como programador, especialmente en términos de resolución de problemas, colaboración en equipo, y uso de tecnologías relevantes.
+RANGKING = 
+RANKX(
+    ALL(JOYERIA_JPV[PRODUCTO]),
+    [Ingresos Totales]
+)
 
-🚀 Sin experiencia previa: Para aquellos que no tienen experiencia formal, es importante enfocarse en mostrar un fuerte interés en el campo y un compromiso con el aprendizaje continuo. Esto puede incluir la realización de cursos en línea, tutoriales, participación en comunidades de desarrolladores, y la creación de proyectos personales que demuestren sus habilidades y ganas de aprender. La autoformación y la práctica constante son esenciales para construir una base sólida en programación. 📚
 
-📁 ¿Qué es un portafolio?
-Un portafolio es una colección de proyectos y trabajos realizados por el programador que muestra sus habilidades, experiencias y conocimientos en desarrollo de software. Es una herramienta crucial para cualquier programador junior, ya que permite a los empleadores potenciales ver de manera tangible lo que el candidato puede hacer. 💼
+TOTAL ING ACUMULADO = 
+CALCULATE(
+    [Ingresos Totales], 
+    TOPN(
+        [RANGKING], 
+        ALL(JOYERIA_JPV[PRODUCTO]), 
+        [Ingresos Totales]
+    )
+)
 
-📝 ¿Qué debe tener un portafolio?
-Proyectos Personales: Incluye ejemplos de proyectos en los que el programador ha trabajado, incluso si son proyectos pequeños o autoasignados. Estos proyectos deben mostrar una variedad de habilidades y tecnologías, como lenguajes de programación (por ejemplo, Python, JavaScript), uso de frameworks (como React o Django), y bases de datos. 🖥️
 
-📝 Descripción de los Proyectos: Cada proyecto debe tener una descripción clara que explique cuál era el objetivo del proyecto, qué tecnologías se utilizaron y qué desafíos se enfrentaron y cómo se resolvieron. Esto demuestra la capacidad de análisis y resolución de problemas del programador. 📝
 
-📂 Código Fuente: Proporcionar enlaces al código fuente (por ejemplo, en GitHub) es fundamental para que los empleadores vean cómo escribe y organiza el código el programador. El código bien documentado y estructurado es una gran ventaja. 📂
+% Acumulado de Ventas = 
+[TOTAL ING ACUMULADO] / CALCULATE([Ingresos Totales], ALL(JOYERIA_JPV[PRODUCTO]))
 
-📷 Demostraciones en Vivo: Siempre que sea posible, incluir enlaces a demostraciones en vivo o capturas de pantalla del software en funcionamiento es una excelente manera de mostrar el resultado final del trabajo. Esto ayuda a los empleadores a visualizar cómo se ve y se comporta el producto terminado. 📷
 
-✍️ Blog o Artículos Técnicos: Si el programador ha escrito artículos o blogs sobre temas técnicos, puede ser útil incluir enlaces a estos en el portafolio. Esto muestra su capacidad para comunicar ideas complejas y su participación activa en la comunidad de desarrolladores. ✍️
+EN EL GRAFICO DE BARRA 
 
-📈 Como parte final, debes tener un portafolio bien estructurado y completo ya que este puede ser una herramienta poderosa para ayudar a un programador junior a destacarse en el competitivo mundo laboral del desarrollo de software, ya sea que tenga experiencia previa o esté buscando su primera oportunidad. 🌟
+TITULO DEL GRAFICO DE BARRA: 📊 Distribución de Ingresos Totales 💰 y % Acumulado de Ventas 📈 por Producto 🛒
+
+AGREGAMOS EN EL EJE X A PRODUCTO Y EL EJE Y A INGRESOS TOTALES EN EL EJE DE LINEAS Y AXIS = AGREGAMOS EL % Acumulado de Ventas 
+ACTIVAMOS LA LEYENDA.
+
+CREAMOS LA MEDIDA DE FORMATO CONDICIONAL:
+
+Color Porcentaje Acumulado = 
+VAR PorcentajeAcumulado = [% Acumulado de Ventas]  -- Asegúrate de que esta medida esté definida correctamente
+RETURN
+    SWITCH(
+        TRUE(),
+        PorcentajeAcumulado < 0.81, "#008000",  -- Verde para menos de 80%
+        PorcentajeAcumulado >= 0.81 && PorcentajeAcumulado < 0.95, "#FFFF00",  -- Amarillo para 80% a menos de 95%
+        PorcentajeAcumulado >= 0.95, "#FF0000",  -- Rojo para 95% o más
+        "#000000"  -- Negro como valor por defecto
+    )
+
+EN EL CASO DE LA TABLA CREAMOS TAMBIEN UNA MEDIDAS CONDICIONALES:
+
+Formato Texto Color = 
+VAR PorcentajeAcumulado = [% Acumulado de Ventas] 
+RETURN
+    SWITCH(
+        TRUE(),
+        PorcentajeAcumulado < 0.81, 1,       -- Devuelve 1 para verde
+        PorcentajeAcumulado >= 0.81 && PorcentajeAcumulado < 0.95, 2,  -- Devuelve 2 para amarillo
+        PorcentajeAcumulado >= 0.95, 1,      -- Devuelve 1 para rojo
+        0  -- En caso de un valor inesperado, devuelve 0
+    )
+
+
+EN FORMATO TEXTO COLOR Y CON RULES = VAMOS A PONER LO SIGUIENTE: >= 1 Y <2 Y BLANCO (Formato Texto Color)
+
+EN EL FONDO SOLO ELEGIMOS COLOR PORCENTAJE ACUMULADO EN EL VALOR DE FIELD VALUE Y ELEGIMOS LA MEDIDA DE (Color Porcentaje Acumulado)
+
+
+
+
+
+
