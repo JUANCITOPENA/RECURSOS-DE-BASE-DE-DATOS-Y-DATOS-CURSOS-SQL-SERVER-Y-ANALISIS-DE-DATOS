@@ -1,39 +1,94 @@
 /*
+Descripci√≥n de la Empresa: FastBite
 
-Proyecto: Sistema de GestiÛn para un Restaurante de Comida R·pida en Santo Domingo Oeste, Rep˙blica Dominicana
+FastBite es una cadena de restaurantes de comida r√°pida localizada en Santo Domingo Oeste, Rep√∫blica Dominicana, que se especializa en ofrecer una variedad de opciones de comida r√°pida a clientes locales. El objetivo de FastBite es brindar un servicio r√°pido y de calidad en una atm√≥sfera amigable y accesible para todos. La empresa tiene como meta principal ser reconocida como una opci√≥n confiable en comida r√°pida, ofreciendo platillos que combinan la rapidez de la preparaci√≥n con un sabor excepcional. FastBite se enfoca en la satisfacci√≥n del cliente y en la eficiencia operativa, usando tecnolog√≠a avanzada para mejorar la experiencia del cliente y optimizar sus procesos internos.
 
-DescripciÛn del Proyecto:
+FastBite ofrece un men√∫ diversificado de comidas r√°pidas, que incluye hamburguesas, papas fritas, alitas de pollo, wraps, ensaladas y opciones de bebidas. Adem√°s de contar con espacios f√≠sicos para que los clientes disfruten de su comida en el lugar, la empresa tambi√©n ofrece servicio de entrega a domicilio para quienes prefieren ordenar desde la comodidad de su hogar o lugar de trabajo. La empresa busca diferenciarse en el mercado de comida r√°pida mediante un enfoque en la tecnolog√≠a, el servicio eficiente, y la calidad constante de sus productos.
 
-El objetivo de este proyecto es desarrollar un sistema de gestiÛn integral para un restaurante de comida r·pida ubicado
-en Santo Domingo Oeste, Rep˙blica Dominicana. El sistema permitir· gestionar las operaciones de venta, la logÌstica de
-entrega, el control de inventario y la administraciÛn de clientes y empleados.
+Modelo de Negocio de FastBite
+
+Propuesta de Valor FastBite proporciona una experiencia de comida r√°pida de alta calidad con servicios adicionales, como entrega a domicilio y pedidos en l√≠nea, que facilitan el acceso a sus productos para una clientela diversa. Su sistema de gesti√≥n interna asegura la rapidez y precisi√≥n en los pedidos, tanto en el restaurante como en entregas, minimizando el tiempo de espera y mejorando la experiencia general del cliente.
+
+Segmento de Clientes
+
+Clientes Locales: Residentes y trabajadores en Santo Domingo Oeste que buscan opciones r√°pidas, asequibles y deliciosas.
+J√≥venes y Adultos J√≥venes: Personas de entre 18 y 35 a√±os, que valoran la conveniencia de pedir comida r√°pida y la posibilidad de hacerlo en l√≠nea.
+Familias y Grupos de Amigos: Clientes que buscan opciones variadas y paquetes econ√≥micos para grupos.
+
+Canales de Distribuci√≥n
+
+Pedidos en el Restaurante: FastBite ofrece un espacio c√≥modo donde los clientes pueden hacer sus pedidos y disfrutar su comida en el lugar.
+Pedidos a Domicilio: FastBite emplea entregadores propios y utiliza aplicaciones m√≥viles para recibir y gestionar pedidos en l√≠nea, facilitando una r√°pida respuesta y seguimiento de la entrega.
+Pedidos Online y App Propia: Un sitio web y una app m√≥vil optimizados para recibir pedidos, gestionar opciones de pago y ofrecer promociones exclusivas a los usuarios registrados.
+
+Flujo de Ingresos
+
+Ventas de Comida y Bebidas: La principal fuente de ingresos proviene de la venta de sus productos en el men√∫, tanto en el local como a domicilio.
+Ventas Online y Entregas: Ingresos adicionales derivados de pedidos a trav√©s de la app y sitio web, que tambi√©n permite realizar pagos en l√≠nea para facilitar la experiencia del cliente.
+Ofertas Especiales y Promociones: Ofertas ocasionales que promueven ventas en combos y paquetes especiales, impulsando el volumen de ventas en horarios o d√≠as espec√≠ficos.
+
+Recursos Clave
+
+Infraestructura del Restaurante: Locales bien ubicados y dise√±ados para facilitar la atenci√≥n y el flujo constante de clientes.
+Sistema de Gesti√≥n de Restaurantes: Una plataforma integral de administraci√≥n que permite gestionar inventarios, ventas, pedidos y entregas de manera eficiente.
+Aplicaci√≥n M√≥vil y Sitio Web: Herramientas digitales que facilitan los pedidos y brindan una experiencia de cliente moderna y conveniente.
+Personal Capacitado: Personal comprometido y entrenado para brindar un servicio r√°pido y amable, tanto en el restaurante como en las entregas.
+
+Actividades Clave
+
+Atenci√≥n al Cliente: Ofrecer una experiencia de compra positiva, con un enfoque en la rapidez de servicio y precisi√≥n en los pedidos.
+Gesti√≥n de Inventario: Control constante de los niveles de stock para garantizar disponibilidad de ingredientes frescos y productos en el men√∫.
+Gesti√≥n de Entregas: Coordinaci√≥n de entregadores y optimizaci√≥n de rutas de entrega para mantener tiempos cortos y satisfacci√≥n del cliente.
+An√°lisis de Datos: Uso del sistema de gesti√≥n para recolectar datos que permitan identificar patrones de consumo, analizar eficiencia en entregas y planificar mejor la operaci√≥n.
+
+Estructura de Costos
+
+Costos de Ingredientes y Suministros: Gastos en la adquisici√≥n de alimentos y productos para preparar el men√∫ de FastBite.
+Costos de Tecnolog√≠a: Inversi√≥n en desarrollo y mantenimiento del sistema de gesti√≥n y de la plataforma de pedidos online.
+Costos Operacionales y de Entrega: Gastos en salarios de empleados, transportes para entregas, y mantenimiento del local.
+Gastos de Marketing y Promoci√≥n: Inversiones en publicidad digital, campa√±as de promoci√≥n y ofertas especiales para atraer nuevos clientes.
+Diferenciaci√≥n y Competitividad FastBite se diferencia en el mercado de comida r√°pida por la implementaci√≥n de su sistema de gesti√≥n, que optimiza procesos de pedidos y entrega. La app m√≥vil y el sistema de rastreo geoespacial le otorgan una ventaja competitiva al reducir los tiempos de entrega y mejorar la precisi√≥n de cada pedido, asegurando as√≠ una experiencia de alta calidad para los clientes.
+
+Oportunidades de Expansi√≥n
+
+Nuevas Sucursales: Expandirse a otras √°reas de Santo Domingo y, eventualmente, a otras ciudades, replicando el modelo de negocio optimizado.
+Alianzas con Apps de Pedidos: Posibilidad de integrarse con plataformas de terceros para captar un mayor volumen de pedidos a domicilio.
+Fidelizaci√≥n de Clientes: Programas de puntos y descuentos que incentiven la recurrencia y aumenten la lealtad del cliente.
+
+Proyecto: Sistema de Gesti√≥n para un Restaurante de Comida R√°pida en Santo Domingo Oeste, Rep√∫blica Dominicana
+
+Descripci√≥n del Proyecto:
+
+El objetivo de este proyecto es desarrollar un sistema de gesti√≥n integral para un restaurante de comida r√°pida ubicado
+en Santo Domingo Oeste, Rep√∫blica Dominicana. El sistema permitir√° gestionar las operaciones de venta, la log√≠stica de
+entrega, el control de inventario y la administraci√≥n de clientes y empleados.
 
 Modelo de Datos:
 
-El modelo de datos ha sido cuidadosamente diseÒado para reflejar la estructura organizativa y las operaciones del restaurante.
+El modelo de datos ha sido cuidadosamente dise√±ado para reflejar la estructura organizativa y las operaciones del restaurante.
 Se ha optado por un enfoque de modelado estrella, donde la tabla de ventas (Facturas) es el punto central, conectada a otras 
-entidades relevantes como clientes, vendedores, entregadores y productos. Adem·s, se han aplicado conceptos de copo de nieve
+entidades relevantes como clientes, vendedores, entregadores y productos. Adem√°s, se han aplicado conceptos de copo de nieve
 para normalizar la estructura y reducir la redundancia de datos.
 
-RazÛn del Modelo:
+Raz√≥n del Modelo:
 
-El modelo se ha diseÒado de esta manera para asegurar la eficiencia operativa y la coherencia en los datos. 
-Al centrarse en la tabla de ventas, se simplifica la gestiÛn de transacciones y se facilita el an·lisis de datos. 
-Las relaciones entre las entidades, como la asignaciÛn de entregadores a clientes y la ubicaciÛn de los sectores y clientes, permiten una logÌstica de entrega eficiente y precisa. Adem·s, la inclusiÛn de campos como latitud y longitud en las tablas de sector y cliente permite un seguimiento geoespacial de las operaciones.
+El modelo se ha dise√±ado de esta manera para asegurar la eficiencia operativa y la coherencia en los datos. 
+Al centrarse en la tabla de ventas, se simplifica la gesti√≥n de transacciones y se facilita el an√°lisis de datos. 
+Las relaciones entre las entidades, como la asignaci√≥n de entregadores a clientes y la ubicaci√≥n de los sectores y clientes, permiten una log√≠stica de entrega eficiente y precisa. Adem√°s, la inclusi√≥n de campos como latitud y longitud en las tablas de sector y cliente permite un seguimiento geoespacial de las operaciones.
 
 Tablas del Sistema:
 
-Clientes: Contiene la informaciÛn personal y de ubicaciÛn de los clientes, incluyendo su asignaciÛn de entregador para la entrega de pedidos.
+Clientes: Contiene la informaci√≥n personal y de ubicaci√≥n de los clientes, incluyendo su asignaci√≥n de entregador para la entrega de pedidos.
 Vendedores: Registra los datos de los vendedores, incluyendo su turno de trabajo.
-Entregadores: Almacena la informaciÛn de los entregadores, tambiÈn con sus respectivos turnos.
-Productos: Lista los productos disponibles en el restaurante, con su descripciÛn y precio.
-Tipo de Compra y Tipo de Pagos: Define los diferentes tipos de compra y mÈtodos de pago aceptados.
-Ciudad y Sector: Representa la estructura geogr·fica del ·rea de operaciones del restaurante, con los sectores dentro de la ciudad.
+Entregadores: Almacena la informaci√≥n de los entregadores, tambi√©n con sus respectivos turnos.
+Productos: Lista los productos disponibles en el restaurante, con su descripci√≥n y precio.
+Tipo de Compra y Tipo de Pagos: Define los diferentes tipos de compra y m√©todos de pago aceptados.
+Ciudad y Sector: Representa la estructura geogr√°fica del √°rea de operaciones del restaurante, con los sectores dentro de la ciudad.
 Facturas y Detalle de Factura: Registra las ventas realizadas, con detalles de los productos vendidos y los montos asociados.
-ImplementaciÛn:
+Implementaci√≥n:
 
-Para la implementaciÛn del sistema, se utilizar· SQL Server como motor de base de datos. 
-Se crear· un esquema de base de datos siguiendo el modelo propuesto, con la definiciÛn de tablas, 
+Para la implementaci√≥n del sistema, se utilizar√° SQL Server como motor de base de datos. 
+Se crear√° un esquema de base de datos siguiendo el modelo propuesto, con la definici√≥n de tablas, 
 relaciones y restricciones adecuadas para garantizar la integridad de los datos.
 
 
@@ -134,7 +189,7 @@ CREATE TABLE DetallesFacturas (
 );
 
 
--- InserciÛn de datos en la tabla Ciudad
+-- Inserci√≥n de datos en la tabla Ciudad
 INSERT INTO Ciudad (ciudad_id, nombre)
 VALUES 
     (1, 'Santo Domingo Oeste'),
@@ -143,14 +198,14 @@ VALUES
     (4, 'Santo Domingo Norte'),
     (5, 'Santo Domingo Distrito')
 
--- InserciÛn de datos en la tabla Sector
+-- Inserci√≥n de datos en la tabla Sector
 INSERT INTO Sector (sector_id, nombre, ciudad_id, ubicacion_gps_latitud, ubicacion_gps_longitud)
 VALUES 
     -- Sectores de Santo Domingo Oeste (ciudad_id = 1)
     (1, 'Los Alcarrizos Centro', 1, 18.5150, -70.0069),
     (2, 'Sabaneta de los Palmares', 1, 18.4794, -70.0294),
     (3, 'Pueblo Nuevo', 1, 18.4981, -70.0011),
-    (4, 'La CiÈnaga', 1, 18.4892, -70.0047),
+    (4, 'La Ci√©naga', 1, 18.4892, -70.0047),
     (5, 'La Yuca', 1, 18.5049, -70.0163),
     -- Sectores de Santo Domingo Este (ciudad_id = 2)
     (6, 'Villa Duarte', 2, 18.4893, -69.8347),
@@ -172,169 +227,169 @@ VALUES
     (20, 'Los Guaricanos', 4, 18.5786, -69.8259);
 
 
--- InserciÛn de datos en la tabla Vendedores
+-- Inserci√≥n de datos en la tabla Vendedores
 INSERT INTO Vendedores (vendedor_id, nombre, apellido, turno)
 VALUES 
-    (1, 'Juan', 'MartÌnez', 'MaÒana'),
-    (2, 'Ana', 'GarcÌa', 'Tarde'),
-    (3, 'Pedro', 'DÌaz', 'Noche'),
-    (4, 'MarÌa', 'LÛpez', 'MaÒana'),
-    (5, 'Carlos', 'RodrÌguez', 'Tarde'),
-	(6, 'Alejandro', 'GÛmez', 'MaÒana'),
-	(7, 'LucÌa', 'Hern·ndez', 'Tarde'),
+    (1, 'Juan', 'Mart√≠nez', 'Ma√±ana'),
+    (2, 'Ana', 'Garc√≠a', 'Tarde'),
+    (3, 'Pedro', 'D√≠az', 'Noche'),
+    (4, 'Mar√≠a', 'L√≥pez', 'Ma√±ana'),
+    (5, 'Carlos', 'Rodr√≠guez', 'Tarde'),
+	(6, 'Alejandro', 'G√≥mez', 'Ma√±ana'),
+	(7, 'Luc√≠a', 'Hern√°ndez', 'Tarde'),
 	(8, 'Marcelo', 'Santos', 'Noche'),
-	(9, 'Valeria', 'GarcÌa', 'MaÒana'),
-	(10, 'Daniel', 'PÈrez', 'Tarde');
+	(9, 'Valeria', 'Garc√≠a', 'Ma√±ana'),
+	(10, 'Daniel', 'P√©rez', 'Tarde');
 
--- InserciÛn de datos en la tabla Entregadores
+-- Inserci√≥n de datos en la tabla Entregadores
 INSERT INTO Entregadores (entregador_id, nombre, apellido, turno)
 VALUES 
-    (1, 'Luis', 'Hern·ndez', 'MaÒana'),
+    (1, 'Luis', 'Hern√°ndez', 'Ma√±ana'),
     (2, 'Elena', 'Santana', 'Tarde'),
-    (3, 'Pablo', 'GÛmez', 'Noche'),
-    (4, 'Laura', 'Fern·ndez', 'MaÒana'),
-    (5, 'Roberto', 'PÈrez', 'Tarde'),
-	(6, 'Luisa', 'Hern·ndez', 'MaÒana'),
+    (3, 'Pablo', 'G√≥mez', 'Noche'),
+    (4, 'Laura', 'Fern√°ndez', 'Ma√±ana'),
+    (5, 'Roberto', 'P√©rez', 'Tarde'),
+	(6, 'Luisa', 'Hern√°ndez', 'Ma√±ana'),
 	(7, 'Eduardo', 'Santos', 'Tarde'),
-	(8, 'Patricia', 'GÛmez', 'Noche'),
-	(9, 'Mario', 'Fern·ndez', 'MaÒana'),
-	(10, 'Gabriela', 'PÈrez', 'Tarde');
+	(8, 'Patricia', 'G√≥mez', 'Noche'),
+	(9, 'Mario', 'Fern√°ndez', 'Ma√±ana'),
+	(10, 'Gabriela', 'P√©rez', 'Tarde');
 
 select * from Entregadores
 
 
 
 
--- InserciÛn de datos en la tabla Clientes
+-- Inserci√≥n de datos en la tabla Clientes
 INSERT INTO Clientes (cliente_id, nombre, apellido, direccion, telefono, correo_electronico, ubicacion_gps_latitud, ubicacion_gps_longitud, sector_id, entregador_asignado_id)
 VALUES 
     -- Cliente en Santo Domingo Oeste (Sector 1)
-    (1, 'MarÌa', 'Gonz·lez', 'Calle 1 #123', '809-123-4567', 'maria@gmail.com', 18.4896, -69.9389, 1, 1),
-    (2, 'JosÈ', 'Santos', 'Calle 2 #456', '809-987-6543', 'jose@hotmail.com', 18.4901, -69.9378, 1, 2),
-    (3, 'Ana', 'DÌaz', 'Calle 3 #789', '809-456-7890', 'ana@yahoo.com', 18.4892, -69.9405, 1, 3),
-    (4, 'Carlos', 'MartÌnez', 'Calle 4 #1011', '809-234-5678', 'carlos@gmail.com', 18.4910, -69.9412, 1, 4),
-    (5, 'Laura', 'LÛpez', 'Calle 5 #1315', '809-345-6789', 'laura@hotmail.com', 18.4925, -69.9423, 1, 5),
-    -- Continuar con m·s clientes en otros sectores...
+    (1, 'Mar√≠a', 'Gonz√°lez', 'Calle 1 #123', '809-123-4567', 'maria@gmail.com', 18.4896, -69.9389, 1, 1),
+    (2, 'Jos√©', 'Santos', 'Calle 2 #456', '809-987-6543', 'jose@hotmail.com', 18.4901, -69.9378, 1, 2),
+    (3, 'Ana', 'D√≠az', 'Calle 3 #789', '809-456-7890', 'ana@yahoo.com', 18.4892, -69.9405, 1, 3),
+    (4, 'Carlos', 'Mart√≠nez', 'Calle 4 #1011', '809-234-5678', 'carlos@gmail.com', 18.4910, -69.9412, 1, 4),
+    (5, 'Laura', 'L√≥pez', 'Calle 5 #1315', '809-345-6789', 'laura@hotmail.com', 18.4925, -69.9423, 1, 5),
+    -- Continuar con m√°s clientes en otros sectores...
     -- Cliente en Santo Domingo Este (Sector 6)
-    (6, 'Pedro', 'RamÌrez', 'Avenida 6 #789', '809-678-1234', 'pedro@gmail.com', 18.4890, -69.8345, 6, 1),
-    (7, 'Marta', 'GÛmez', 'Calle 7 #1011', '809-789-2345', 'marta@hotmail.com', 18.4913, -69.7859, 7, 2),
-    (8, 'Juan', 'PÈrez', 'Avenida 8 #1213', '809-890-3456', 'juan@yahoo.com', 18.4712, -69.8727, 8, 3),
-    (9, 'Luisa', 'Hern·ndez', 'Calle 9 #1415', '809-901-4567', 'luisa@gmail.com', 18.4775, -69.8598, 9, 4),
-    (10, 'AndrÈs', 'Torres', 'Avenida 10 #1617', '809-912-5678', 'andres@hotmail.com', 18.4798, -69.8572, 10, 5),
+    (6, 'Pedro', 'Ram√≠rez', 'Avenida 6 #789', '809-678-1234', 'pedro@gmail.com', 18.4890, -69.8345, 6, 1),
+    (7, 'Marta', 'G√≥mez', 'Calle 7 #1011', '809-789-2345', 'marta@hotmail.com', 18.4913, -69.7859, 7, 2),
+    (8, 'Juan', 'P√©rez', 'Avenida 8 #1213', '809-890-3456', 'juan@yahoo.com', 18.4712, -69.8727, 8, 3),
+    (9, 'Luisa', 'Hern√°ndez', 'Calle 9 #1415', '809-901-4567', 'luisa@gmail.com', 18.4775, -69.8598, 9, 4),
+    (10, 'Andr√©s', 'Torres', 'Avenida 10 #1617', '809-912-5678', 'andres@hotmail.com', 18.4798, -69.8572, 10, 5),
     -- Cliente en Santo Domingo Sur (Sector 11)
-    (11, 'SofÌa', 'S·nchez', 'Calle 11 #1819', '809-923-6789', 'sofia@gmail.com', 18.4881, -69.9612, 11, 1),
+    (11, 'Sof√≠a', 'S√°nchez', 'Calle 11 #1819', '809-923-6789', 'sofia@gmail.com', 18.4881, -69.9612, 11, 1),
     (12, 'Roberto', 'Cruz', 'Avenida 12 #2021', '809-934-7890', 'roberto@hotmail.com', 18.4811, -69.9625, 12, 2),
     (13, 'Elena', 'Dominguez', 'Calle 13 #2223', '809-945-8901', 'elena@yahoo.com', 18.4778, -69.9165, 13, 3),
     (14, 'Javier', 'Ortega', 'Avenida 14 #2425', '809-956-9012', 'javier@gmail.com', 18.4791, -69.8962, 14, 4),
-    (15, 'Camila', 'MartÌn', 'Calle 15 #2627', '809-967-0123', 'camila@hotmail.com', 18.4754, -69.9278, 15, 5),
+    (15, 'Camila', 'Mart√≠n', 'Calle 15 #2627', '809-967-0123', 'camila@hotmail.com', 18.4754, -69.9278, 15, 5),
     -- Cliente en Santo Domingo Norte (Sector 16)
-    (16, 'Alejandro', 'GarcÌa', 'Avenida 16 #2829', '809-978-1234', 'alejandro@yahoo.com', 18.5450, -69.8535, 16, 1),
-    (17, 'Marcela', 'Fern·ndez', 'Calle 17 #3031', '809-989-2345', 'marcela@gmail.com', 18.4842, -69.9025, 17, 2),
+    (16, 'Alejandro', 'Garc√≠a', 'Avenida 16 #2829', '809-978-1234', 'alejandro@yahoo.com', 18.5450, -69.8535, 16, 1),
+    (17, 'Marcela', 'Fern√°ndez', 'Calle 17 #3031', '809-989-2345', 'marcela@gmail.com', 18.4842, -69.9025, 17, 2),
     (18, 'Ricardo', 'Luna', 'Avenida 18 #3233', '809-990-3456', 'ricardo@hotmail.com', 18.4835, -69.9071, 18, 3),
     (19, 'Carmen', 'Vargas', 'Calle 19 #3435', '809-901-4567', 'carmen@yahoo.com', 18.4951, -69.9235, 19, 4),
     (20, 'Gabriel', 'Castillo', 'Avenida 20 #3637', '809-912-5678', 'gabriel@gmail.com', 18.5792, -69.8265, 20, 5),
-    -- Continuar con m·s clientes en otros sectores...
+    -- Continuar con m√°s clientes en otros sectores...
     -- Cliente en Hato Nuevo (Sector 7)
-    (21, 'Luis', 'RodrÌguez', 'Calle 6 #789', '809-567-8901', 'luis@example.com', 18.4859, -70.0158, 7, 1),
+    (21, 'Luis', 'Rodr√≠guez', 'Calle 6 #789', '809-567-8901', 'luis@example.com', 18.4859, -70.0158, 7, 1),
     -- Cliente en Pantanal (Sector 8)
-    (22, 'Ana', 'Fern·ndez', 'Calle 7 #1011', '809-678-9012', 'ana@example.com', 18.5025, -70.0203, 8, 2),
+    (22, 'Ana', 'Fern√°ndez', 'Calle 7 #1011', '809-678-9012', 'ana@example.com', 18.5025, -70.0203, 8, 2),
     -- Cliente en Guaricano (Sector 9)
-    (23, 'David', 'PÈrez', 'Calle 8 #1213', '809-789-0123', 'david@example.com', 18.5159, -70.0022, 9, 3),
+    (23, 'David', 'P√©rez', 'Calle 8 #1213', '809-789-0123', 'david@example.com', 18.5159, -70.0022, 9, 3),
     -- Cliente en Manoguayabo (Sector 10)
-    (24, 'SofÌa', 'Hern·ndez', 'Calle 9 #1415', '809-890-1234', 'sofia@example.com', 18.4903, -70.0149, 10, 4),
+    (24, 'Sof√≠a', 'Hern√°ndez', 'Calle 9 #1415', '809-890-1234', 'sofia@example.com', 18.4903, -70.0149, 10, 4),
     -- Cliente en Los Cacicazgos (Sector 11)
-    (25, 'Juan', 'GarcÌa', 'Calle 10 #1617', '809-901-2345', 'juan@example.com', 18.4815, -70.0249, 11, 5),
+    (25, 'Juan', 'Garc√≠a', 'Calle 10 #1617', '809-901-2345', 'juan@example.com', 18.4815, -70.0249, 11, 5),
     -- Cliente en Los Girasoles (Sector 12)
-    (26, 'MarÌa', 'S·nchez', 'Calle 11 #1819', '809-012-3456', 'maria@example.com', 18.5020, -70.0058, 12, 1),
+    (26, 'Mar√≠a', 'S√°nchez', 'Calle 11 #1819', '809-012-3456', 'maria@example.com', 18.5020, -70.0058, 12, 1),
     -- Cliente en Los Jardines Metropolitanos (Sector 13)
-    (27, 'Pedro', 'LÛpez', 'Calle 12 #2021', '809-123-4567', 'pedro@example.com', 18.5089, -70.0031, 13, 2),
+    (27, 'Pedro', 'L√≥pez', 'Calle 12 #2021', '809-123-4567', 'pedro@example.com', 18.5089, -70.0031, 13, 2),
     -- Cliente en Los Mameyes (Sector 14)
-    (28, 'Laura', 'RamÌrez', 'Calle 13 #2223', '809-234-5678', 'laura@example.com', 18.4862, -70.0258, 14, 3),
+    (28, 'Laura', 'Ram√≠rez', 'Calle 13 #2223', '809-234-5678', 'laura@example.com', 18.4862, -70.0258, 14, 3),
     -- Cliente en Los Prados (Sector 15)
-    (29, 'Carlos', 'MartÌnez', 'Calle 14 #2425', '809-345-6789', 'carlos@example.com', 18.4853, -70.0102, 15, 4),
-    -- Cliente en Los RÌos (Sector 16)
-    (30, 'Ana', 'Gonz·lez', 'Calle 15 #2627', '809-456-7890', 'ana@example.com', 18.4771, -70.0145, 16, 5),
+    (29, 'Carlos', 'Mart√≠nez', 'Calle 14 #2425', '809-345-6789', 'carlos@example.com', 18.4853, -70.0102, 15, 4),
+    -- Cliente en Los R√≠os (Sector 16)
+    (30, 'Ana', 'Gonz√°lez', 'Calle 15 #2627', '809-456-7890', 'ana@example.com', 18.4771, -70.0145, 16, 5),
     -- Cliente en Villa Mella (Sector 16)
-    (31, 'JosÈ', 'Santos', 'Calle 16 #2829', '809-567-8901', 'jose@example.com', 18.5438, -69.8553, 16, 1),
+    (31, 'Jos√©', 'Santos', 'Calle 16 #2829', '809-567-8901', 'jose@example.com', 18.5438, -69.8553, 16, 1),
     -- Cliente en Villa Consuelo (Sector 17)
-    (32, 'MarÌa', 'Fern·ndez', 'Calle 17 #3031', '809-678-9012', 'maria@example.com', 18.4823, -69.9019, 17, 2),
+    (32, 'Mar√≠a', 'Fern√°ndez', 'Calle 17 #3031', '809-678-9012', 'maria@example.com', 18.4823, -69.9019, 17, 2),
     -- Cliente en Villa Francisca (Sector 18)
-    (33, 'David', 'PÈrez', 'Calle 18 #3233', '809-789-0123', 'david@example.com', 18.4816, -69.9065, 18, 3),
+    (33, 'David', 'P√©rez', 'Calle 18 #3233', '809-789-0123', 'david@example.com', 18.4816, -69.9065, 18, 3),
     -- Cliente en Herrera (Sector 19)
-    (34, 'SofÌa', 'Hern·ndez', 'Calle 19 #3435', '809-890-1234', 'sofia@example.com', 18.4951, -69.9223, 19, 4),
+    (34, 'Sof√≠a', 'Hern√°ndez', 'Calle 19 #3435', '809-890-1234', 'sofia@example.com', 18.4951, -69.9223, 19, 4),
     -- Cliente en Los Guaricanos (Sector 20)
-    (35, 'Juan', 'GarcÌa', 'Calle 20 #3637', '809-901-2345', 'juan@example.com', 18.5795, -69.8253, 20, 5),
-    -- Continuar con m·s clientes en otros sectores...
+    (35, 'Juan', 'Garc√≠a', 'Calle 20 #3637', '809-901-2345', 'juan@example.com', 18.5795, -69.8253, 20, 5),
+    -- Continuar con m√°s clientes en otros sectores...
     -- Cliente en Villa Aura (Sector 19)
-    (36, 'Laura', 'RamÌrez', 'Calle 21 #3839', '809-012-3456', 'laura@example.com', 18.5082, -70.0109, 19, 1),
-    -- Cliente en Villa MarÌa (Sector 20)
-    (37, 'Carlos', 'MartÌnez', 'Calle 22 #4041', '809-123-4567', 'carlos@example.com', 18.5148, -69.9998, 20, 2),
+    (36, 'Laura', 'Ram√≠rez', 'Calle 21 #3839', '809-012-3456', 'laura@example.com', 18.5082, -70.0109, 19, 1),
+    -- Cliente en Villa Mar√≠a (Sector 20)
+    (37, 'Carlos', 'Mart√≠nez', 'Calle 22 #4041', '809-123-4567', 'carlos@example.com', 18.5148, -69.9998, 20, 2),
     -- Cliente en Los Alcarrizos Centro (Sector 1)
-    (38, 'Ana', 'Gonz·lez', 'Calle 23 #4243', '809-234-5678', 'ana@example.com', 18.5145, -70.0072, 1, 3),
+    (38, 'Ana', 'Gonz√°lez', 'Calle 23 #4243', '809-234-5678', 'ana@example.com', 18.5145, -70.0072, 1, 3),
     -- Cliente en Sabaneta de los Palmares (Sector 2)
-    (39, 'Pedro', 'LÛpez', 'Calle 24 #4445', '809-345-6789', 'pedro@example.com', 18.4789, -70.0302, 2, 4),
+    (39, 'Pedro', 'L√≥pez', 'Calle 24 #4445', '809-345-6789', 'pedro@example.com', 18.4789, -70.0302, 2, 4),
     -- Cliente en Pueblo Nuevo (Sector 3)
-    (40, 'SofÌa', 'Hern·ndez', 'Calle 25 #4647', '809-456-7890', 'sofia@example.com', 18.4995, -70.0028, 3, 5);
+    (40, 'Sof√≠a', 'Hern√°ndez', 'Calle 25 #4647', '809-456-7890', 'sofia@example.com', 18.4995, -70.0028, 3, 5);
 
-	-- ContinuaciÛn de la inserciÛn de datos en la tabla Clientes
+	-- Continuaci√≥n de la inserci√≥n de datos en la tabla Clientes
 INSERT INTO Clientes (cliente_id, nombre, apellido, direccion, telefono, correo_electronico, ubicacion_gps_latitud, ubicacion_gps_longitud, sector_id, entregador_asignado_id)
 VALUES 
     -- Cliente en Villa Aurora (Sector 19)
-    (41, 'Luis', 'GÛmez', 'Calle 26 #4849', '809-567-8901', 'luis@example.com', 18.5089, -70.0101, 19, 1),
+    (41, 'Luis', 'G√≥mez', 'Calle 26 #4849', '809-567-8901', 'luis@example.com', 18.5089, -70.0101, 19, 1),
     -- Cliente en Villa Mercedes (Sector 20)
-    (42, 'Elena', 'PÈrez', 'Calle 27 #5051', '809-678-9012', 'elena@example.com', 18.5223, -69.9934, 20, 2),
+    (42, 'Elena', 'P√©rez', 'Calle 27 #5051', '809-678-9012', 'elena@example.com', 18.5223, -69.9934, 20, 2),
     -- Cliente en Los Alcarrizos Norte (Sector 1)
-    (43, 'Pablo', 'MartÌnez', 'Calle 28 #5253', '809-789-0123', 'pablo@example.com', 18.5245, -70.0123, 1, 3),
+    (43, 'Pablo', 'Mart√≠nez', 'Calle 28 #5253', '809-789-0123', 'pablo@example.com', 18.5245, -70.0123, 1, 3),
     -- Cliente en Sabana Perdida (Sector 2)
-    (44, 'Laura', 'Gonz·lez', 'Calle 29 #5455', '809-890-1234', 'laura@example.com', 18.4932, -70.0345, 2, 4),
+    (44, 'Laura', 'Gonz√°lez', 'Calle 29 #5455', '809-890-1234', 'laura@example.com', 18.4932, -70.0345, 2, 4),
     -- Cliente en Los Tres Brazos (Sector 3)
     (45, 'Roberto', 'Santos', 'Calle 30 #5657', '809-901-2345', 'roberto@example.com', 18.5098, -70.0156, 3, 5),
     -- Cliente en Los Prados II (Sector 15)
-    (46, 'Marta', 'Fern·ndez', 'Calle 31 #5860', '809-012-3456', 'marta@example.com', 18.4945, -70.0089, 15, 1),
+    (46, 'Marta', 'Fern√°ndez', 'Calle 31 #5860', '809-012-3456', 'marta@example.com', 18.4945, -70.0089, 15, 1),
     -- Cliente en Villa Juana (Sector 17)
-    (47, 'Juan', 'Hern·ndez', 'Calle 32 #6062', '809-123-4567', 'juan@example.com', 18.4923, -69.9178, 17, 2),
-    -- Cliente en Villa MarÌa II (Sector 20)
-    (48, 'Ana', 'MartÌnez', 'Calle 33 #6264', '809-234-5678', 'ana@example.com', 18.5043, -69.9923, 20, 3),
+    (47, 'Juan', 'Hern√°ndez', 'Calle 32 #6062', '809-123-4567', 'juan@example.com', 18.4923, -69.9178, 17, 2),
+    -- Cliente en Villa Mar√≠a II (Sector 20)
+    (48, 'Ana', 'Mart√≠nez', 'Calle 33 #6264', '809-234-5678', 'ana@example.com', 18.5043, -69.9923, 20, 3),
     -- Cliente en Villa Consuelo II (Sector 17)
-    (49, 'Pedro', 'GarcÌa', 'Calle 34 #6466', '809-345-6789', 'pedro@example.com', 18.4812, -69.9224, 17, 4),
-    -- Cliente en Los RÌos II (Sector 16)
-    (50, 'SofÌa', 'Santana', 'Calle 35 #6668', '809-456-7890', 'sofia@example.com', 18.4876, -70.0102, 16, 5);
+    (49, 'Pedro', 'Garc√≠a', 'Calle 34 #6466', '809-345-6789', 'pedro@example.com', 18.4812, -69.9224, 17, 4),
+    -- Cliente en Los R√≠os II (Sector 16)
+    (50, 'Sof√≠a', 'Santana', 'Calle 35 #6668', '809-456-7890', 'sofia@example.com', 18.4876, -70.0102, 16, 5);
 
 
 
--- InserciÛn de datos en la tabla TipoCompra
+-- Inserci√≥n de datos en la tabla TipoCompra
 INSERT INTO TipoCompra (tipo_compra_id, nombre)
 VALUES 
     (1, 'Para llevar'),
-    (2, 'Para comer aquÌ'),
+    (2, 'Para comer aqu√≠'),
     (3, 'A domicilio');
 
--- InserciÛn de datos en la tabla TipoPagos
+-- Inserci√≥n de datos en la tabla TipoPagos
 INSERT INTO TipoPagos (tipo_pago_id, nombre)
 VALUES 
     (1, 'Efectivo'),
-    (2, 'Tarjeta de crÈdito'),
+    (2, 'Tarjeta de cr√©dito'),
     (3, 'Transferencia bancaria');
 
--- InserciÛn de datos en la tabla Productos
+-- Inserci√≥n de datos en la tabla Productos
 INSERT INTO Productos (producto_id, nombre, descripcion, precio, cantidad_disponible)
 VALUES 
     (1, 'Hamburguesa', 'Deliciosa hamburguesa con carne, lechuga, tomate y queso', 150, 100),
-    (2, 'Pizza', 'Pizza reciÈn horneada con los ingredientes de tu elecciÛn', 200, 80),
-    (3, 'Hot Dog', 'Hot dog cl·sico con salchicha, pan y tus aderezos favoritos', 100, 120),
-    (4, 'Papas Fritas', 'Papas fritas crujientes y doradas, perfectas como acompaÒamiento', 50, 150),
+    (2, 'Pizza', 'Pizza reci√©n horneada con los ingredientes de tu elecci√≥n', 200, 80),
+    (3, 'Hot Dog', 'Hot dog cl√°sico con salchicha, pan y tus aderezos favoritos', 100, 120),
+    (4, 'Papas Fritas', 'Papas fritas crujientes y doradas, perfectas como acompa√±amiento', 50, 150),
     (5, 'Refresco', 'Bebida refrescante de tu sabor favorito', 50, 200),
     (6, 'Pollo Frito', 'Trozos de pollo crujientes y sabrosos', 180, 90),
-    (7, 'Ensalada CÈsar', 'Ensalada fresca con lechuga, crutones, pollo y aderezo CÈsar', 120, 70),
+    (7, 'Ensalada C√©sar', 'Ensalada fresca con lechuga, crutones, pollo y aderezo C√©sar', 120, 70),
     (8, 'Tacos', 'Tacos mexicanos con carne, guacamole, salsa y cilantro', 160, 100),
     (9, 'Sushi Roll', 'Rollos de sushi variados con pescado fresco y arroz', 250, 60),
     (10, 'Alitas de Pollo', 'Alitas de pollo picantes o a la barbacoa', 130, 110),
     (11, 'Pasta Alfredo', 'Pasta con salsa Alfredo cremosa y queso parmesano', 170, 80),
     (12, 'Empanadas', 'Empanadas rellenas de carne, pollo o queso', 90, 130),
     (13, 'Burrito', 'Burrito mexicano con carne, frijoles, arroz y salsa', 140, 90),
-    (14, 'S·ndwich Club', 'S·ndwich con pollo, tocino, lechuga, tomate y mayonesa', 110, 120),
+    (14, 'S√°ndwich Club', 'S√°ndwich con pollo, tocino, lechuga, tomate y mayonesa', 110, 120),
     (15, 'Arroz con Pollo', 'Plato tradicional de arroz con pollo y vegetales', 160, 80),
-    (16, 'Ceviche', 'Ceviche de pescado fresco marinado con limÛn y especias', 200, 70),
+    (16, 'Ceviche', 'Ceviche de pescado fresco marinado con lim√≥n y especias', 200, 70),
     (17, 'Churrasco', 'Churrasco argentino con carne asada y chimichurri', 220, 60),
     (18, 'Sopa de Tortilla', 'Sopa mexicana de tortilla con pollo, aguacate y queso', 120, 100),
     (19, 'Pastel de Chocolate', 'Delicioso pastel de chocolate con cobertura de ganache', 180, 90),
@@ -348,7 +403,7 @@ select * from Facturas
 select * from DetallesFacturas 
 
 
--- DeclaraciÛn de variables
+-- Declaraci√≥n de variables
 DECLARE @FechaAleatoria DATETIME;
 DECLARE @MaxDetallesPorFactura INT;
 DECLARE @contador INT;
@@ -366,7 +421,7 @@ DECLARE @MontoSubtotal DECIMAL(10, 2);
 
 -- Asignar valores a las variables
 SET @FechaAleatoria = GETDATE(); -- Asignar la fecha actual
-SET @MaxDetallesPorFactura = 10; -- M·ximo de detalles por factura
+SET @MaxDetallesPorFactura = 10; -- M√°ximo de detalles por factura
 SET @contador = 0; -- Inicializar contador
 
 -- Bucle para insertar facturas
@@ -384,7 +439,7 @@ BEGIN
     INSERT INTO Facturas (cliente_id, vendedor_id, entregador_id, fecha_factura, tipo_pago_id, tipo_compra_id, monto_total)
     VALUES (@ClienteID, @VendedorID, @EntregadorID, @FechaAleatoria, @TipoPagoID, @TipoCompraID, @MontoTotal);
 
-    -- Obtener el ID de la factura reciÈn insertada
+    -- Obtener el ID de la factura reci√©n insertada
     SET @FacturaID = SCOPE_IDENTITY();
 
     DECLARE @ContadorDetalle INT;
@@ -428,7 +483,7 @@ DELETE FROM DetallesFacturas;
 
 
 
--- DeclaraciÛn de variables
+-- Declaraci√≥n de variables
 DECLARE @FechaInicial DATETIME;
 DECLARE @FechaFinal DATETIME;
 DECLARE @MaxDetallesPorFactura INT;
@@ -444,12 +499,12 @@ DECLARE @ProductoID INT;
 DECLARE @Cantidad INT;
 DECLARE @PrecioUnitario DECIMAL(10, 2);
 DECLARE @MontoSubtotal DECIMAL(10, 2);
-DECLARE @FechaAleatoria DATETIME; -- Declarar la variable aquÌ
+DECLARE @FechaAleatoria DATETIME; -- Declarar la variable aqu√≠
 
 -- Asignar valores a las variables
 SET @FechaInicial = '2010-01-01'; -- Fecha inicial para las facturas (ejemplo: 1 de enero de 2023)
 SET @FechaFinal = '2024-06-15';   -- Fecha final para las facturas (ejemplo: 31 de diciembre de 2023)
-SET @MaxDetallesPorFactura = 10;  -- M·ximo de detalles por factura
+SET @MaxDetallesPorFactura = 10;  -- M√°ximo de detalles por factura
 SET @contador = 0;                 -- Inicializar contador
 
 -- Bucle para insertar facturas
@@ -470,7 +525,7 @@ BEGIN
     INSERT INTO Facturas (cliente_id, vendedor_id, entregador_id, fecha_factura, tipo_pago_id, tipo_compra_id, monto_total)
     VALUES (@ClienteID, @VendedorID, @EntregadorID, @FechaAleatoria, @TipoPagoID, @TipoCompraID, @MontoTotal);
 
-    -- Obtener el ID de la factura reciÈn insertada
+    -- Obtener el ID de la factura reci√©n insertada
     SET @FacturaID = SCOPE_IDENTITY();
 
     DECLARE @ContadorDetalle INT;
@@ -514,13 +569,13 @@ END;
 
 
 
---Consultas B·sicas
+--Consultas B√°sicas
 --Seleccionar todos los datos de la tabla Clientes:
 
 
 SELECT * FROM Clientes;
 
---Contar el n˙mero total de clientes:
+--Contar el n√∫mero total de clientes:
 
 
 SELECT COUNT(*) AS TotalClientes FROM Clientes;
@@ -544,7 +599,7 @@ SELECT COUNT(*) AS TotalFacturas  FROM Facturas;
 SELECT COUNT(*) AS TotalFacturasDetalles  FROM DetallesFacturas;
 
 
---Seleccionar los nombres de los clientes que viven en un sector especÌfico:
+--Seleccionar los nombres de los clientes que viven en un sector espec√≠fico:
 
 
 SELECT nombre FROM Clientes WHERE sector_id = 1;
@@ -577,7 +632,7 @@ SELECT vendedor_id, SUM(monto_total) AS TotalVentas
 FROM Facturas
 GROUP BY vendedor_id;
 
---Seleccionar las facturas emitidas en el ˙ltimo mes:
+--Seleccionar las facturas emitidas en el √∫ltimo mes:
 
 
 SELECT * FROM Facturas
@@ -596,7 +651,7 @@ JOIN Facturas f ON c.cliente_id = f.cliente_id;
 SELECT * FROM Productos
 WHERE precio > 100;
 
---Contar el n˙mero de facturas por cada tipo de pago:
+--Contar el n√∫mero de facturas por cada tipo de pago:
 
 
 SELECT tipo_pago_id, COUNT(*) AS NumFacturas
@@ -615,7 +670,7 @@ FROM DetallesFacturas;
 SELECT * FROM Clientes
 WHERE nombre LIKE 'A%';
 
---Obtener el m·ximo y mÌnimo monto total de las facturas:
+--Obtener el m√°ximo y m√≠nimo monto total de las facturas:
 
 
 SELECT MAX(monto_total) AS MaxMonto, MIN(monto_total) AS MinMonto
@@ -633,14 +688,14 @@ ORDER BY fecha_factura DESC;
 SELECT nombre, precio, precio * 0.9 AS PrecioConDescuento
 FROM Productos;
 
---Contar el n˙mero de productos en cada factura:
+--Contar el n√∫mero de productos en cada factura:
 
 
 SELECT factura_id, COUNT(*) AS NumProductos
 FROM DetallesFacturas
 GROUP BY factura_id;
 
---Seleccionar las facturas cuyo monto total estÈ entre 100 y 500:
+--Seleccionar las facturas cuyo monto total est√© entre 100 y 500:
 
 SELECT * FROM Facturas
 WHERE monto_total BETWEEN 100 AND 500;
@@ -648,7 +703,7 @@ WHERE monto_total BETWEEN 100 AND 500;
 
 --Consultas Avanzadas
 
---Obtener el top 5 de productos m·s vendidos:
+--Obtener el top 5 de productos m√°s vendidos:
 
 
 SELECT TOP 5 producto_id, SUM(cantidad) AS TotalVendidos
@@ -659,10 +714,10 @@ ORDER BY TotalVendidos DESC;
 --Calcular el monto total de ventas por mes:
 
 
-SELECT YEAR(fecha_factura) AS AÒo, MONTH(fecha_factura) AS Mes, SUM(monto_total) AS TotalVentas
+SELECT YEAR(fecha_factura) AS A√±o, MONTH(fecha_factura) AS Mes, SUM(monto_total) AS TotalVentas
 FROM Facturas
 GROUP BY YEAR(fecha_factura), MONTH(fecha_factura)
-ORDER BY AÒo, Mes;
+ORDER BY A√±o, Mes;
 
 --Obtener el porcentaje de ventas por tipo de pago:
 
@@ -673,7 +728,7 @@ SELECT tipo_pago_id,
 FROM Facturas
 GROUP BY tipo_pago_id;
 
---Seleccionar los clientes que han hecho m·s de 5 compras:
+--Seleccionar los clientes que han hecho m√°s de 5 compras:
 
 
 SELECT cliente_id, COUNT(*) AS NumCompras
@@ -716,7 +771,7 @@ GROUP BY vendedor_id;
 SELECT * FROM Facturas
 WHERE monto_total > (SELECT AVG(monto_total) FROM Facturas);
 
--- el promedio, mÌnimo y m·ximo monto de las facturas por tipo de pago:
+-- el promedio, m√≠nimo y m√°ximo monto de las facturas por tipo de pago:
 
 
 SELECT tipo_pago_id, 
@@ -726,7 +781,7 @@ SELECT tipo_pago_id,
 FROM Facturas
 GROUP BY tipo_pago_id;
 
---Contar el n˙mero de productos vendidos por categorÌa:
+--Contar el n√∫mero de productos vendidos por categor√≠a:
 
 
 SELECT p.categoria, COUNT(df.producto_id) AS NumProductosVendidos
@@ -746,14 +801,14 @@ GROUP BY c.nombre;
 
 
 SELECT vendedor_id, 
-       YEAR(fecha_factura) AS AÒo, 
+       YEAR(fecha_factura) AS A√±o, 
        MONTH(fecha_factura) AS Mes, 
        SUM(monto_total) AS TotalVentas,
        AVG(monto_total) AS PromedioVentas
 FROM Facturas
 GROUP BY vendedor_id, YEAR(fecha_factura), MONTH(fecha_factura);
 
---Calcular el monto total de ventas acumulado por dÌa:
+--Calcular el monto total de ventas acumulado por d√≠a:
 
 
 SELECT Fecha, SUM(monto_total) OVER (ORDER BY Fecha) AS VentasAcumuladas
@@ -763,7 +818,7 @@ FROM (
     GROUP BY CAST(fecha_factura AS DATE)
 ) AS DailySales;
 
---Obtener el top 3 de clientes con m·s facturas:
+--Obtener el top 3 de clientes con m√°s facturas:
 
 
 SELECT TOP 3 cliente_id, COUNT(*) AS NumFacturas
@@ -771,7 +826,7 @@ FROM Facturas
 GROUP BY cliente_id
 ORDER BY NumFacturas DESC;
 
---Calcular el Ìndice ABC de productos:
+--Calcular el √≠ndice ABC de productos:
 
 
 WITH ProductoVentas AS (
@@ -800,7 +855,7 @@ FROM ProductoRank;
 
 CREATE VIEW VentasPorVendedorMes AS
 SELECT vendedor_id, 
-       YEAR(fecha_factura) AS AÒo, 
+       YEAR(fecha_factura) AS A√±o, 
        MONTH(fecha_factura) AS Mes, 
        SUM(monto_total) AS TotalVentas,
        AVG(monto_total) AS PromedioVentas
